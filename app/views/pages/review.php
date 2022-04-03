@@ -29,7 +29,7 @@ class review extends View
     <div class="container">
     	<h1 class="mt-5 mb-5">Welcome to the Review page</h1>
     	<div class="card">
-    		<div class="card-header">Hiking Boots</div>
+    		<div class="card-header">products</div>
     		<div class="card-body">
     			<div class="row">
     				<div class="col-sm-4 text-center">
