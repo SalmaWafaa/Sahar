@@ -116,4 +116,5 @@ class shopModel extends Model
         $record = $this->dbh->resultSet();
         $product = $record->product;
     }
+    
 }
