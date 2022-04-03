@@ -46,7 +46,7 @@ EOT;
       <img src="<?php echo ImageRoot . 'pic8.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
-        <h5 class="card-title">Car Holder</h5>
+        <h5 class="card-title">Car vvvvvvvvvvvvvvvvvvvvvvvvvvv</h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
