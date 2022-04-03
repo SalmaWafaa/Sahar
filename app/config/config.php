@@ -18,4 +18,4 @@ define('APP_VERSION', '1.2');
 //public pages path
 define('VIEWS_PATH', '../app/views/');
 
-define('ImageRoot','http://sahar/app/views/images/');
+define('ImageRoot','http://Sahar/app/views/images/');
