@@ -1,0 +1,30 @@
+img{
+    max-width: 100%;
+    height: auto;
+    background: rgb(238, 176, 95);
+    background: radial-gradient(white 30%, rgb(238, 195, 101) 70%);
+}
+
+.bi-star-fill,
+.bi-star-half{
+    color: rgb(239, 243, 14);
+    padding: 3% 0;
+}
+
+#cart_count{
+    text-align: center;
+    padding: 0 0.9rem 0.1rem 0.9rem;
+    border-radius: 3rem;
+}
+
+.shopping-cart{
+    padding: 3% 0;
+}
+
+.cart-items + .cart-items{
+    padding: 2% 0;
+}
+
+.price-details h6{
+    padding: 3% 2%;
+}
