@@ -26,6 +26,7 @@ class Pages extends Controller
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 public function categories()
     {
         $viewPath = VIEWS_PATH . 'pages/categories.php';
@@ -57,6 +58,9 @@ public function categories()
         $reviewView->output();
     }
     
+=======
+
+>>>>>>> ac415c118b83d711a2fe61355297d9498931e949
 =======
 
 >>>>>>> ac415c118b83d711a2fe61355297d9498931e949
