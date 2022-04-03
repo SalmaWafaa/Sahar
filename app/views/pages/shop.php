@@ -81,7 +81,7 @@ EOT;
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-                 <p class="card-text"> JBL Harman Pure Bass Sound Tune500bt.
+                 <p class="card-text"> 
                               </p>
                               <h5>
                                   <small><s class="text-secondary">280 EGP</s></small>
