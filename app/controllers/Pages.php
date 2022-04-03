@@ -39,4 +39,22 @@ public function categories()
         $shopView = new shop($this->getModel(), $this);
         $shopView->output();
     }
+    public function add_product()
+    {
+        $viewPath = VIEWS_PATH . 'pages/add_product.php';
+        require_once $viewPath;
+        $add_productView = new add_product($this->getModel(), $this);
+        $add_productView->output();
+    }
+
+
+    public function review()
+    {
+        $viewPath = VIEWS_PATH . 'pages/review.php';
+        require_once $viewPath;
+        $reviewView = new review($this->getModel(), $this);
+        $reviewView->output();
+    }
+    
 }
+
