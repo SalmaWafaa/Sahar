@@ -40,25 +40,11 @@ class Pages extends Controller
         $cartView = new cart($this->getModel(), $this);
         $cartView->output();
     }
-
-    public function view_users(){
-        $viewPath= VIEWS_PATH . 'pages/view_users.php';
-        require_once $viewPath;
-        $ViewUsersView=new view_users($this->getModel(),$this);
-        $ViewUsersView->output();
-    }
-
     public function contact(){
         $viewPath= VIEWS_PATH . 'pages/contact.php';
         require_once $viewPath;
         $contactView=new Contact($this->getModel(),$this);
         $contactView->output();
-    }
-    public function Checkout(){
-        $viewPath= VIEWS_PATH . 'pages/Checkout.php';
-        require_once $viewPath;
-        $CheckoutView=new Checkout($this->getModel(),$this);
-        $CheckoutView->output();
     }
     public function view_order(){
         $viewPath= VIEWS_PATH . 'pages/view_order.php';
@@ -73,6 +59,20 @@ class Pages extends Controller
         require_once $viewPath;
         $dashboardView=new dashboard($this->getModel(),$this);
         $dashboardView->output();
+    public function shop()
+    {
+        $viewPath = VIEWS_PATH . 'products/shop.php';
+        require_once $viewPath;
+        $shopView = new shop($this->getModel(), $this);
+        $shopView->output();
+    }
+
+    public function product()
+    {
+        $viewPath = VIEWS_PATH . 'pages/product.php';
+        require_once $viewPath;
+        $productView = new product($this->getModel(), $this);
+        $productView->output();
     }
 }
 
