@@ -122,20 +122,14 @@
 
         <div class="row">
           <div class="col-md-5 mb-3">
-            <label for="country">Country</label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">Choose...</option>
-              <option>United States</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
-          </div>
           <div class="col-md-4 mb-3">
             <label for="state">State</label>
             <select class="custom-select d-block w-100" id="state" required>
               <option value="">Choose...</option>
-              <option>California</option>
+              <option>Cairo</option>
+              <option>Alexandria</option>
+              <option>Giza</option>
+              <option>Asyut</option>
             </select>
             <div class="invalid-feedback">
               Please provide a valid state.
