@@ -5,8 +5,9 @@ class view_orderModel extends Model
 
     public function view_order()
     {
-        $this->dbh->query('SELECT * from ordersS ');
+        $this->dbh->query('SELECT * from orders ');
         $records=$this->dbh->resultSet();
+        return $records;
 
     }
 }
