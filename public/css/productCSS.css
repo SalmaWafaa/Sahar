@@ -1,0 +1,22 @@
+.container
+{
+margin-top: 100px ;
+}
+.newarrival
+{
+    background-color: grey ;
+    width:50px;
+    color: aliceblue;
+    font-size: 12px;
+    font-weight: bold;
+
+
+}
+.col-md-7 h2
+{
+color: black;
+}
+.stars
+{
+ height: 15px;   
+}
