@@ -28,6 +28,7 @@ class Pages extends Controller
 
 
 
+
     public function review()
     {
         $viewPath = VIEWS_PATH . 'pages/review.php';
@@ -48,6 +49,25 @@ class Pages extends Controller
 
     
 
+
+    public function contact(){
+        $viewPath= VIEWS_PATH . 'pages/contact.php';
+        require_once $viewPath;
+        $contactView=new Contact($this->getModel(),$this);
+        $contactView->output();
+    }
+    public function Checkout(){
+        $viewPath= VIEWS_PATH . 'pages/Checkout.php';
+        require_once $viewPath;
+        $CheckoutView=new Checkout($this->getModel(),$this);
+        $CheckoutView->output();
+    }
+    public function ViewOrders(){
+        $viewPath= VIEWS_PATH . 'pages/ViewOrders.php';
+        require_once $viewPath;
+        $ViewOrdersView=new Checkout($this->getModel(),$this);
+        $ViewOrdersView->output();
+    }
 
 }
 
