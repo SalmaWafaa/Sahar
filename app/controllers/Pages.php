@@ -49,6 +49,12 @@ class Pages extends Controller
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
     }
+    public function ViewOrders(){
+        $viewPath= VIEWS_PATH . 'pages/ViewOrders.php';
+        require_once $viewPath;
+        $ViewOrdersView=new Checkout($this->getModel(),$this);
+        $ViewOrdersView->output();
+    }
 
 }
 
