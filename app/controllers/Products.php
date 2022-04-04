@@ -139,7 +139,6 @@ class Products extends Controller
         $shopView = new shop($this->getModel(), $this);
         $shopView->output();
     }
-<<<<<<< HEAD
     public function Checkout(){
         $viewPath= VIEWS_PATH . 'pages/Checkout.php';
         require_once $viewPath;
@@ -153,9 +152,6 @@ class Products extends Controller
         $add_productView = new add_product($this->getModel(), $this);
         $add_productView->output();
     }*/
-=======
-    
->>>>>>> 5e1bfe9632feb996b66afba179d957db4fac6313
 
     
 }
