@@ -176,8 +176,8 @@ class Users extends Controller
             ) {
                 //Hash Password
                 $EditProfileModel->setPassword(password_hash($EditProfileModel->getPassword(), PASSWORD_DEFAULT));
-
-                if ($EditProfileModel->Edit()) {
+                $EditProfileModel->EditProfile(1,$EditProfileModel->getFName(),$EditProfileModel->getLName(),$EditProfileModel->getEmail(),$EditProfileModel->getPassword(),$EditProfileModel->getAddress(),$EditProfileModel->getMobile());
+                if ($EditProfileModel->EditProfile()) {
                     //header('location: ' . URLROOT . 'users/login');
                     flash('Edit_success', 'You have editted your profile successfully');
                     redirect('users/login');
