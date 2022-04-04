@@ -11,12 +11,9 @@
 <?php
 class Contact extends View{
 	public function output(){
-		$title=$this->model->title;
+		//$title=$this->model->title;
 		
-		$text=$title;
-	
-		$text = <<<EOT
-
+		?>
 <body oncontextmenu='return false' class='snippet-body'>
 <div class="container">
 <div class="form">
@@ -52,10 +49,8 @@ class Contact extends View{
 </div>
 </div>
 </body>
-EOT;	
-echo $text;
+<?php
 		require APPROOT . '/views/inc/footer.php';
-			}
-			
-			
+			}			
 }
+?>

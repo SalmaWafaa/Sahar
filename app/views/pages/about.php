@@ -5,14 +5,15 @@ class About extends view
 
   public function output()
   {
-    $title = $this->model->title;
+    //$title = $this->model->title;
     
 
     require APPROOT . '/views/inc/header.php';
-    $text = <<<EOT
-    <div class="jumbotron jumbotron-fluid">
+    ?>
+    
+    <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
     <div class="container">
-      <h1 class="display-4"> $title</h1>
+      <h1 class="display-4"> About Us </h1>
     </div>
   </div>
  
@@ -42,8 +43,9 @@ class About extends view
    
  
  
-EOT;
-    echo $text;
+<?php
+  
     require APPROOT . '/views/inc/footer.php';
   }
 }
+?>

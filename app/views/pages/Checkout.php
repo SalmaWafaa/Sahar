@@ -7,13 +7,12 @@
 	public function output(){
 		$title=$this->model->title;
 		require APPROOT . '/views/inc/header.php';
-		$text=$title;
-	
-		$text = <<<EOT
+		?>
+		
      <body>
      <main>
      <div class="container">
-      <div class="py-5 text-center">
+     <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
      <h2>Checkout </h2>
      </div>
 
@@ -204,7 +203,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <button class="btn btn-warning" type="submit">Continue to checkout </button>
       </form>
      </div>
      </div>
@@ -216,10 +215,9 @@
  
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
      </body>
-  EOT;	
-  echo $text;
+     <?php
           require APPROOT . '/views/inc/footer.php';
-              }
-              
+              }       
               
   }
+  ?>
