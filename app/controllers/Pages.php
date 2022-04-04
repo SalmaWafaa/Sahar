@@ -25,10 +25,6 @@ class Pages extends Controller
         $galleryView->output();
     }
 
-
-
-
-
     public function review()
     {
         $viewPath = VIEWS_PATH . 'pages/review.php';
@@ -49,10 +45,10 @@ class Pages extends Controller
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
     }
-    public function ViewOrders(){
-        $viewPath= VIEWS_PATH . 'pages/ViewOrders.php';
+    public function view_order(){
+        $viewPath= VIEWS_PATH . 'pages/view_order.php';
         require_once $viewPath;
-        $ViewOrdersView=new Checkout($this->getModel(),$this);
+        $ViewOrdersView=new view_order($this->getModel(),$this);
         $ViewOrdersView->output();
     }
     public function shop()
