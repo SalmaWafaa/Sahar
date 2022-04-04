@@ -20,7 +20,7 @@ class Login extends view
     require APPROOT . '/views/inc/header.php';
     flash('register_success');
     $text = <<<EOT
-    <div class="jumbotron jumbotron-fluid">
+    <div class="bg-warning">
     <div class="container">
       <h1 class="display-4"> <center>$title</center></h1>
     </div>
@@ -61,10 +61,10 @@ EOT;
         </label>
       </div>
       <div class="row mt-4">
-        <div class="col">
+        <div class="col-2">
           <input type="submit" value="Login" class="form-control btn btn-warning btn-block">
         </div>
-        <div class="col">
+        <div class="col-2">
           <a href="$registerUrl" class="form-control btn btn-lg btn-block">New User, Sign up</a>
         </div>
       </div>

@@ -2,8 +2,10 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/deleteConfirm.css">
 
 <script>
-
+// Get the modal
 var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
@@ -21,7 +23,7 @@ class EditProfile extends view
 
     require APPROOT . '/views/inc/header.php';
     $text = <<<EOT
-    <div class="jumbotron jumbotron-fluid">
+    <div class="bg-warning">
     <div class="container">
       <h1 class="display-4"> <center>$title</center></h1>
     </div>
@@ -60,10 +62,10 @@ EOT;
    ?>
     <div class="container">
       <div class="row mt-4">
-        <div class="col">
+        <div class="col-2">
           <input type="submit" value="Edit Profile" class="form-control btn btn-warning btn-block">
         </div>
-        <div class="col">
+        <div class="col-2">
         <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
         <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>

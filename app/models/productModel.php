@@ -1,7 +1,7 @@
 <?php
-class shopModel extends Model
+class productModel extends Model
 {
-    public  $title = 'Shop Page';
+    public  $title = 'Product Page';
     protected $description;
     protected $descriptionErr;
     protected $productName;
@@ -12,27 +12,6 @@ class shopModel extends Model
     protected $quantityErr;
     protected $rate;
     protected $rateErr;
-    protected $img;
-
-    public function __construct()
-    {
-        parent::__construct();
-        $this->description     = "";
-        $this->descriptionErr = "";
-        $this->productName= "";
-        $this->productNameErr = "";
-        $this->img     = "";
-        $this->imgErr = "";
-        $this->price = "";
-        $this->priceErr = "";
-
-        $this->quantity     = "";
-        $this->quantityErr = "";
-
-        $this->rate = "";
-        $this->rateErr = "";
-    }
-
     public function getDescription()
     {
         return $this->description;
@@ -43,49 +22,29 @@ class shopModel extends Model
         $this->description = $description;
     }
     
-    public function getDescriptionErr()
+    public function setDescriptionErr()
     {
-        return $this->descriptionErr;
+        return $this->description;
     }
 
-    public function setDescriptionErr($descriptionErr)
+    public function getDescriptionErr($descriptionErr)
     {
         $this->descriptionErr = $descriptionErr;
     }
-    public function getimg()
-    {
-        return $this->img;
-    }
-
-    public function setimg($img)
-    {
-        $this->img = $img;
-    }
-    
-    public function getimgErr()
-    {
-        return $this->img;
-    }
-
-    public function setimgErr($imgErr)
-    {
-        $this->imgErr = $imgErr;
-    }
-
 
     public function getProductName()
     {
         return $this->productName;
     }
  
-    public function setproductName($productName)
+    public function setproductName()
     {
-        $this->productName = $productName;
+        return $this->productName;
     }
 
-    public function getproductNameErr()
+    public function setproductErr()
     {
-        return $this->productNameErr;
+        return $this->productName;
     }
 
     public function setproductNameErr($productNameErr)
@@ -145,7 +104,7 @@ class shopModel extends Model
     {
         $this->rateErr = $rateErr;
     }
-    public function shop()
+    public function product()
     {
         $this->dbh->query('SELECT * from products');
         $this->dbh->bind(':description', $this->description);
@@ -157,21 +116,4 @@ class shopModel extends Model
         $record = $this->dbh->resultSet();
         $product = $record->product;
     }
-<<<<<<< HEAD
-=======
-
-    public function findProduct($productName)
-    {
-        $this->dbh->query('select * from products where ProductName=:prod_name');
-        $this->dbh->bind(':prod_name', $productName);
-
-        $userRecord = $this->dbh->single();
-        return $this->dbh->rowCount();
-    }
-
-    public function ProductExist($productName)
-    {
-        return $this->findProduct($productName) > 0;
-    }
->>>>>>> 470a03951149cbf66947cef4d9b0b6cabb9cdb7c
 }

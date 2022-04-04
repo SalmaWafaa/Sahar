@@ -10,7 +10,7 @@ class Register extends view
 
     require APPROOT . '/views/inc/header.php';
     $text = <<<EOT
-    <div class="jumbotron jumbotron-fluid">
+    <div class="bg-warning">
     <div class="container">
       <h1 class="display-4"> <center>$title</center></h1>
     </div>
@@ -49,10 +49,10 @@ EOT;
     $text = <<<EOT
     <div class="container">
       <div class="row mt-4">
-        <div class="col">
+        <div class="col-2">
           <input type="submit" value="Register" class="form-control btn btn-warning btn-block">
         </div>
-        <div class="col">
+        <div class="col-2">
           <a href="$loginUrl" class="form-control btn btn-lg btn-block">Current user, login here</a>
         </div>
       </div>

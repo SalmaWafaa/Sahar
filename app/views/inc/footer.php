@@ -4,10 +4,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-  <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
-</svg>
-<div class="bg-dark text-center text-white">
+
+  <div class="bg-dark text-center text-white">
   <footer class="text-warning bg-dark">
 
   <!-- Footer Links -->
@@ -16,31 +14,19 @@
     <!-- Grid row -->
     <div class="row">
 
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
-        <!-- Content -->
-        <div class="col-md-12 py-5">
-        <div class="mb-5 flex-center">
-
-          <!-- Facebook -->
-          <a class="fb-ic">
-          <i class="bi bi-facebook"></i>          </a>
-          <!-- Google +-->
-          <a class="gplus-ic">
-          <i class="bi bi-google"></i>          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-          <i class="bi bi-instagram"></i>          </a>
-
-        </div>
-      </div>      </div>
-      <!-- Grid column -->
-
       <hr class="clearfix w-100 d-md-none pb-3">
 
       <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+
+<h5 class="text-uppercase">sahar</h5>
+
+<p>  It is offering an extremely wide range of the best telecommunications & Accessories products, 
+  having expert and dedicated staff that are always ready to be of service to you.
+      Get in Touch with Us for the Best and Latest Offer .
+</p>
+</div>
+<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
         <!-- Links -->
         <h5 class="text-uppercase">Quick Links</h5>
@@ -59,7 +45,7 @@
 
       <!-- Grid column -->
       <div class="col-md-3 mb-md-0 mb-3">
-
+ 
         <!-- Links -->
         <h5 class="text-uppercase">Quick Links</h5>
 
@@ -77,9 +63,28 @@
 
     </div>
     <!-- Grid row -->
-
   </div>
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="bi bi-facebook"></i
+      ></a>
 
+      <!-- Google -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="bi bi-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+        ><i class="bi bi-instagram"></i
+      ></a>
+
+    </section>
+    <!-- Section: Social media -->
+  </div>
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="/"> sahar\public\index.php</a>
   </div>

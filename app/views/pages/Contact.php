@@ -5,19 +5,15 @@
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
 <script type='text/javascript' src=''></script>
-<script type='text/javascript' src=''></script>
 <script type='text/Javascript'></script>
 <style>@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");</style>
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleContact.css">
 <?php
 class Contact extends View{
 	public function output(){
-		$title=$this->model->title;
-		require APPROOT . '/views/inc/header.php';
-		$text=$title;
-	
-		$text = <<<EOT
-
+		//$title=$this->model->title;
+		
+		?>
 <body oncontextmenu='return false' class='snippet-body'>
 <div class="container">
 <div class="form">
@@ -40,7 +36,8 @@ class Contact extends View{
 </div>
 </div>
 </div>
-<div class="contact-info-form"> <span class="circle one"></span> <span class="circle two"></span>
+
+<div class="contact-info-form"> 
 <form action="#" onclick="return false;" autocomplete="off">
 <h3 class="title">Contact us</h3>
 <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" /> </div>
@@ -52,10 +49,8 @@ class Contact extends View{
 </div>
 </div>
 </body>
-EOT;	
-echo $text;
+<?php
 		require APPROOT . '/views/inc/footer.php';
-			}
-			
-			
+			}			
 }
+?>
