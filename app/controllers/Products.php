@@ -140,6 +140,26 @@ class Products extends Controller
         $shopView->output();
     }
     
+    public function review()
+    {
+        $viewPath = VIEWS_PATH . 'products/review.php';
+        require_once $viewPath;
+        $reviewView = new review($this->getModel(), $this);
+        $reviewView->output();
+    }
+    
+    public function cart()
+    {
+        $viewPath = VIEWS_PATH . 'products/cart.php';
+        require_once $viewPath;
+        $cartView = new cart($this->getModel(), $this);
+        $cartView->output();
+    }
+
+
+
+
+
 
     
 }

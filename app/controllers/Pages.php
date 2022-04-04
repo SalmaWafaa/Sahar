@@ -67,5 +67,12 @@ class Pages extends Controller
         $ViewOrdersView->output();
     }
    
+
+    public function dashboard(){
+        $viewPath= VIEWS_PATH . 'pages/dashboard.php';
+        require_once $viewPath;
+        $dashboardView=new dashboard($this->getModel(),$this);
+        $dashboardView->output();
+    }
 }
 
