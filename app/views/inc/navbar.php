@@ -1,5 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 ">
+<img src="<?php echo ImageRoot . 'logo1.jpeg' ; ?>" width="80" height="30" alt="" alt="...">
+
     <a class="navbar-brand" href="<?php echo URLROOT . 'public'; ?>"><?php echo SITENAME; ?></a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,9 +14,8 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
            </li>
-              
-
-    <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/contact'; ?>">Contact</a>
+            
+    <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
          </li>
          </ul>
           <form class="form-inline">

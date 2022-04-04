@@ -9,7 +9,7 @@ define('DB_NAME', 'sahar');
 //echo dirname(dirname(__FILE__));
 define('APPROOT', dirname(dirname(__FILE__)));
 // URL Root
-define('URLROOT', 'sahar/public/');
+define('URLROOT', '/sahar/public/');
 // Site Name
 define('SITENAME', 'Sa7ar Quick Care');
 

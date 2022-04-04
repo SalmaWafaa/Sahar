@@ -4,9 +4,9 @@ margin-top: 100px ;
 }
 .newarrival
 {
-    background-color: grey ;
+    background-color: rgb(224, 209, 209) ;
     width:50px;
-    color: aliceblue;
+    color: rgb(68, 124, 173);
     font-size: 12px;
     font-weight: bold;
 
@@ -14,9 +14,30 @@ margin-top: 100px ;
 }
 .col-md-7 h2
 {
-color: black;
+color: rgb(231, 136, 27);
 }
 .stars
 {
  height: 15px;   
+}
+.price
+{
+    color: blueviolet;
+    font-size: 26;
+    font-weight: bold;
+    padding-top: 50px;
+}
+input{
+    border: 1px solid #ccc;
+    font-weight:bold ;
+    height: 33px;
+    text-align: center;
+    width: 30px;
+
+}
+.cart
+{
+    background-color: aqua;
+    color: azure;
+    font-size: 15px;
 }

@@ -20,11 +20,10 @@ class Index extends View
   <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <center><img src="<?php echo ImageRoot . 'Pic1.jpg' ; ?> " alt="Los Angeles" class="d-block" style="width:80%"></center>
+      <center><img src="<?php echo ImageRoot . 'Pic1.jpg' ; ?> " class="d-block" style="width:80%"></center>
       <div class="container-fluid mt-3">
-  <center><h3>Mobile Phone Accessories</h3></center>
-  <center><p>Sa7-R Quick Care offering an extremely wide range of the best telecommunications & Accessories products,
-     having expert and dedicated team always ready to be at your service.</p></center>
+  <center><h3>Mobile Phone Repair</h3></center>
+  <center><p>At Sa7a-r Quick Care Fix Your Phone in Minutes , Replace Battery , Replace LCD and Much Much More.</p></center>
 </div>
     </div>
     
@@ -53,10 +52,10 @@ class Index extends View
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic4.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop7.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
-        <h5 class="card-title">Power Bank</h5>
+        <h5 class="card-title">IPhone Back Glass</h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
@@ -64,7 +63,7 @@ class Index extends View
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-        <p class="card-text"> JOWAY Power Bank 10000mAh jp221.
+        <p class="card-text">Back Glass IPhone 13.
                               </p>
                               <h5>
                               <small><s class="text-secondary">419 EGP</s></small>
@@ -78,7 +77,7 @@ class Index extends View
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic8.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop2.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
         <h5 class="card-title">Car Holder</h5>
@@ -105,7 +104,7 @@ class Index extends View
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic5.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop3.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
         <h5 class="card-title">HEAD PHONE</h5>
@@ -131,7 +130,7 @@ class Index extends View
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic6.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop4.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
         <h5 class="card-title">Charger</h5>
@@ -157,10 +156,10 @@ class Index extends View
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic7.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop5.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
-        <h5 class="card-title">Charger</h5>
+        <h5 class="card-title">Speaker</h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
@@ -168,7 +167,7 @@ class Index extends View
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-                          <p class="card-text"> XO Adaptor Traveler Quick Charger L67.
+                          <p class="card-text">HAVIT Wireless Speaker M8.
                               </p>
                               <h5>
                                   <small><s class="text-secondary">220 EGP</s></small>
@@ -182,10 +181,10 @@ class Index extends View
 <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic8.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop6.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
 <div class="card-body">
-        <h5 class="card-title">  IPhone Back Glass</h5>
+        <h5 class="card-title"> Memory card</h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
@@ -193,7 +192,7 @@ class Index extends View
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-                          <p class="card-text"> Back Glass IPhone 11 Pro Max.
+                          <p class="card-text">ADATA UV260 32 GB Memory card .
                               </p>
                               <h5>
                                   <small>100 EGP</small>
@@ -207,10 +206,10 @@ class Index extends View
 <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic9.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . 'shop1.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
   <div class="card-body">
-        <h5 class="card-title">  IPhone Back Glass</h5>
+        <h5 class="card-title"> Car Holder</h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
@@ -256,31 +255,7 @@ class Index extends View
   </form>
 
   </div>
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic11.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-  <div class="card-body">
-        <h5 class="card-title">Flash Memory</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text">HIKVISION M200 FLASH MEMORY 8GB.
-                              </p>
-                              <h5>
-                                  <small> $150</small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-  </form>
-  </div>
+ 
 
   </div>
   <?php

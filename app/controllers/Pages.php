@@ -43,7 +43,6 @@ class Pages extends Controller
         $contactView=new Contact($this->getModel(),$this);
         $contactView->output();
     }
-<<<<<<< Updated upstream
     public function Checkout(){
         $viewPath= VIEWS_PATH . 'pages/Checkout.php';
         require_once $viewPath;
@@ -56,15 +55,20 @@ class Pages extends Controller
         $ViewOrdersView=new Checkout($this->getModel(),$this);
         $ViewOrdersView->output();
     }
+    public function shop()
+    {
+        $viewPath = VIEWS_PATH . 'pages/shop.php';
+        require_once $viewPath;
+        $shopView = new shop($this->getModel(), $this);
+        $shopView->output();
+    }
 
-=======
     public function product()
     {
         $viewPath = VIEWS_PATH . 'pages/product.php';
         require_once $viewPath;
-        $productView = new shop($this->getModel(), $this);
+        $productView = new product($this->getModel(), $this);
         $productView->output();
     }
->>>>>>> Stashed changes
 }
 
