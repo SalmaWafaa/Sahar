@@ -1,7 +1,7 @@
 
     <link rel="stylesheet" href="<?php echo URLROOT; ?>css/shopCSS.CSS">
 <?php
-class shop extends view
+    class shop extends view
 {
   public function output()
   {
