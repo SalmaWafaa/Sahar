@@ -12,7 +12,10 @@ class shopModel extends Model
     protected $quantityErr;
     protected $rate;
     protected $rateErr;
-    protected $img;
+    protected $img1;
+    protected $img2;
+    protected $img3;
+
 
     public function __construct()
     {
@@ -21,8 +24,12 @@ class shopModel extends Model
         $this->descriptionErr = "";
         $this->productName= "";
         $this->productNameErr = "";
-        $this->img     = "";
-        $this->imgErr = "";
+        $this->img1    = "";
+        $this->img1Err = "";
+        $this->img2     = "";
+        $this->img2Err = "";
+        $this->img3     = "";
+        $this->img3Err = "";
         $this->price = "";
         $this->priceErr = "";
 
@@ -52,25 +59,64 @@ class shopModel extends Model
     {
         $this->descriptionErr = $descriptionErr;
     }
-    public function getimg()
+    public function getimg1()
     {
         return $this->img;
     }
 
-    public function setimg($img)
+    public function setimg1($img)
     {
         $this->img = $img;
     }
     
-    public function getimgErr()
+    public function getimg1Err()
     {
         return $this->img;
     }
 
-    public function setimgErr($imgErr)
+    public function setimg1Err($imgErr)
     {
         $this->imgErr = $imgErr;
     }
+    public function getimg2()
+    {
+        return $this->img;
+    }
+
+    public function setimg2($img)
+    {
+        $this->img = $img;
+    }
+    
+    public function getimg2Err()
+    {
+        return $this->img;
+    }
+
+    public function setimg2Err($imgErr)
+    {
+        $this->imgErr = $imgErr;
+    }
+    public function getimg3()
+    {
+        return $this->img;
+    }
+
+    public function setimg3($img)
+    {
+        $this->img = $img;
+    }
+    
+    public function getimg3Err()
+    {
+        return $this->img;
+    }
+
+    public function setimg3Err($imgErr)
+    {
+        $this->imgErr = $imgErr;
+    }
+
 
 
     public function getProductName()
@@ -157,8 +203,6 @@ class shopModel extends Model
         $record = $this->dbh->resultSet();
         $product = $record->product;
     }
-<<<<<<< HEAD
-=======
 
     public function findProduct($productName)
     {
@@ -173,5 +217,4 @@ class shopModel extends Model
     {
         return $this->findProduct($productName) > 0;
     }
->>>>>>> 470a03951149cbf66947cef4d9b0b6cabb9cdb7c
 }
