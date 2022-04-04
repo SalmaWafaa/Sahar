@@ -12,6 +12,27 @@ class shopModel extends Model
     protected $quantityErr;
     protected $rate;
     protected $rateErr;
+    protected $img;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $this->description     = "";
+        $this->descriptionErr = "";
+        $this->productName= "";
+        $this->productNameErr = "";
+        $this->img     = "";
+        $this->imgErr = "";
+        $this->price = "";
+        $this->priceErr = "";
+
+        $this->quantity     = "";
+        $this->quantityErr = "";
+
+        $this->rate = "";
+        $this->rateErr = "";
+    }
+
     public function getDescription()
     {
         return $this->description;
@@ -22,29 +43,49 @@ class shopModel extends Model
         $this->description = $description;
     }
     
-    public function setDescriptionErr()
+    public function getDescriptionErr()
     {
-        return $this->description;
+        return $this->descriptionErr;
     }
 
-    public function getDescriptionErr($descriptionErr)
+    public function setDescriptionErr($descriptionErr)
     {
         $this->descriptionErr = $descriptionErr;
     }
+    public function getimg()
+    {
+        return $this->img;
+    }
+
+    public function setimg($img)
+    {
+        $this->img = $img;
+    }
+    
+    public function getimgErr()
+    {
+        return $this->img;
+    }
+
+    public function setimgErr($imgErr)
+    {
+        $this->imgErr = $imgErr;
+    }
+
 
     public function getProductName()
     {
         return $this->productName;
     }
  
-    public function setproductName()
+    public function setproductName($productName)
     {
-        return $this->productName;
+        $this->productName = $productName;
     }
 
-    public function setproductErr()
+    public function getproductNameErr()
     {
-        return $this->productName;
+        return $this->productNameErr;
     }
 
     public function setproductNameErr($productNameErr)
@@ -116,4 +157,21 @@ class shopModel extends Model
         $record = $this->dbh->resultSet();
         $product = $record->product;
     }
+<<<<<<< HEAD
+=======
+
+    public function findProduct($productName)
+    {
+        $this->dbh->query('select * from products where ProductName=:prod_name');
+        $this->dbh->bind(':prod_name', $productName);
+
+        $userRecord = $this->dbh->single();
+        return $this->dbh->rowCount();
+    }
+
+    public function ProductExist($productName)
+    {
+        return $this->findProduct($productName) > 0;
+    }
+>>>>>>> 470a03951149cbf66947cef4d9b0b6cabb9cdb7c
 }

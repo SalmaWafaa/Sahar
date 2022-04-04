@@ -1,27 +1,15 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleLoginReg.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/deleteConfirm.css">
 
-<script type="text/javascript">
-  	var modal = document.getElementById("myModal");
+<script>
 
-var btton = document.getElementById("myBtn");
-
-var span = document.getElementsByClassName("close")[0];
-
-btton.onclick = function() {
-  modal.style.display = "block";
-}
-
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
+var modal = document.getElementById('id01');
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-  </script>
+</script>
 
 <?php
 
@@ -69,14 +57,28 @@ EOT;
     $this->printConfirmPassword();
     $this->printAddress();
     $this->printMobile();
-    $text = <<<EOT
+   ?>
     <div class="container">
       <div class="row mt-4">
         <div class="col">
           <input type="submit" value="Edit Profile" class="form-control btn btn-warning btn-block">
         </div>
         <div class="col">
-        <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block" id="myBtn">
+        <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
+        <div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content" action="<?php $action ?>">
+    <div class="container">
+      <h1>Delete Account</h1>
+      <p>Are you sure you want to delete your account?</p>
+    
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
         </div>
       </div>
       </div>
@@ -84,13 +86,12 @@ EOT;
     </div>
     </div>
     </div>
-EOT;
-    echo $text;
+<?php
   }
 
   private function printFName()
   {
-    $val = $this->model->getFName();
+    $val = "yasmin";
     $err = $this->model->getFNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -98,7 +99,7 @@ EOT;
   }
   private function printLName()
   {
-    $val = $this->model->getLName();
+    $val = "kandil";
     $err = $this->model->getLNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -106,7 +107,7 @@ EOT;
   }
   private function printEmail()
   {
-    $val = $this->model->getEmail();
+    $val = "kandil@gmail.com";
     $err = $this->model->getEmailErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -115,7 +116,7 @@ EOT;
 
   private function printPassword()
   {
-    $val = $this->model->getPassword();
+    $val = ".........";
     $err = $this->model->getPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -123,7 +124,7 @@ EOT;
   }
   private function printConfirmPassword()
   {
-    $val = $this->model->getConfirmPassword();
+    $val = ".........";
     $err = $this->model->getConfirmPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -131,7 +132,7 @@ EOT;
   }
   private function printAddress()
   {
-    $val = $_SESSION['user_address'];
+    $val ="new cairo";
     $err = $this->model->getAddressErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -139,7 +140,7 @@ EOT;
   }
   private function printMobile()
   {
-    $val = "passs";
+    $val = "010000000";
     $err = $this->model->getMobileErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
