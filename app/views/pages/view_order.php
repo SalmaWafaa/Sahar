@@ -6,7 +6,7 @@
 </style>
 <?php
 
-class ViewOrders extends View
+class view_order extends View
 {
 
   public function output()

@@ -13,7 +13,7 @@
 class Contact extends View{
 	public function output(){
 		$title=$this->model->title;
-		require APPROOT . '/views/inc/header.php';
+		
 		$text=$title;
 	
 		$text = <<<EOT

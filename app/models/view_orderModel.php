@@ -1,9 +1,9 @@
 <?php
-class ViewOrderModel extends Model
+class view_orderModel extends Model
 {
     public  $title = 'Orders Page';
 
-    public function ViewOrder()
+    public function view_order()
     {
         $this->dbh->query('SELECT * from ordersS ');
         $records=$this->dbh->resultSet();
