@@ -33,5 +33,14 @@
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/register'; ?>" >Sign_Up</a></button>
             <?php endif; ?>
       </form>
+<<<<<<< HEAD
+    </div>
+  </div>
+  <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+=======
  
+>>>>>>> d308b0352ced0ff82b8564de076319300bb94468
 </nav>

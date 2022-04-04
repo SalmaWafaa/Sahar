@@ -33,6 +33,19 @@ class Pages extends Controller
         $reviewView->output();
     }
     
+    public function cart()
+    {
+        $viewPath = VIEWS_PATH . 'pages/cart.php';
+        require_once $viewPath;
+        $cartView = new cart($this->getModel(), $this);
+        $cartView->output();
+    }
+
+
+
+    
+
+
     public function contact(){
         $viewPath= VIEWS_PATH . 'pages/contact.php';
         require_once $viewPath;
