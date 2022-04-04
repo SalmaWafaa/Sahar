@@ -25,29 +25,7 @@ class Pages extends Controller
         $galleryView->output();
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-public function categories()
-    {
-        $viewPath = VIEWS_PATH . 'pages/categories.php';
-        require_once $viewPath;
-        $categoriesView = new categories($this->getModel(), $this);
-        $categoriesView->output();
-    }
-    public function shop()
-    {
-        $viewPath = VIEWS_PATH . 'pages/shop.php';
-        require_once $viewPath;
-        $shopView = new shop($this->getModel(), $this);
-        $shopView->output();
-    }
-    public function add_product()
-    {
-        $viewPath = VIEWS_PATH . 'pages/add_product.php';
-        require_once $viewPath;
-        $add_productView = new add_product($this->getModel(), $this);
-        $add_productView->output();
-    }
+
 
 
     public function review()
@@ -58,11 +36,18 @@ public function categories()
         $reviewView->output();
     }
     
-=======
+    public function cart()
+    {
+        $viewPath = VIEWS_PATH . 'pages/cart.php';
+        require_once $viewPath;
+        $cartView = new cart($this->getModel(), $this);
+        $cartView->output();
+    }
 
->>>>>>> ac415c118b83d711a2fe61355297d9498931e949
-=======
 
->>>>>>> ac415c118b83d711a2fe61355297d9498931e949
+
+    
+
+
 }
 
