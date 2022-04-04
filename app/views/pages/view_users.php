@@ -1,9 +1,4 @@
-<style>
-  table th{
-    color:black;
-    background-color:#eca969;
-}
-</style>
+
 <?php
 
 
