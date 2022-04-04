@@ -23,7 +23,7 @@
 
 <p>  It is offering an extremely wide range of the best telecommunications & Accessories products, 
   having expert and dedicated staff that are always ready to be of service to you.
-      Get in Touch with Us for the Best and Latest Offer.
+      Get in Touch with Us for the Best and Latest Offer .
 </p>
 </div>
 <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
