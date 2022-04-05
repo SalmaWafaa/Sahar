@@ -52,5 +52,26 @@ class Pages extends Controller
         $dashboardView->output();
     }
    
+    public function shop()
+    {
+        $viewPath = VIEWS_PATH . 'products/shop.php';
+        require_once $viewPath;
+        $shopView = new shop($this->getModel(), $this);
+        $shopView->output();
+    }
+
+    public function product()
+    {
+        $viewPath = VIEWS_PATH . 'pages/product.php';
+        require_once $viewPath;
+        $productView = new product($this->getModel(), $this);
+        $productView->output();
+    }
+    public function view_users(){
+        $viewPath= VIEWS_PATH . 'pages/view_users.php';
+        require_once $viewPath;
+        $ViewUsersView=new view_users($this->getModel(),$this);
+        $ViewUsersView->output();
+    }
 }
 
