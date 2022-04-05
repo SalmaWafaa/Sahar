@@ -25,11 +25,11 @@ class dashboard extends view{
 <body>
     <div class="side-menu">
         <ul>
-            <li><i class="bi bi-speedometer2"></i> Home<a href="<?php echo URLROOT . 'pages/Index'; ?>"></a> </li>
-            <li><i class="bi bi-people"></i> Users <a href="<?php echo URLROOT . 'pages/view_users'; ?>"></a></li>
-            <li><i class="bi bi-table"></i>  Orders<a href="<?php echo URLROOT . 'pages/view_users'; ?>"></a> </li>
-            <li><i class="bi bi-plus-circle"></i> Add Product<a href="<?php echo URLROOT . 'products/add_product'; ?>"></a> </li>
-            <li><i class="bi bi-trash-fill"></i> Edit delete Product<a href="<?php echo URLROOT . 'product/edit_delete_product'; ?>"></a></li>
+            <li><i class="bi bi-speedometer2"></i><a href="<?php echo URLROOT . 'pages/index'; ?>"> Home</a> </li>
+            <li><i class="bi bi-people"></i>  <a href="<?php echo URLROOT . 'pages/view_users'; ?>">Users</a></li>
+            <li><i class="bi bi-table"></i>  <a href="<?php echo URLROOT . 'pages/view_order'; ?>">Orders</a> </li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_product'; ?>">Add Product</a> </li>
+            <li><i class="bi bi-trash-fill"></i> <a href="<?php echo URLROOT . 'product/edit_delete_product'; ?>">Edit delete Product</a></li>
         </ul>
     </div>
     <div class="container">
