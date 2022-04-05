@@ -114,48 +114,48 @@ class dashboard extends view{
                         
                         <tr>
                         <td>137</td>
-                            <td>121H#</td>
+                            <td>12MH#</td>
                             <td>1</td>
-                            <td>heliopolis</td>
-                            <td>67</td>
-                            <td>cash on delivery</td>
+                            <td>Madenit Nassr</td>
+                            <td>81</td>
+                            <td>Credit Card</td>
                             <td>50</td>
                             <td>01000000000</td>
-                            <td>270</td>
-                            <td>25/4/2022</td>
+                            <td>175</td>
+                            <td>14/5/2022</td>
                         </tr>
                     </table>
                 </div>
                 <div class="new-students">
                     <div class="title">
-                        <h2>New Users</h2>
+                        <h2>Top Users</h2>
                         <a href= "<?php  VIEWS_PATH . 'pages/view_users.php';?>" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
-                            <th>Profile</th>
+                            <th>ID</th>
                             <th>Name</th>
-                            <th>option</th>
+                            <th>orders</th>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>67</td>
+                            <td>Yasmin Kandil</td>
+                            <td>35</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>105</td>
+                            <td>Miriam Ayman</td>
+                            <td>27</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>64</td>
+                            <td>Salma Osama</td>
+                            <td>17</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>57</td>
+                            <td>rogina Michelle</td>
+                            <td>9</td>
                         </tr>
 
                     </table>
