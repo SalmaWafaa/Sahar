@@ -20,6 +20,15 @@
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
            </li>
+           <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'pages/gallery'; ?>">Gallery</a>
+           </li>
+           <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'pages/dashboard'; ?>">Dashboard</a>
+           </li>
+           <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'users/EditProfile'; ?>">Edit Profile</a>
+           </li>
             
     <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
          </li>
