@@ -234,24 +234,6 @@ class Index extends View
     <div class="card shadow">
       <img src="<?php echo ImageRoot . 'pic10.jpg' ; ?>" alt="Image1" class="card-img-top" >
 </div>
-  <div class="card-body">
-        <h5 class="card-title">Flash Memory</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text">ADATA UV260 32 GB Flash memory.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">230 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
   </form>
 
   </div>

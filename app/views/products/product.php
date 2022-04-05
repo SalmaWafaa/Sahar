@@ -70,8 +70,9 @@ EOT;
         <input type="text" value="1">
         <br>
         <br>
-        <button class="btn btn-warning" type="submit">Add to cart</button>
-        <button class="btn btn-warning" type="submit">Add Review</button>
+        <button class="btn btn-warning" type="submit"><a href="<?php echo URLROOT . 'products/cart'; ?>">Add to cart</button>
+        <button class="btn btn-warning"> <a href="<?php echo URLROOT . 'products/review'; ?>" >Add Review</a></button>
+
 
         <br>
         <br>

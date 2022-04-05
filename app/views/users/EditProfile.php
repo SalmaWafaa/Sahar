@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleLoginReg.css">
-<link rel="stylesheet" href="<?php echo URLROOT; ?>css/deleteConfirm.css">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>css/delete_confirm.css">
 
 <script>
 // Get the modal

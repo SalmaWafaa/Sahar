@@ -168,18 +168,12 @@ class Products extends Controller
 
 
     public function Checkout(){
-        $viewPath= VIEWS_PATH . 'pages/Checkout.php';
+        $viewPath= VIEWS_PATH . 'products/Checkout.php';
         require_once $viewPath;
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
     }
-    /*public function add_product()
-    {
-        $viewPath = VIEWS_PATH . 'products/add_product.php';
-        require_once $viewPath;
-        $add_productView = new add_product($this->getModel(), $this);
-        $add_productView->output();
-    }*/
+    
 
     
 }
