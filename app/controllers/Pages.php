@@ -75,5 +75,11 @@ class Pages extends Controller
         $productView = new product($this->getModel(), $this);
         $productView->output();
     }
+    public function view_users(){
+        $viewPath= VIEWS_PATH . 'pages/view_users.php';
+        require_once $viewPath;
+        $ViewUsersView=new view_users($this->getModel(),$this);
+        $ViewUsersView->output();
+    }
 }
 
