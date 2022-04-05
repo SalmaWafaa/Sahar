@@ -1,8 +1,6 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleLoginReg.css">
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/delete_confirm.css">
 
-
-
 <script>
 // Get the modal
 var modal = document.getElementById('id01');
