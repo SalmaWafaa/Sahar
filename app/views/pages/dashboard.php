@@ -25,12 +25,11 @@ class dashboard extends view{
 <body>
     <div class="side-menu">
         <ul>
-            <li><i class="bi bi-speedometer2"></i> <span>Dashboard</span> </li>
-            <li><i class="bi bi-people"></i> <span>Users</span> </li>
-            <li><i class="bi bi-table"></i> <span> Orders</span> </li>
-            <li><i class="bi bi-plus-circle"></i> <span>Add Product</span> </li>
-            <li><i class="bi bi-trash-fill"></i> <span>Edit delete
-                 Product</span></li>
+            <li><i class="bi bi-speedometer2"></i><a href="<?php echo URLROOT . 'pages/index'; ?>"> Home</a> </li>
+            <li><i class="bi bi-people"></i>  <a href="<?php echo URLROOT . 'pages/view_users'; ?>">Users</a></li>
+            <li><i class="bi bi-table"></i>  <a href="<?php echo URLROOT . 'pages/view_order'; ?>">Orders</a> </li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_product'; ?>">Add Product</a> </li>
+            <li><i class="bi bi-trash-fill"></i> <a href="<?php echo URLROOT . 'products/edit_delete_product'; ?>">Edit delete Product</a></li>
         </ul>
     </div>
     <div class="container">
@@ -47,7 +46,7 @@ class dashboard extends view{
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>53</h1>
+                        <h1>1153</h1>
                         <h3>Products</h3>
                     </div>
                     <div class="icon-case">
@@ -59,84 +58,103 @@ class dashboard extends view{
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
-                        <h2>Recent Payments</h2>
+                        <h2>Recent Orders</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>School</th>
-                            <th>Amount</th>
-                            <th>Option</th>
+                            <th>Order Number</th>
+                            <th>Product ID</th>
+			                <th>Quantity</th>
+			                <th>Address</th>
+			                <th>Client ID</th>
+			                <th>Payment Type</th>
+                            <th>Shipping Fees</th>
+                            <th>Mobile Number</th>
+                            <th>Total</th>
+                            <th>Date</th>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                            <td>55</td>
+                            <td>77D#</td>
+                            <td>1</td>
+                            <td>new cairo</td>
+                            <td>23</td>
+                            <td>credit card</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>350</td>
+                            <td>3/2/2022</td>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>92</td>
+                            <td>79k#</td>
+                            <td>3</td>
+                            <td>sheikh zaied</td>
+                            <td>46</td>
+                            <td>cash on delivery</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>1350</td>
+                            <td>5/1/2022</td>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>137</td>
+                            <td>02FF#</td>
+                            <td>2</td>
+                            <td>heliopolis</td>
+                            <td>67</td>
+                            <td>cash on delivery</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>600</td>
+                            <td>3/1/2022</td>
                         </tr>
+                        
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>137</td>
+                            <td>12MH#</td>
+                            <td>1</td>
+                            <td>Madenit Nassr</td>
+                            <td>81</td>
+                            <td>Credit Card</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>175</td>
+                            <td>14/5/2022</td>
                         </tr>
                     </table>
                 </div>
                 <div class="new-students">
                     <div class="title">
-                        <h2>New Users</h2>
+                        <h2>Top Users</h2>
                         <a href= "<?php  VIEWS_PATH . 'pages/view_users.php';?>" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
-                            <th>Profile</th>
+                            <th>ID</th>
                             <th>Name</th>
-                            <th>option</th>
+                            <th>orders</th>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>67</td>
+                            <td>Yasmin Kandil</td>
+                            <td>35</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>105</td>
+                            <td>Miriam Ayman</td>
+                            <td>27</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>64</td>
+                            <td>Salma Osama</td>
+                            <td>17</td>
                         </tr>
                         <tr>
-                            <td><img src="user.png" alt=""></td>
-                            <td>John Steve Doe</td>
-                            <td><img src="info.png" alt=""></td>
+                            <td>57</td>
+                            <td>rogina Michelle</td>
+                            <td>9</td>
                         </tr>
 
                     </table>

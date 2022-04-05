@@ -18,16 +18,15 @@ class gallery extends view{
     
    // $text = <<<EOT
    ?>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
     <div class="container">
       <h1 class="display-4"> <center><?php echo $title; ?></center></h1>
       
     </div>
   </div>
-  <!-- Carousel -->
+  
 <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-  <!-- Indicators/dots -->
   <div class="carousel-indicators">
       <?php 
       for($i=1;$i<11;$i++){
@@ -39,7 +38,6 @@ class gallery extends view{
       ?>
   </div>
   
-  <!-- The slideshow/carousel -->
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="<?php echo ImageRoot . 'SQ1.jpg' ; ?> " alt="" class="d-block" style="width:100%">
@@ -62,10 +60,6 @@ class gallery extends view{
   </button>
 </div>
 
-<div class="container-fluid mt-3">
-  <h3>Carousel Example</h3>
-  <p>The following example shows how to create a basic carousel with indicators and controls.</p>
-</div>
 
 
 

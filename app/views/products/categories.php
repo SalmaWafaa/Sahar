@@ -12,12 +12,12 @@ class categories extends view{
     
 
    ?>
-    
-    <div class="container">
+<div class="p-3 mb-2 bg-warning bg-gradient text-dark">
+          <div class="container">
       <h1 class="display-4"> <center><?php echo $title; ?></center></h1>
       
     </div>
-  
+  </div>
   
 
   <div class="row">

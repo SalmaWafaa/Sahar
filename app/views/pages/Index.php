@@ -10,7 +10,17 @@ class Index extends View
 
     require APPROOT . '/views/inc/header.php';
    ?>
- 
+   <div
+  class="bg-image d-flex justify-content-center align-items-center"
+  style="
+    background-image: url('<?php echo ImageRoot . 'Bd.jpg' ; ?> ');
+    height: 100vh;
+  "
+>
+  <h1 class="text-white">Welcome To Sahar Quick Care Mobile Services</h1>
+</div>
+   <br>
+
  <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
 <h2><center>What we do</center></h2>
   </div>
@@ -22,17 +32,17 @@ class Index extends View
     <div class="carousel-item active">
       <center><img src="<?php echo ImageRoot . 'Pic1.jpg' ; ?> " class="d-block" style="width:80%"></center>
       <div class="container-fluid mt-3">
-  <center><h3>Mobile Phone Repair</h3></center>
-  <center><p>At Sa7a-r Quick Care Fix Your Phone in Minutes , Replace Battery , Replace LCD and Much Much More.</p></center>
+  <center><h2>Mobile Phone Repair</h2></center>
+  <center><h5>At Sa7a-r Quick Care Fix Your Phone in Minutes , Replace Battery , Replace LCD and Much Much More.</h5></center>
 </div>
     </div>
     
     <div class="carousel-item">
      <center><img src="<?php echo ImageRoot . 'pic3.jpg' ; ?>  "class="d-block" style="width:80%"></center>
       <div class="container-fluid mt-3">
-      <center><h3>Mobile Phone Accessories</h3></center>
-  <center><p>Sa7-R Quick Care offering an extremely wide range of the best telecommunications & Accessories products,
-     having expert and dedicated team always ready to be at your service.</p></center>
+      <center><h2>Mobile Phone Accessories</h2></center>
+  <center><h5>Sa7-R Quick Care offering an extremely wide range of the best telecommunications & Accessories products,
+     having expert and dedicated team always ready to be at your service.</h5></center>
 </div>
     </div>
   </div>
@@ -227,36 +237,7 @@ class Index extends View
                                <input type='hidden' name='product_id' value='1'>
       </div>
   </form>
-
   </div>
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'pic10.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-  <div class="card-body">
-        <h5 class="card-title">Flash Memory</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text">ADATA UV260 32 GB Flash memory.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">230 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-  </form>
-
-  </div>
- 
-
   </div>
   <?php
     require APPROOT . '/views/inc/footer.php';

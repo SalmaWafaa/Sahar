@@ -61,60 +61,60 @@ class shopModel extends Model
     }
     public function getimg1()
     {
-        return $this->img;
+        return $this->img1;
     }
 
     public function setimg1($img)
     {
-        $this->img = $img;
+        $this->img1 = $img1;
     }
     
     public function getimg1Err()
     {
-        return $this->img;
+        return $this->img1;
     }
 
     public function setimg1Err($imgErr)
     {
-        $this->imgErr = $imgErr;
+        $this->img1Err = $img1Err;
     }
     public function getimg2()
     {
-        return $this->img;
+        return $this->img2;
     }
 
     public function setimg2($img)
     {
-        $this->img = $img;
+        $this->img2 = $img2;
     }
     
     public function getimg2Err()
     {
-        return $this->img;
+        return $this->img2;
     }
 
     public function setimg2Err($imgErr)
     {
-        $this->imgErr = $imgErr;
+        $this->img2Err = $img2Err;
     }
     public function getimg3()
     {
-        return $this->img;
+        return $this->img3;
     }
 
     public function setimg3($img)
     {
-        $this->img = $img;
+        $this->img3 = $img3;
     }
     
     public function getimg3Err()
     {
-        return $this->img;
+        return $this->img3;
     }
 
     public function setimg3Err($imgErr)
     {
-        $this->imgErr = $imgErr;
+        $this->img3Err = $img3Err;
     }
 
 

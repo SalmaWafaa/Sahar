@@ -13,7 +13,7 @@
      <main>
      <div class="container">
      <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
-     <h2>Checkout </h2>
+     <center><h2>Checkout </h2></center>
      </div>
 
      <div class="row">
@@ -197,7 +197,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-warning" type="submit">Continue to checkout </button>
+        <button class="btn btn-warning" type="submit">Place Order </button>
       </form>
      </div>
      </div>
