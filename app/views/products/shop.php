@@ -8,8 +8,10 @@ class shop extends view
     $title = $this->model->title;
     require APPROOT . '/views/inc/header.php';
     $text = <<<EOT
+    <div class="bg-warning">
     <div class="container">
       <h1 class="display-4"><center> $title</center></h1>     
+  </div>
   </div>
 EOT;
     echo $text;
