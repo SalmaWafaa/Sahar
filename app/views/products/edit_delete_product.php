@@ -96,7 +96,7 @@ EOT;
   private function printProdImage1()
   {
     //$val = $this->model->getimg();
-    $err = $this->model->getimgErr();
+    $err = $this->model->getimg1Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
     $url=ImageRoot . 'H1.jpg';
     $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
@@ -104,7 +104,7 @@ EOT;
   private function printProdImage2()
   {
     //$val = $this->model->getimg();
-    $err = $this->model->getimgErr();
+    $err = $this->model->getimg2Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
     $url=ImageRoot . 'H2.jpg';
     $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
@@ -112,7 +112,7 @@ EOT;
   private function printProdImage3()
   {
     //$val = $this->model->getimg();
-    $err = $this->model->getimgErr();
+    $err = $this->model->getimg3Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
     $url=ImageRoot . 'H3.jpg';
     $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
