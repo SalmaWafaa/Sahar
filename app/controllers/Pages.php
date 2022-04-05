@@ -59,6 +59,7 @@ class Pages extends Controller
         require_once $viewPath;
         $dashboardView=new dashboard($this->getModel(),$this);
         $dashboardView->output();
+    }
     public function shop()
     {
         $viewPath = VIEWS_PATH . 'products/shop.php';
