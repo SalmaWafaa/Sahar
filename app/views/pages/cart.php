@@ -30,6 +30,8 @@ class cart extends View
       
     $title = $this->model->title;
 
+    //$title = $this->model->title;
+
 
     require APPROOT . '/views/inc/header.php';
     
@@ -84,6 +86,7 @@ class cart extends View
 
         <?php
     require APPROOT . '/views/inc/footer.php';
+    //require APPROOT . '/views/inc/footer.php';
   }
 }
 ?>

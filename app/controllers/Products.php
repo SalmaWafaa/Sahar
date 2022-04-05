@@ -147,5 +147,39 @@ class Products extends Controller
         $productView = new product($this->getModel(), $this);
         $productView->output();
     }
+    public function review()
+    {
+        $viewPath = VIEWS_PATH . 'products/review.php';
+        require_once $viewPath;
+        $reviewView = new review($this->getModel(), $this);
+        $reviewView->output();
+    }
+    
+    public function cart()
+    {
+        $viewPath = VIEWS_PATH . 'products/cart.php';
+        require_once $viewPath;
+        $cartView = new cart($this->getModel(), $this);
+        $cartView->output();
+    }
+
+
+
+
+
+    public function Checkout(){
+        $viewPath= VIEWS_PATH . 'pages/Checkout.php';
+        require_once $viewPath;
+        $CheckoutView=new Checkout($this->getModel(),$this);
+        $CheckoutView->output();
+    }
+    /*public function add_product()
+    {
+        $viewPath = VIEWS_PATH . 'products/add_product.php';
+        require_once $viewPath;
+        $add_productView = new add_product($this->getModel(), $this);
+        $add_productView->output();
+    }*/
+
     
 }
