@@ -70,11 +70,11 @@ td {
 }
 
 .side-menu li {
-    font-size: 24px;
+    font-size: 16px;
     padding: 10px 0.5px;
     color: white;
-    display: left;
-    align-items: left;
+    display: center;
+    align-items: center;
 }
 
 .side-menu li:hover {
