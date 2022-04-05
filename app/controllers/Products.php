@@ -48,7 +48,7 @@ class Products extends Controller
                 
 
                 if ($add_productModel->add_product()) {
-                    
+                    //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');
                 } else {
@@ -140,6 +140,12 @@ class Products extends Controller
         $shopView->output();
     }
     
-
+    public function product()
+    {
+        $viewPath = VIEWS_PATH . 'products/product.php';
+        require_once $viewPath;
+        $productView = new product($this->getModel(), $this);
+        $productView->output();
+    }
     
 }
