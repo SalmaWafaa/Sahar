@@ -175,7 +175,7 @@ EOT;
 </form>
     </div>
     </div>
-
+  </div>
 <?php
 
     require APPROOT . '/views/inc/footer.php';
