@@ -1,21 +1,23 @@
 
     <link rel="stylesheet" href="<?php echo URLROOT; ?>css/shopCSS.CSS">
 <?php
-class shop extends view
+    class shop extends view
 {
   public function output()
   {
     $title = $this->model->title;
     require APPROOT . '/views/inc/header.php';
+
     $text = <<<EOT
-    <div class="bg-warning">
+    <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
     <div class="container">
-      <h1 class="display-4"><center> $title</center></h1>     
+      <h1 class="p-3 mb-2 bg-warning bg-gradient text-dark"><center> $title</center></h1>     
   </div>
   </div>
 EOT;
     echo $text;
-    ?>
+    ?>    
+
  <div class="row row-cols-2 row-cols-md-4">
   <div class="col mb-4">
       <form action="" method="post">
