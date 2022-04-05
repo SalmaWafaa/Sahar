@@ -64,10 +64,16 @@ class dashboard extends view{
                     </div>
                     <table>
                         <tr>
-                            <th>Name</th>
-                            <th>School</th>
-                            <th>Amount</th>
-                            <th>Option</th>
+                            <th>Order Number</th>
+                            <th>Product ID</th>
+			                <th>Quantity</th>
+			                <th>Address</th>
+			                <th>Client ID</th>
+			                <th>Payment Type</th>
+                            <th>Shipping Fees</th>
+                            <th>Mobile Number</th>
+                            <th>Total</th>
+                            <th>Date</th>
                         </tr>
                         <tr>
                             <td>John Doe</td>
