@@ -21,8 +21,8 @@
 
 <h5 class="text-uppercase">sahar</h5>
 
-<p>  It is offering an extremely wide range of the best telecommunications & Accessories products, 
-  having expert and dedicated staff that are always ready to be of service to you.
+<p>  It is offering an extremely wide range of the best telecommunications & Accessories products, having expert
+   and dedicated staff that are always ready to be of service to you.
       Get in Touch with Us for the Best and Latest Offer .
 </p>
 </div>

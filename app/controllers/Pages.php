@@ -17,15 +17,7 @@ class Pages extends Controller
         $aboutView = new About($this->getModel(), $this);
         $aboutView->output();
     }
-    public function gallery()
-    {
-        $viewPath = VIEWS_PATH . 'pages/Gallery.php';
-        require_once $viewPath;
-        $galleryView = new gallery($this->getModel(), $this);
-        $galleryView->output();
-    }
-
-   
+    
     public function contact(){
         $viewPath= VIEWS_PATH . 'pages/contact.php';
         require_once $viewPath;
@@ -38,7 +30,14 @@ class Pages extends Controller
         $ViewOrdersView=new view_order($this->getModel(),$this);
         $ViewOrdersView->output();
     }
-   
+    public function gallery()
+    {
+        $viewPath = VIEWS_PATH . 'pages/Gallery.php';
+        require_once $viewPath;
+        $galleryView = new gallery($this->getModel(), $this);
+        $galleryView->output();
+    }
+
     public function view_users(){
         $viewPath= VIEWS_PATH . 'pages/view_users.php';
         require_once $viewPath;
@@ -52,26 +51,6 @@ class Pages extends Controller
         $dashboardView->output();
     }
    
-    public function shop()
-    {
-        $viewPath = VIEWS_PATH . 'products/shop.php';
-        require_once $viewPath;
-        $shopView = new shop($this->getModel(), $this);
-        $shopView->output();
-    }
-
-    public function product()
-    {
-        $viewPath = VIEWS_PATH . 'pages/product.php';
-        require_once $viewPath;
-        $productView = new product($this->getModel(), $this);
-        $productView->output();
-    }
-    public function view_users(){
-        $viewPath= VIEWS_PATH . 'pages/view_users.php';
-        require_once $viewPath;
-        $ViewUsersView=new view_users($this->getModel(),$this);
-        $ViewUsersView->output();
-    }
+ 
 }
 

@@ -162,10 +162,8 @@ class Products extends Controller
         $cartView = new cart($this->getModel(), $this);
         $cartView->output();
     }
-
-
-
-
+  
+   
 
     public function Checkout(){
         $viewPath= VIEWS_PATH . 'products/Checkout.php';
