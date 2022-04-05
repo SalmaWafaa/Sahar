@@ -76,40 +76,53 @@ class dashboard extends view{
                             <th>Date</th>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                            <td>55</td>
+                            <td>77D#</td>
+                            <td>1</td>
+                            <td>new cairo</td>
+                            <td>23</td>
+                            <td>credit card</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>350</td>
+                            <td>3/2/2022</td>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>92</td>
+                            <td>79k#</td>
+                            <td>3</td>
+                            <td>sheikh zaied</td>
+                            <td>46</td>
+                            <td>cash on delivery</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>1350</td>
+                            <td>5/1/2022</td>
                         </tr>
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>137</td>
+                            <td>02FF#</td>
+                            <td>2</td>
+                            <td>heliopolis</td>
+                            <td>67</td>
+                            <td>cash on delivery</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>600</td>
+                            <td>3/1/2022</td>
                         </tr>
+                        
                         <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>St. James College</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
+                        <td>137</td>
+                            <td>121H#</td>
+                            <td>1</td>
+                            <td>heliopolis</td>
+                            <td>67</td>
+                            <td>cash on delivery</td>
+                            <td>50</td>
+                            <td>01000000000</td>
+                            <td>270</td>
+                            <td>25/4/2022</td>
                         </tr>
                     </table>
                 </div>
