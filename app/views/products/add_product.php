@@ -38,7 +38,9 @@ EOT;
     <form action="$action" method="post" enctype="multipart/form-data">
 EOT;
     echo $text;
-    $this->printProdImage();
+    $this->printProdImage1();
+    $this->printProdImage2();
+    $this->printProdImage3();
     $this->printProdName();
     $this->printProdDescr();
     $this->printProdQuantity();
@@ -60,13 +62,26 @@ EOT;
     echo $text;
   }
 
-  private function printProdImage()
+  private function printProdImage1()
   {
     //$val = $this->model->getimg();
-    $err = $this->model->getimgErr();
+    $err = $this->model->getimg1Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
+    $this->printPictures('file', 'Product_Image_1', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
+  }
+  private function printProdImage2()
+  {
+    //$val = $this->model->getimg();
+    $err = $this->model->getimg2Err();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+    $this->printPictures('file', 'Product_Image_2', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
+  }
+  private function printProdImage3()
+  {
+    //$val = $this->model->getimg();
+    $err = $this->model->getimg3Err();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+    $this->printPictures('file', 'Product_Image_3', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
   }
   private function printProdName()
   {
