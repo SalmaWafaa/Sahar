@@ -21,7 +21,7 @@
 </html>
 </head>
 <body class="bg-light">
-    <<
+    
 
 <?php
 class cart extends View
