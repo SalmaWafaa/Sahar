@@ -4,7 +4,7 @@ margin-top: 100px ;
 }
 .newarrival
 {
-    background-color: rgb(224, 209, 209) ;
+    background-color: rgb(231, 136, 27) ;
     width:50px;
     color: rgb(68, 124, 173);
     font-size: 12px;
@@ -18,11 +18,12 @@ color: rgb(231, 136, 27);
 }
 .stars
 {
- height: 15px;   
+ height: 15px; 
+color: rgb(231, 136, 27);
 }
 .price
 {
-    color: blueviolet;
+    color: rgb(247, 192, 12);
     font-size: 26;
     font-weight: bold;
     padding-top: 50px;
