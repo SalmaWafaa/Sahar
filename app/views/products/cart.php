@@ -6,22 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cart</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
-<<<<<<< HEAD:app/views/pages/cart.php
 kkk
     <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-=======
->>>>>>> 13e65bcd18a6c60897281e72e11fa20c7947b5fe:app/views/products/cart.php
     <link rel="stylesheet" href="style.css">
   
 </head>
 <body class="bg-light">
-<<<<<<< HEAD:app/views/pages/cart.php
     
 
-=======
->>>>>>> 13e65bcd18a6c60897281e72e11fa20c7947b5fe:app/views/products/cart.php
 <?php
 class cart extends View
 {
