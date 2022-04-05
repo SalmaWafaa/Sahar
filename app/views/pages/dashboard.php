@@ -25,12 +25,11 @@ class dashboard extends view{
 <body>
     <div class="side-menu">
         <ul>
-            <li><i class="bi bi-speedometer2"></i> <span>Dashboard</span> </li>
-            <li><i class="bi bi-people"></i> <span>Users</span> </li>
-            <li><i class="bi bi-table"></i> <span> Orders</span> </li>
-            <li><i class="bi bi-plus-circle"></i> <span>Add Product</span> </li>
-            <li><i class="bi bi-trash-fill"></i> <span>Edit delete
-                 Product</span></li>
+            <li><i class="bi bi-speedometer2"></i> Home<a href="<?php echo URLROOT . 'pages/Index'; ?>"></a> </li>
+            <li><i class="bi bi-people"></i> Users <a href="<?php echo URLROOT . 'pages/view_users'; ?>"></a></li>
+            <li><i class="bi bi-table"></i>  Orders<a href="<?php echo URLROOT . 'pages/view_users'; ?>"></a> </li>
+            <li><i class="bi bi-plus-circle"></i> Add Product<a href="<?php echo URLROOT . 'products/add_product'; ?>"></a> </li>
+            <li><i class="bi bi-trash-fill"></i> Edit delete Product<a href="<?php echo URLROOT . 'product/edit_delete_product'; ?>"></a></li>
         </ul>
     </div>
     <div class="container">
@@ -47,7 +46,7 @@ class dashboard extends view{
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>53</h1>
+                        <h1>1153</h1>
                         <h3>Products</h3>
                     </div>
                     <div class="icon-case">
@@ -59,7 +58,7 @@ class dashboard extends view{
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
-                        <h2>Recent Payments</h2>
+                        <h2>Recent Orders</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
                     <table>
