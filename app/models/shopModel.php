@@ -15,6 +15,9 @@ class shopModel extends Model
     protected $img1;
     protected $img2;
     protected $img3;
+    protected $img1Err;
+    protected $img2Err;
+    protected $img3Err;
 
 
     public function __construct()
@@ -185,7 +188,7 @@ class shopModel extends Model
 
     public function getRateErr()
     {
-        return $this->RateErr;
+        return $this->rateErr;
     }
     public function setRateErr($rateErr)
     {
