@@ -5,12 +5,10 @@
 
 <?php
 class gallery extends view{
-    public function image($name){
-
-
-    }
+    
     public function output()
   {
+    $pic=$this->model->getAllPics();
     $title = $this->model->title;
     //$data = $this->model->data;
 
@@ -29,10 +27,10 @@ class gallery extends view{
 
   <div class="carousel-indicators">
       <?php 
-      for($i=1;$i<11;$i++){
+      foreach($pic as $x){
         ?>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-    <button type="button" data-bs-target="#demo" data-bs-slide-to="<?php $i ?>"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="<?php $x ?>"></button>
     <?php 
       }
       ?>
@@ -43,10 +41,10 @@ class gallery extends view{
       <img src="<?php echo ImageRoot . 'SQ1.jpg' ; ?> " alt="" class="d-block" style="width:100%">
     </div>
     <?php 
-    for($i=2;$i<11;$i++){
+     foreach($pic as $x){
         ?>
     <div class="carousel-item">
-      <img src="<?php echo ImageRoot . 'SQ'.$i.'.jpg' ; ?> " alt="Chicago" class="d-block" style="width:100%">
+      <img src="<?php echo ImageRoot . $x->PicName ; ?> " alt="" class="d-block" style="width:100%">
     </div>
    <?php } ?>
   </div>
