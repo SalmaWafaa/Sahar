@@ -132,6 +132,52 @@ class Products extends Controller
         $categoriesView = new categories($this->getModel(), $this);
         $categoriesView->output();
     }
+    public function add_category()
+    {
+        $add_categoryModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $add_categoryModel->setproductName(trim($_POST['Category_Name']));
+           
+            //$add_productModel->setimg(trim($_POST['Product_Image']));
+           
+            /*$dir=ImageRoot ;
+	        $fileName1=$_FILES[$add_productModel->setimg(trim($_POST['Product_Image']))]['name'];
+	        move_uploaded_file($_FILES[$add_productModel->setimg(trim($_POST['Product_Image']))]['tmp_name'], $dir.$fileName1);*/
+
+            //validation
+           
+            if (empty($add_productModel->getProductName())) {
+                $add_productModel->setproductNameErr('Please enter a name for the product');
+            } elseif ($add_productModel->ProductExist($_POST['Category_Name'])) {
+                $add_productModel->setproductNameErr('There is already a product with that name');
+            }
+           
+            if (
+                empty($add_productModel->getProductNameErr())
+               
+                
+               
+
+            ) {
+                
+
+                if ($add_categoryModel->add_category()) {
+                    //alert
+                    flash('register_success', 'You have added product successfully');
+                    redirect('products/shop');
+                } else {
+                    die('Error in adding product');
+                }
+            }
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
+        $viewPath = VIEWS_PATH . 'products/add_category.php';
+        require_once $viewPath;
+        $view = new add_category($this->getModel(), $this);
+        $view->output();
+    }
     public function shop()
     {
         $viewPath = VIEWS_PATH . 'products/shop.php';
