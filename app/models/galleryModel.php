@@ -1,15 +1,13 @@
 <?php
-require_once 'UserModel.php';
-class galleryModel 
+class galleryModel extends Model
 {
     public  $title = 'Gallery';
 
-    public function pictures()
+    public function getAllPics()
     {
-        $this->dbh->query('SELECT * from gallery ');
-        $this->dbh->bind(':pic', $this->pic);
-
-        $record = $this->dbh->single();
+        $this->dbh->query('select * from gallery ');
+        $usersRecord = $this->dbh->resultSet();
+        return $usersRecord;
 
     }
 }
