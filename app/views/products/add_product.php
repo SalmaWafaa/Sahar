@@ -44,6 +44,7 @@ EOT;
     $this->printProdName();
     $this->printProdDescr();
     $this->printProdQuantity();
+    $this->printRadio();
     $this->printProdPrice();
     $text = <<<EOT
     
@@ -115,6 +116,35 @@ EOT;
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'Product_Price', $val, $err, $valid,'bi bi-cash');
+  }
+  private function printRadio(){
+    $text = <<<EOT
+    <div class="form-group">
+    <label for="q1"> Category: <sup>*</sup> </label>
+    <br>
+    <input type="radio" name="q1" value="1" />
+    chargers <br>
+    <input type="radio" name="q1" value="2" />
+    Power Banks <br>
+    <input type="radio" name="q1" value="3" />
+    Earphones <br>
+    <input type="radio" name="q1" value="5" />
+    Memory <br>
+    <input type="radio" name="q1" value="6" />
+    Speakers <br>
+    <input type="radio" name="q1" value="7" />
+    Car Holders <br>
+    <input type="radio" name="q1" value="8" />
+    Maintanince <br>
+    <input type="radio" name="q1" value="9" />
+    HeadPhones <br>
+    <input type="radio" name="q1" value="10" />
+    Cables <br>
+    </div>
+   
+  EOT;
+    echo $text;
+  
   }
   
   private function printInput($type, $fieldName, $val, $err, $valid,$icon)

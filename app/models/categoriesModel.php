@@ -64,15 +64,15 @@ class categoriesModel extends Model
    
     public function findCategory($CategoryName)
     {
-        $this->dbh->query('select * from products where CatName=:cat_name');
+        $this->dbh->query('select * from categories where CatName=:cat_name');
         $this->dbh->bind(':cat_name', $CategoryName);
         $userRecord = $this->dbh->single();
         return $this->dbh->rowCount();
     }
 
-    public function ProductExist($CategoryName)
+    public function CategoryExist($CategoryName)
     {
-        return $this->findProduct($CategoryName) > 0;
+        return $this->findCategory($CategoryName) > 0;
     }
 }
 ?>

@@ -27,14 +27,14 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'products/add_product';
+    $action = URLROOT . 'products/add_category';
 
     $text = <<<EOT
     <div class="Regform">
     <div class="row">
     <div class="col-md-12 mx-auto">
     <div class="card card-body bg-light mt-6">
-    <h2>Add Product</h2>
+    <h2>Add Category</h2>
     <form action="$action" method="post" enctype="multipart/form-data">
 EOT;
     echo $text;
