@@ -119,48 +119,48 @@ class Users extends Controller
         $view = new Login($userModel, $this);
         $view->output();
     }
-    public function editprofile()
+    public function Editprofile()
     {
         $EditProfileModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $EditProfileModel->setFName(trim($_POST['first_name']));
-            $EditProfileModel->setLName(trim($_POST['last_name']));
-            $EditProfileModel->setEmail(trim($_POST['email']));
-            $EditProfileModel->setPassword(trim($_POST['password']));
+            $EditProfileModel->setFirstName(trim($_POST['first_name']));
+            $EditProfileModel->setLastName(trim($_POST['last_name']));
+            $EditProfileModel->setEm(trim($_POST['email']));
+            $EditProfileModel->setpass(trim($_POST['password']));
             $EditProfileModel->setConfirmPassword(trim($_POST['confirm_password']));
-            $EditProfileModel->setAddress(trim($_POST['address']));
-            $EditProfileModel->setMobile(trim($_POST['mobile']));
+            $EditProfileModel->setAddr(trim($_POST['address']));
+            $EditProfileModel->setMob(trim($_POST['mobile']));
 
 
             //validation
-            if (empty($EditProfileModel->getFName())) {
+            if (empty($EditProfileModel->getFirstName($_SESSION['user_id']))) {
                 $EditProfileModel->setFNameErr('Please enter your first name');
             }
-            if (empty($EditProfileModel->getLName())) {
+            if (empty($EditProfileModel->getLastName($_SESSION['user_id']))) {
                 $EditProfileModel->setLNameErr('Please enter your last name');
             }
-            if (empty($EditProfileModel->getEmail())) {
+            if (empty($EditProfileModel->getEm($_SESSION['user_id']))) {
                 $EditProfileModel->setEmailErr('Please enter an email');
             } elseif ($EditProfileModel->emailExist($_POST['email'])) {
                 $EditProfileModel->setEmailErr('Email is already registered');
             }
-            if (empty($EditProfileModel->getPassword())) {
+            if (empty($EditProfileModel->getpass($_SESSION['user_id']))) {
                 $EditProfileModel->setPasswordErr('Please enter a password');
-            } elseif (strlen($EditProfileModel->getPassword()) < 8) {
+            } elseif (strlen($EditProfileModel->getpass($_SESSION['user_id'])) < 8) {
                 $EditProfileModel->setPasswordErr('Password must contain at least 8 characters');
             }
 
-            if ($EditProfileModel->getPassword() != $EditProfileModel->getConfirmPassword()) {
+           /* if ($EditProfileModel->getpassword($_SESSION['user_id'])) != $EditProfileModel->getConfirmPassword($_SESSION['user_id']) {
                 $EditProfileModel->setConfirmPasswordErr('Passwords do not match');
-            }
-            
-            if (empty($EditProfileModel->getAddress())) {
+            }*/
+          
+            if (empty($EditProfileModel->getAddr($_SESSION['user_id']))) {
                 $EditProfileModel->setAddressErr('Please enter address');
             }
-            if (empty($EditProfileModel->getMobile())) {
+            if (empty($EditProfileModel->getMob($_SESSION['user_id']))){
                 $EditProfileModel->setMobileErr('Please enter your mobile number');
-            } elseif(strlen($EditProfileModel->getMobile()) < 11){
+            } elseif(($EditProfileModel->getMob($_SESSION['user_id'])) < 11){
                 $EditProfileModel->setMobileErr('Mobile number must not be less than 11 characters check again');
             }
 
@@ -175,17 +175,18 @@ class Users extends Controller
 
             ) {
                 //Hash Password
-                $EditProfileModel->setPassword(password_hash($EditProfileModel->getPassword(), PASSWORD_DEFAULT));
-                $EditProfileModel->EditProfile(1,$EditProfileModel->getFName(),$EditProfileModel->getLName(),$EditProfileModel->getEmail(),$EditProfileModel->getPassword(),$EditProfileModel->getAddress(),$EditProfileModel->getMobile());
-                if ($EditProfileModel->EditProfile()) {
+                $EditProfileModel->setpass(password_hash($EditProfileModel->getpass($_SESSION['user_id']), PASSWORD_DEFAULT));
+                $EditProfileModel->EditProfile($_SESSION['user_id']);
+                if ($EditProfileModel->EditProfile($_SESSION['user_id'])) {
                     //header('location: ' . URLROOT . 'users/login');
                     flash('Edit_success', 'You have editted your profile successfully');
                     redirect('users/login');
                 } else {
-                    die('Error in sign up');
+                    die('Error in Edit');
                 }
             }
         }
+        
         // Load form
         //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
         $viewPath = VIEWS_PATH . 'users/EditProfile.php';
@@ -196,12 +197,13 @@ class Users extends Controller
 
     public function createUserSession($user)
     {
-        $_SESSION['user_id'] = $user->id;
-        $_SESSION['user_Fname'] = $user->fname;
-        $_SESSION['user_Lname'] = $user->lname;
-        $_SESSION['user_address'] = $user->addr;
-        $_SESSION['user_mobile'] = $user->mob;
-        $_SESSION['user_Email'] = $user->email;
+        $_SESSION['user_id'] = $user->ID;
+        $_SESSION['user_Fname'] = $user->FirstName;
+        $_SESSION['user_Lname'] = $user->LastName;
+        $_SESSION['user_address'] = $user->Address;
+        $_SESSION['user_mobile'] = $user->Mobile;
+        $_SESSION['user_Email'] = $user->Email;
+        $_SESSION['user_pass']=$user->password;
         //header('location: ' . URLROOT . 'pages');
         redirect('pages');
     }

@@ -15,6 +15,10 @@ class shopModel extends Model
     protected $img1;
     protected $img2;
     protected $img3;
+    protected $img1Err;
+    protected $img2Err;
+    protected $img3Err;
+    protected $Category;
 
 
     public function __construct()
@@ -38,6 +42,7 @@ class shopModel extends Model
 
         $this->rate = "";
         $this->rateErr = "";
+        $this->Category="";
     }
 
     public function getDescription()
@@ -59,22 +64,41 @@ class shopModel extends Model
     {
         $this->descriptionErr = $descriptionErr;
     }
+    public function getCategory()
+    {
+        return $this->Category;
+    }
+
+    public function setCategory($Category)
+    {
+        $this->Category = $Category;
+    }
+    
+    public function getCategoryErr()
+    {
+        return $this->CategoryErr;
+    }
+
+    public function setCategoryErr($CategoryErr)
+    {
+        $this->CategoryErr = $CategoryErr;
+    }
     public function getimg1()
     {
         return $this->img1;
     }
 
-    public function setimg1($img)
+    public function setimg1($img1)
     {
         $this->img1 = $img1;
     }
     
     public function getimg1Err()
     {
-        return $this->img1;
+        return $this->img1Err;
     }
 
-    public function setimg1Err($imgErr)
+    public function setimg1Err($img1Err)
     {
         $this->img1Err = $img1Err;
     }
@@ -83,17 +107,17 @@ class shopModel extends Model
         return $this->img2;
     }
 
-    public function setimg2($img)
+    public function setimg2($img2)
     {
         $this->img2 = $img2;
     }
     
     public function getimg2Err()
     {
-        return $this->img2;
+        return $this->img2Err;
     }
 
-    public function setimg2Err($imgErr)
+    public function setimg2Err($img2Err)
     {
         $this->img2Err = $img2Err;
     }
@@ -102,7 +126,7 @@ class shopModel extends Model
         return $this->img3;
     }
 
-    public function setimg3($img)
+    public function setimg3($img3)
     {
         $this->img3 = $img3;
     }
@@ -112,7 +136,7 @@ class shopModel extends Model
         return $this->img3;
     }
 
-    public function setimg3Err($imgErr)
+    public function setimg3Err($img3Err)
     {
         $this->img3Err = $img3Err;
     }
@@ -185,7 +209,7 @@ class shopModel extends Model
 
     public function getRateErr()
     {
-        return $this->RateErr;
+        return $this->rateErr;
     }
     public function setRateErr($rateErr)
     {

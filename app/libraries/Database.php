@@ -89,4 +89,9 @@ class Database
     {
         return $this->stmt->rowCount();
     }
+    /*public function resultFetchCol()
+    {
+        $this->execute();
+        return $this->stmt->fetchAll( PDO::FETCH_COLUMN);
+    }*/
 }
