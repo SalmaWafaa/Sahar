@@ -13,6 +13,8 @@ class Contact extends View
     //$title = $this->model->title;
 
      require APPROOT . '/views/inc/header.php';
+     $contact=$this->model->Contact();
+    foreach($contact as $con)
      ?>
       <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
       <div class="container">
@@ -25,16 +27,24 @@ class Contact extends View
       <h3>If you need any Help, simply emal us or just call</h3>
       <div class="info">
       <div class="social-information"> <i class="fa fa-map-marker"></i>
-       <p>Life Mall District No 1,behind Seoudi supermarket First  New Cairo, Cairo Governorate.</p>
+      <?php
+     echo $con->Address
+      ?>
        </div>
        <div class="social-information"> <i class="fa fa-envelope-o"></i>
-       <p>info@sa7-r.net</p>
+       <?php
+     echo $con->Mail
+      ?>
        </div>
        <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-       <p>01210005005</p>
+       <?php
+     echo $con->Mobile
+      ?>
        </div>
        <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-       <p>+2 226198047</p>
+       <?php
+     echo $con->Telephone
+      ?>
        </div>
        </div>
        </div>
