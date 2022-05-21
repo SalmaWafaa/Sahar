@@ -83,7 +83,7 @@ class Contact extends View
     $err = $this->model->getuserMailErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('userMail', 'userMail', $val, $err, $valid);
+    $this->printInput('email', 'userMail', $val, $err, $valid);
   }
   private function printUserID()
   {
@@ -91,7 +91,7 @@ class Contact extends View
     $err = $this->model->getuserID();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('userID', 'userID', $val, $err, $valid);
+    $this->printInput('text', 'userID', $val, $err, $valid);
   }
   private function printSubject()
   {
@@ -99,7 +99,7 @@ class Contact extends View
     $err = $this->model->getSubj();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('Subj', 'Subj', $val, $err, $valid);
+    $this->printInput('text', 'Subj', $val, $err, $valid);
   }
   private function printmsg()
   {
@@ -107,7 +107,7 @@ class Contact extends View
     $err = $this->model->getmsg();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('msg', 'msg', $val, $err, $valid);
+    $this->printInput('text', 'msg', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
