@@ -44,6 +44,13 @@ class Contact extends View
        <div class="social-information"> <i class="fa fa-mobile-phone"></i>
        <?php
      echo $con->Telephone
+     EOT;
+    echo $text;
+    $this->printUserEmail();
+    $this->printUserID();
+    $this->printSubject();
+    $this->printmsg();
+    $text = <<<EOT
       ?>
        </div>
        </div>
@@ -53,7 +60,7 @@ class Contact extends View
        <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
 	   <div class="contact-info-form"> 
        <div class="container">
-       <form action="#" onclick="return false;" autocomplete="off">
+       <form action="$action" method="post" onclick="return false;" autocomplete="off">
      <h3 class="title">Contact us</h3>
      <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" /> </div>
      <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" /> </div>
@@ -72,9 +79,12 @@ class Contact extends View
 
 
 
-  
+       
        <?php
        require APPROOT . '/views/inc/footer.php';
+  }
+  EOT;
+    echo $text;
   }
   
   private function printUserEmail()
@@ -120,9 +130,7 @@ class Contact extends View
       <span class="invalid-feedback">$err</span>
     </div>
     
-EOT;
-    echo $text;
-  }
+
 }
 
 ?>
