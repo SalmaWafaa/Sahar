@@ -6,6 +6,13 @@ class ContactModel extends model{
 	protected $userID;
 	protected $Subj;
 	protected $msg;
+
+
+    protected $dsenterr;
+	protected $userMailerr;
+	protected $userIDerr;
+	protected $Subjerr;
+	protected $msgerr;
 	public function __construct()
     {
         parent::__construct();
@@ -14,6 +21,13 @@ class ContactModel extends model{
         $this->userID     = "";
         $this->Subj = "";
 		$this->msg = "";
+
+
+        $this->dsenterr     = "";
+        $this->userMailerr = "";
+        $this->userIDerr     = "";
+        $this->Subjerr = "";
+		$this->msgerr = "";
 	}
 	public function getdsent()
     {
@@ -38,6 +52,8 @@ class ContactModel extends model{
     {
         return $this->msg;
     }
+
+
 	public function setdsent($dsent)
     {
         $this->dsent = $dsent;
@@ -57,6 +73,55 @@ class ContactModel extends model{
 	public function setmsg($msgt)
     {
         $this->msg= $msg;
+    }
+
+
+
+
+    public function getdsenterr()
+    {
+        return $this->dsenterr;
+    }
+	public function getuserMailerr()
+    {
+        return $this->userMaierrl;
+    }
+
+	public function getuserIDerr ()
+    {
+        return $this->userIDerr ;
+    }
+
+	public function getSubjerr()
+    {
+        return $this->Subjerr;
+    }
+
+	public function getmsgerr()
+    {
+        return $this->msgerr;
+    }
+
+    
+	public function setdsenterr($dsenterr)
+    {
+        $this->dsenterr = $dsenterr;
+    }
+	public function setuserMailerr($userMailerr)
+    {
+        $this->userMailerr = $userMailerr;
+    }
+	public function setuserIDerr($userIDerr)
+    {
+        $this->userIDerr = $userIDerr;
+    }
+	public function setSubjerr($Subjerr)
+    {
+        $this->Subjerr = $Subjerr;
+    }
+	public function setmsgerr($msgerr)
+    {
+        $this->msgerr= $msgerr;
     }
 
     public function contactMsg()

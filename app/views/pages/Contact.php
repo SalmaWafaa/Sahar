@@ -76,5 +76,53 @@ class Contact extends View
        <?php
        require APPROOT . '/views/inc/footer.php';
   }
+  
+  private function printUserEmail()
+  {
+    $val = $this->model->getuserMail();
+    $err = $this->model->getuserMailErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('userMail', 'userMail', $val, $err, $valid);
+  }
+  private function printUserID()
+  {
+    $val = $this->model->getuserID();
+    $err = $this->model->getuserID();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('userID', 'userID', $val, $err, $valid);
+  }
+  private function printSubject()
+  {
+    $val = $this->model->getSubj();
+    $err = $this->model->getSubj();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('Subj', 'Subj', $val, $err, $valid);
+  }
+  private function printmsg()
+  {
+    $val = $this->model->getmsg();
+    $err = $this->model->getmsg();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('msg', 'msg', $val, $err, $valid);
+  }
+  private function printInput($type, $fieldName, $val, $err, $valid)
+  {
+    $label = str_replace("_", " ", $fieldName);
+    $label = ucwords($label);
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
+      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
+    echo $text;
+  }
 }
+
 ?>
