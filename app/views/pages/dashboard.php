@@ -19,6 +19,8 @@ class dashboard extends view{
   {
     $title = $this->model->title;
     $viewPath= VIEWS_PATH . 'pages/view_users.php';
+    $messages=$this->model->Msg();
+    foreach($messages as $msg)
    ?>
    
 
@@ -61,21 +63,27 @@ class dashboard extends view{
                         <h2>Recent Messages</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
-                    <table>
-                        <tr>
+                    <?php
+                    $str="<table class='table table-striped table-bordered table-hover '>
+                    <thead><tr>
                         <th>ID</th>
                           <th>Date</th>
                           <th>User Email</th>
                           <th>Client ID</th>
                           <th>Subject</th>
                           <th>Message</th>
-                        </tr>
-                        <tr>
-                            
-                        </tr>
+                        </tr></thead>";
                         
-                    </table>
-                </div>
+                        $str.=" <tr><td>".$msg->Id."</td>
+                         <td>".$msg->dateSent."</td>
+                         <td>".$msg->UserEmail."</td>
+                         <td>".$msg->UserID."</td> 
+                         <td>".$msg->Subject."</td>
+                         <td>".$msg->Message."<</td></tr>";
+                       
+                         $str.="</table> </div>";
+                         echo $str;
+                         ?>
                 <div class="new-students">
                     <div class="title">
                         <h2>Top Users</h2>
