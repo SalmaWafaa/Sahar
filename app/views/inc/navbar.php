@@ -37,12 +37,16 @@
       
         <button class="btn btn-warning" type="submit">Search</button>
         <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-       <?php if (isset($_SESSION['user_id'])) : ?>
+       <?php if (isset($_SESSION['user_id'])) :   
+              echo $_SESSION['user_Fname'];
+
+        ?>
         <button class="p-2"><a href="users/logout">Logout</a></button>
             <?php else : ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/login'; ?>" >Login</a></button>
               <?php if (isset($_SESSION['user_id'])) {
-              echo $_SESSION['user_name'];
+              ?> <div class="nav-link" <? echo $_SESSION['user_Fname']; ?> >
+              <?php
             } 
             ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/register'; ?>" >Sign_Up</a></button>

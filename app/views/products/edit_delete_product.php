@@ -40,8 +40,7 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'users/editprofile';
-    $loginUrl = URLROOT . 'users/login';
+    $action = URLROOT . 'products/edit_delete_product';
 
     $text = <<<EOT
     <div class="Regform">

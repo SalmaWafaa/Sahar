@@ -19,13 +19,13 @@ class EditProfile extends view
 {
   public function output()
   {
-    $title = $this->model->title;
+    $title = $_SESSION['user_id'];
 
     require APPROOT . '/views/inc/header.php';
     $text = <<<EOT
     <div class="bg-warning">
     <div class="container">
-      <h1 class="display-4"> <center>$title</center></h1>
+      <h1 class="display-4"> <center>$title  </center></h1>
     </div>
   </div>
 
@@ -52,6 +52,7 @@ EOT;
     <form action="$action" method="post" >
 EOT;
     echo $text;
+   
     $this->printFName();
     $this->printLName();
     $this->printEmail();
@@ -93,7 +94,7 @@ EOT;
 
   private function printFName()
   {
-    $val = "yasmin";
+    $val = $this->model->getFirstName($_SESSION['user_id']);
     $err = $this->model->getFNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -101,7 +102,7 @@ EOT;
   }
   private function printLName()
   {
-    $val = "kandil";
+    $val = $this->model->getLastName($_SESSION['user_id']);
     $err = $this->model->getLNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -109,7 +110,7 @@ EOT;
   }
   private function printEmail()
   {
-    $val = "kandil@gmail.com";
+    $val = $this->model->getEm($_SESSION['user_id']);
     $err = $this->model->getEmailErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -118,7 +119,8 @@ EOT;
 
   private function printPassword()
   {
-    $val = ".........";
+    //$val = $this->model->setpass(password_verify(,getpass($_SESSION['user_id'])));
+    $val="......";
     $err = $this->model->getPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -126,7 +128,8 @@ EOT;
   }
   private function printConfirmPassword()
   {
-    $val = ".........";
+    //$val = $this->model->getpass($_SESSION['user_id']);
+    $val="......";
     $err = $this->model->getConfirmPasswordErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -134,7 +137,7 @@ EOT;
   }
   private function printAddress()
   {
-    $val ="new cairo";
+    $val =$this->model->getAddr($_SESSION['user_id']);
     $err = $this->model->getAddressErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -142,7 +145,7 @@ EOT;
   }
   private function printMobile()
   {
-    $val = "010000000";
+    $val =$this->model->getMob($_SESSION['user_id']);
     $err = $this->model->getMobileErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -154,6 +157,7 @@ EOT;
     $label = ucwords($label);
     $text = <<<EOT
     <div class="form-group">
+    
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
       <span class="invalid-feedback">$err</span>
