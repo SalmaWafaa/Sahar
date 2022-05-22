@@ -46,8 +46,12 @@
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/login'; ?>" >Login</a></button>
               <?php if (isset($_SESSION['user_id'])) {
               ?> <div class="nav-link" <? echo $_SESSION['user_Fname']; ?> >
-              <?php
-            } 
+              <a href="<?php echo URLROOT . 'products/cart';?>' class="notification">
+              <span>Inbox</span>
+              <span class="badge">3</span>
+            </a>
+                         <?php
+ } 
             ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/register'; ?>" >Sign_Up</a></button>
             <?php endif; ?>
