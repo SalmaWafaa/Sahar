@@ -11,7 +11,7 @@
     $text = <<<EOT
     <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
     <div class="container">
-      <h1 class="p-3 mb-2 bg-warning bg-gradient text-dark"><center> $title</center></h1>     
+      <h1><center> $title</center></h1>     
   </div>
   </div>
 EOT;

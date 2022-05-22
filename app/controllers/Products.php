@@ -208,16 +208,44 @@ class Products extends Controller
         $cartView = new cart($this->getModel(), $this);
         $cartView->output();
     }
-  
-   
-
     public function Checkout(){
         $viewPath= VIEWS_PATH . 'products/Checkout.php';
         require_once $viewPath;
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
+    }     
+    public function offers()
+    {
+        $viewPath = VIEWS_PATH . 'products/offers.php';
+        require_once $viewPath;
+        $offersView = new offers($this->getModel(), $this);
+        $offersView->output();
     }
-    
 
+    public function add_offer()
+    {
+        $add_offerModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $add_offerModel->setproductName(trim($_POST['Offer_Name']));
+            //validation
+            if (
+                empty($add_productModel->getProductNameErr())
+            ) {
+                if ($add_offerModel->add_offer()) {
+                    //alert
+                    flash('register_success', 'You have added product successfully');
+                    redirect('products/shop');
+                } else {
+                    die('Error in adding product');
+                }
+            }
+        }
+        // Load form
+        $viewPath = VIEWS_PATH . 'products/add_offer.php';
+        require_once $viewPath;
+        $view = new add_offer($this->getModel(), $this);
+        $view->output();
+    }
     
 }

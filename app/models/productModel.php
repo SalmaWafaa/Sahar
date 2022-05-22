@@ -6,12 +6,17 @@ class productModel extends Model
     protected $descriptionErr;
     protected $productName;
     protected $productNameErr;
+    protected $productImageErr;
+    protected $productImage;
     protected $price;
     protected $priceErr;
     protected $quantity;
     protected $quantityErr;
     protected $rate;
     protected $rateErr;
+    public $id;
+    public $options;
+
     public function getDescription()
     {
         return $this->description;
@@ -104,16 +109,29 @@ class productModel extends Model
     {
         $this->rateErr = $rateErr;
     }
-    public function product()
+    public function product($id)
     {
-        $this->dbh->query('SELECT * from products');
+        $this->dbh->query('SELECT * from products  WHERE ProductID=".$id');
         $this->dbh->bind(':description', $this->description);
         $this->dbh->bind(':productName', $this->productName);
         $this->dbh->bind(':price', $this->price);
         $this->dbh->bind(':quantity', $this->quantity);
         $this->dbh->bind(':rate', $this->rate);
-
         $record = $this->dbh->resultSet();
         $product = $record->product;
+
+        $this->id=$record->productID;
+        $this->productName=$record->productName;
+        $this->productImage=$record->productImage;
+        $this->description=$record->Description;
+        $this->options=array();
+
+        $this->dbh->query('SELECT options.Name,product_s_o_v.Value 
+		from options INNER JOIN product_type_s_o on options.ID=product_type_s_o.Options
+        INNER Join product_s_o_v on product_type_s_o.ID=product_s_o_v.Product_Type_S_O
+		where product_s_o_v.Product_ID='.$id);
+        foreach($record as $x) {
+			$this->options[$x['productName']]=$x->productID; //x['drug strength']=500mg
+		}
     }
 }
