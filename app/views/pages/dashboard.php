@@ -58,71 +58,22 @@ class dashboard extends view{
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
-                        <h2>Recent Orders</h2>
+                        <h2>Recent Messages</h2>
                         <a href="#" class="btn">View All</a>
                     </div>
                     <table>
                         <tr>
-                            <th>Order Number</th>
-                            <th>Product ID</th>
-			                <th>Quantity</th>
-			                <th>Address</th>
-			                <th>Client ID</th>
-			                <th>Payment Type</th>
-                            <th>Shipping Fees</th>
-                            <th>Mobile Number</th>
-                            <th>Total</th>
-                            <th>Date</th>
+                        <th>ID</th>
+                          <th>Date</th>
+                          <th>User Email</th>
+                          <th>Client ID</th>
+                          <th>Subject</th>
+                          <th>Message</th>
                         </tr>
                         <tr>
-                            <td>55</td>
-                            <td>77D#</td>
-                            <td>1</td>
-                            <td>new cairo</td>
-                            <td>23</td>
-                            <td>credit card</td>
-                            <td>50</td>
-                            <td>01000000000</td>
-                            <td>350</td>
-                            <td>3/2/2022</td>
-                        </tr>
-                        <tr>
-                        <td>92</td>
-                            <td>79k#</td>
-                            <td>3</td>
-                            <td>sheikh zaied</td>
-                            <td>46</td>
-                            <td>cash on delivery</td>
-                            <td>50</td>
-                            <td>01000000000</td>
-                            <td>1350</td>
-                            <td>5/1/2022</td>
-                        </tr>
-                        <tr>
-                        <td>137</td>
-                            <td>02FF#</td>
-                            <td>2</td>
-                            <td>heliopolis</td>
-                            <td>67</td>
-                            <td>cash on delivery</td>
-                            <td>50</td>
-                            <td>01000000000</td>
-                            <td>600</td>
-                            <td>3/1/2022</td>
+                            
                         </tr>
                         
-                        <tr>
-                        <td>137</td>
-                            <td>12MH#</td>
-                            <td>1</td>
-                            <td>Madenit Nassr</td>
-                            <td>81</td>
-                            <td>Credit Card</td>
-                            <td>50</td>
-                            <td>01000000000</td>
-                            <td>175</td>
-                            <td>14/5/2022</td>
-                        </tr>
                     </table>
                 </div>
                 <div class="new-students">
