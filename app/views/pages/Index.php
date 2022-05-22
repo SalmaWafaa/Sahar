@@ -77,12 +77,11 @@ class Index extends View
            Deal of the Month!</h2>
 <br>
         <p>Fix Your Iphone battery With 25% Discount.</p>
+        <center><button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/offers'; ?> 
+        ">Shop <i class="bi bi-cart"></i></button></center>
       </div>
     </div>
   </div>
-
-
-
    <br>
 
 
