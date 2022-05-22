@@ -70,39 +70,7 @@ class Products extends Controller
         $view = new add_product($this->getModel(), $this);
         $view->output();
     }
-    /*public function editcontact(){
-$editcontact=$this-›getModel();
-if ($ SERVER['REQUEST _METHOD' ]
-== 'POST' ){
-$id=$_ POST[' submit'];
-$image="card{$id}o";
-$card="card{$id}1";
-$link="card{$id}2";
-$editcontact-›setCaption($ POST| $card]) ;
-$editcontact-›setLink($_POST[$link]);
-$root = $_SERVER[ ' DOCUMENT ROOT' ]."/sheinaddict/app/views/images/":
-$dir= ImageRoot;
-$fileName1=$root.basename ($ FILES[$image ]['name']);
-move_uploaded_file($_FILES[$image ][' tmp_name'],$fileName1);
-/*
- //$root = $ SERVER[ "DOCUMENT ROOT" 7.
-"/sheinaddict/app/views/images/";
-/ $dir= ImageRoot;
-// $fileName1=basename ($ FILES[ $image][ 'name' 1) ;
-/1 move uploaded file($_FILES[$image][ 'tmp name '], ImageRoot . $_FILES[$image]["name" ]);
-// $uploads dir = ImageRoot.
-"category/";
-/1 $fileName=$ FILES[$image][ 'name'];
-/1 $fileName1=basename ($ FILES[$image][ 'name ' ]);
-///1 move_uploaded _file(sfileName,"$uploads_dir/$fileName1");
-
-$editcontact-›setcontactImage (trim ($fileName1));
-$result-$editcontact-›editcontact($_POST[' submit' ]);
-/*
-//if(I$result){
-echo
-"‹script› alert('{$ POST[ $card]} ) </script›";
-}*/
+ 
     public function edit_delete_product()
     {
         $edit_delete_productModel = $this->getModel();
@@ -243,13 +211,44 @@ echo
         $cartView->output();
     }
   
-   
-
     public function Checkout(){
         $viewPath= VIEWS_PATH . 'products/Checkout.php';
         require_once $viewPath;
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
+    }     
+    public function offers()
+    {
+        $viewPath = VIEWS_PATH . 'products/offers.php';
+        require_once $viewPath;
+        $offersView = new offers($this->getModel(), $this);
+        $offersView->output();
+    }
+
+    public function add_offer()
+    {
+        $add_offerModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $add_offerModel->setproductName(trim($_POST['Offer_Name']));
+            //validation
+            if (
+                empty($add_productModel->getProductNameErr())
+            ) {
+                if ($add_offerModel->add_offer()) {
+                    //alert
+                    flash('register_success', 'You have added product successfully');
+                    redirect('products/shop');
+                } else {
+                    die('Error in adding product');
+                }
+            }
+        }
+        // Load form
+        $viewPath = VIEWS_PATH . 'products/add_offer.php';
+        require_once $viewPath;
+        $view = new add_offer($this->getModel(), $this);
+        $view->output();
     }
     public function edit_prod(){
         $viewPath= VIEWS_PATH . 'products/edit_prod.php';
@@ -257,7 +256,5 @@ echo
         $edit=new edit_prod($this->getModel(),$this);
         $edit->output();
     }
-    
-
     
 }

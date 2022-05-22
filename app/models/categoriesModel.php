@@ -74,5 +74,12 @@ class categoriesModel extends Model
     {
         return $this->findCategory($CategoryName) > 0;
     }
+    public function getAllCategories()
+    {
+        $this->dbh->query('select * from categories ');
+        $categRecords = $this->dbh->resultSet();
+        return $categRecords;
+
+    }
 }
 ?>
