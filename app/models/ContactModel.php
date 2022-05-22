@@ -138,7 +138,7 @@ class ContactModel extends model{
 
 	public function Contact()
     {
-        $this->dbh->query('SELECT * from contactdata ');
+        $this->dbh->query('SELECT * from pages ');
         $records=$this->dbh->resultSet();
         return $records;
 
