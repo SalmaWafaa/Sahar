@@ -45,7 +45,8 @@
             <?php else : ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/login'; ?>" >Login</a></button>
               <?php if (isset($_SESSION['user_id'])) {
-              echo $_SESSION['user_Fname'];
+              ?> <div class="nav-link" <? echo $_SESSION['user_Fname']; ?> >
+              <?php
             } 
             ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/register'; ?>" >Sign_Up</a></button>

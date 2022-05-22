@@ -19,6 +19,7 @@ class shopModel extends Model
     protected $img2Err;
     protected $img3Err;
     protected $Category;
+    protected $CategoryErr;
 
 
     public function __construct()
@@ -240,5 +241,12 @@ class shopModel extends Model
     public function ProductExist($productName)
     {
         return $this->findProduct($productName) > 0;
+    }
+    public function getAllProducts()
+    {
+        $this->dbh->query('select * from products ');
+        $ProductsRecords = $this->dbh->resultSet();
+        return $ProductsRecords;
+
     }
 }
