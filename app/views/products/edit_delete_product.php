@@ -40,7 +40,7 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'products/edit_delete_product';
+    $action = URLROOT . 'products/edit_delete_product?id='.$_GET['id'];
 
     $text = <<<EOT
     <div class="Regform">
@@ -62,10 +62,10 @@ EOT;
     <div class="container">
       <div class="row mt-4">
         <div class="col-2">
-          <input type="submit" value="Edit Profile" class="form-control btn btn-warning btn-block">
+          <input type="submit" value="Edit Product" class="form-control btn btn-warning btn-block">
         </div>
         <div class="col-2">
-        <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
+        <input type="button" value="Delete Product" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
         <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="<?php $action ?>">
@@ -92,31 +92,31 @@ EOT;
 
   private function printProdImage1()
   {
-    //$val = $this->model->getimg();
+    //$val = $this->model->getProductimg1($_GET['id']);
     $err = $this->model->getimg1Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
-    $url=ImageRoot . 'H1.jpg';
+    $url=ImageRoot . $this->model->getProductimg1($_GET['id']);
     $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
   }
   private function printProdImage2()
   {
-    //$val = $this->model->getimg();
+    //$val = $this->model->getProductimg2($_GET['id']);
     $err = $this->model->getimg2Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
-    $url=ImageRoot . 'H2.jpg';
-    $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
+    $url=ImageRoot . $this->model->getProductimg2($_GET['id']);
+    $this->printPictures('file', 'Product_Image2', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
   }
   private function printProdImage3()
   {
-    //$val = $this->model->getimg();
+    //$val = $this->model->getProductimg3($_GET['id']);
     $err = $this->model->getimg3Err();
     $valid = (!empty($err) ? 'is-invalid' : '');
-    $url=ImageRoot . 'H3.jpg';
-    $this->printPictures('file', 'Product_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
+    $url=ImageRoot . $this->model->getProductimg3($_GET['id']);
+    $this->printPictures('file', 'Product_Image3', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
   }
   private function printProdName()
   {
-    $val ="HeadPhone";
+    $val =$this->model->getPName($_GET['id']);
     $err = $this->model->getProductNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -124,7 +124,7 @@ EOT;
   }
   private function printProdDescr()
   {
-    $val = "it's in black color";
+    $val =$this->model->getProductDesc($_GET['id']);
     $err = $this->model->getDescriptionErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -133,7 +133,8 @@ EOT;
 
   private function printProdQuantity()
   {
-    $val = "60";
+    $val =$this->model->getProductQuantity($_GET['id']);
+
     $err = $this->model->getQuantityErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
@@ -141,7 +142,8 @@ EOT;
   }
   private function printProdPrice()
   {
-    $val ="200 EGP";
+    $val =$this->model->getProductPrice($_GET['id']);
+
     $err = $this->model->getPriceErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 

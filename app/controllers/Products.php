@@ -75,16 +75,24 @@ class Products extends Controller
     {
         $edit_delete_productModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $dir= ImageRoot;
+            $fileName1=$_FILES['Product_Image']['name'];
+            move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
+           // $edit_delete_productModel->setProductimg1(trim($fileName1));
+            $fileName2=$_FILES['Product_Image2']['name'];
+            move_uploaded_file($_FILES['Product_Image2']['tmp_name'], $dir.$fileName2);
+            //$edit_delete_productModel->setProductimg2(trim($fileName2));
+            $fileName3=$_FILES['Product_Image2']['name'];
+            move_uploaded_file($_FILES['Product_Image3']['tmp_name'], $dir.$fileName3);
+           // $edit_delete_productModel->setProductimg3(trim($fileName3));
         $edit_delete_productModel->setPName(trim($_POST['Product_Name']));
         $edit_delete_productModel->setProductDesc(trim($_POST['Product_Description']));
-        //$edit_delete_productModel->setimg(trim($_POST['Product_Image']));
+        $edit_delete_productModel->setProductimg1(trim($_POST['Product_Image']));
+        $edit_delete_productModel->setProductimg2(trim($_POST['Product_Image2']));
+        $edit_delete_productModel->setProductimg3(trim($_POST['Product_Image3']));
         $edit_delete_productModel->setProductPrice(trim($_POST['Product_Price']));
         $edit_delete_productModel->setProductQuantity(trim($_POST['Product_Quantity']));
         
-        /*$dir=ImageRoot ;
-        $fileName1=$_FILES[$edit_delete_productModel->setimg(trim($_POST['Product_Image']))]['name'];
-        move_uploaded_file($_FILES[$edit_delete_productModel->setimg(trim($_POST['Product_Image']))]['tmp_name'], $dir.$fileName1);*/
-
         //validation
         /*if (empty($edit_delete_productModel->getDescription())) {
             $edit_delete_productModel->setDescriptionErr('Please enter description for product');
@@ -114,16 +122,13 @@ class Products extends Controller
            
 
         ) {*/
-            
-
-            if ($edit_delete_productModel->editProducts($_POST[' submit' ])) {
+            if ($edit_delete_productModel->editProducts($_GET['id'])) {
                 
                 flash('register_success', 'You have Edited product successfully');
-                redirect('products/shop');
+                redirect('products/shop?id='.$edit_delete_productModel->getProductCatID($_GET['id']));
             } else {
-                die('Error in adding product');
+                die("Error in editting Product");
             }
-        
     }
     
         $viewPath = VIEWS_PATH . 'products/edit_delete_product.php';
@@ -132,7 +137,60 @@ class Products extends Controller
         $view->output();
     }
 
-   
+    public function Edit_category()
+    {
+        $Edit_categoriesModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $dir= ImageRoot;
+            $fileName1=$_FILES['Category_Image']['name'];
+            move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
+        $Edit_categoriesModel->setCName(trim($_POST['Category_Name']));   
+        $Edit_categoriesModel->setCimage(trim($_POST['Category_Image']));
+       
+        //validation
+        /*if (empty($edit_delete_productModel->getDescription())) {
+            $edit_delete_productModel->setDescriptionErr('Please enter description for product');
+        }
+        if (empty($edit_delete_productModel->getPrice())) {
+            $edit_delete_productModel->setPriceErr('Please enter price for product');
+        }
+        if (empty($edit_delete_productModel->getProductName())) {
+            $edit_delete_productModel->setproductNameErr('Please enter a name for the product');
+        } elseif ($edit_delete_productModel->ProductExist($_POST['Product_Name'])) {
+            $edit_delete_productModel->setproductNameErr('There is already a product with that name');
+        }
+        if (empty($edit_delete_productModel->getPrice())) {
+            $edit_delete_productModel->setPriceErr('Please enter price for product');
+        } 
+        
+        if (empty($edit_delete_productModel->getQuantity())) {
+            $edit_delete_productModel->setQuantityErr('Please enter Quantity of that product');
+        }
+        
+        if (
+            empty($edit_delete_productModel->getProductNameErr()) &&
+            empty($edit_delete_productModel->getDescriptionErr())&&
+            empty($edit_delete_productModel->getQuantityErr()) &&
+            empty($edit_delete_productModel->getPriceErr()) 
+            
+           
+
+        ) {*/
+            if ($Edit_categoriesModel->editCategories($_GET['id'])) {
+                
+                flash('register_success', 'You have Edited category successfully');
+                redirect('products/categories');
+            } else {
+                die("Error in editting Category");
+            }
+    }
+    
+        $viewPath = VIEWS_PATH . 'products/Edit_category.php';
+        require_once $viewPath;
+        $view = new Edit_category($this->getModel(), $this);
+        $view->output();
+    }
+
     public function categories()
     {
         $viewPath = VIEWS_PATH . 'products/categories.php';
@@ -255,6 +313,12 @@ class Products extends Controller
         require_once $viewPath;
         $edit=new edit_prod($this->getModel(),$this);
         $edit->output();
+    }
+    public function view_categories(){
+        $viewPath= VIEWS_PATH . 'products/view_categories.php';
+        require_once $viewPath;
+        $ViewCView=new view_categories($this->getModel(),$this);
+        $ViewCView->output();
     }
     
 }

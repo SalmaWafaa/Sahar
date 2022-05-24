@@ -22,7 +22,7 @@ class edit_prod extends View
 EOT;
     echo $text;
     $product=$this->model->getAllProducts();
-    $e="Edit";
+    //$e="Edit";
     ?>
     <table class='table table-striped table-bordered table-hover '>
 		<thead><tr class='table-warning'>
@@ -35,34 +35,32 @@ EOT;
 			<th>Quantity</th>
 			<th>Price</th>
 			<th>Rate</th>
-            <th>Edit</th>
-            <th>Delete</th>
-		
+            <th>Edit/Delete</th>
 		</tr>
     </thead>
        <?php  foreach($product as $x)
         {
-    $action = VIEWS_PATH . 'products/edit_delete_product.php';
-
+    //$action = VIEWS_PATH . 'products/edit_delete_product.php';
             ?>  
         <tr>	
         <td> <?php echo $x->ProductID;?></td>
         <td> <?php echo $x->ProductName;?></td>
-        <td> <?php echo $x->productImage1;?></td>
-    <td><?php echo $x->productImage2;?></td> 
-    <td><?php echo $x->productImage3;?></td> 
-    <td><?php echo $x->Description;?></td> 
-    <td><?php echo $x->Quantity;?></td>
-    <td><?php echo $x->Price;?></td>
-    <td><?php echo $x->Rate;?></td>
+        <td><img src="<?php echo ImageRoot . $x->ProductImage ;?>" width="70" height="70" ></td>
+        <td><img src="<?php echo ImageRoot . $x->Product_Image2 ;?>" width="70" height="70" ></td>
+        <td><img src="<?php echo ImageRoot . $x->Product_Image3 ;?>" width="70" height="70" ></td>
+       <td><?php echo $x->Description;?></td> 
+       <td><?php echo $x->Quantity;?></td>
+       <td><?php echo $x->Price;?></td>
+      <td><?php echo $x->Rate;?></td>
      
-    <td><a href= "<?php $action ?>" >Edit</td>
-    </table>
+    <td><a href= "<?php echo URLROOT . 'products/edit_delete_product?id='.$x->ProductID; ?>" >Edit/Delete</td>
+        </tr>
+    
     <?php
         }
-     	
-     /* $str.="";
-      echo $str;*/
+        ?>       
+        </table>
+      <?php
       require APPROOT . '/views/inc/footer.php';
   }
 

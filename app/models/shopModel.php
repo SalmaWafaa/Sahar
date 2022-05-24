@@ -247,6 +247,11 @@ class shopModel extends Model
         $this->dbh->query('select * from products ');
         $ProductsRecords = $this->dbh->resultSet();
         return $ProductsRecords;
-
+    }
+    public function getCategoryProducts($id){
+        $this->dbh->query('select * from products where `Cat_ID`=:id');
+        $this->dbh->bind(':id',$id);
+        $categRecords = $this->dbh->resultSet();
+        return $categRecords;
     }
 }
