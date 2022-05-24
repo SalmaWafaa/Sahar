@@ -12,3 +12,26 @@
        color: rgb(18, 17, 17); text-align: center; text-decoration: none; 
        letter-spacing: 1px; transition: all 0.3s ease-out; 
    }
+   .notification {
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    padding: 15px 26px;
+    position: relative;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  
+  .notification:hover {
+    background: red;
+  }
+  
+  .notification .badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: rgb(233, 138, 15);
+  }
