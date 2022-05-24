@@ -13,8 +13,18 @@ class add_productModel extends shopModel{
         $this->dbh->bind(':quantity', $this->quantity);
         $this->dbh->bind(':price', $this->price); 
         $this->dbh->bind(':categ', $this->Category); 
-        
-
         return $this->dbh->execute();
+    }
+    public function countID(){
+       $x= $this->dbh->query("SELECT COUNT(catID) FROM categories");
+        return $x;
+
+    }
+    public function getCategs()
+    {
+        $this->dbh->query('select * from categories ');
+        $Record = $this->dbh->resultSet();
+        return $Record;
+
     }
 }

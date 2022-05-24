@@ -28,22 +28,22 @@ class Contact extends View
       <div class="info">
       <div class="social-information"> <i class="fa fa-map-marker"></i>
       <?php
-     echo $con->Address
+     echo $con->Location
       ?>
        </div>
        <div class="social-information"> <i class="fa fa-envelope-o"></i>
        <?php
-     echo $con->Mail
+     echo $con->Email_Contact
       ?>
        </div>
        <div class="social-information"> <i class="fa fa-mobile-phone"></i>
        <?php
-     echo $con->Mobile
+     echo $con->Mobile_contact
       ?>
        </div>
        <div class="social-information"> <i class="fa fa-mobile-phone"></i>
        <?php
-     echo $con->Telephone
+     echo $con->Store_contact
      EOT;
     echo $text;
     $this->printUserEmail();
@@ -79,7 +79,7 @@ class Contact extends View
 
 
 
-       
+
        <?php
        require APPROOT . '/views/inc/footer.php';
   }
