@@ -84,7 +84,7 @@ class ContactModel extends model{
     }
 	public function getuserMailerr()
     {
-        return $this->userMaierrl;
+        return $this->userMailerr;
     }
 
 	public function getuserIDerr ()
