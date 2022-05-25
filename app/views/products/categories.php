@@ -10,6 +10,7 @@ class categories extends view{
     
     require APPROOT . '/views/inc/header.php';
     $category=$this->model->getAllCategories();
+   
 
    ?>
 <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
@@ -27,7 +28,7 @@ class categories extends view{
      <div class="col-md-4">
       <div class="thumbnail">
             <img src="<?php echo ImageRoot . $c->CatImage ; ?>" style="width:100%"class="img-rounded">
-            <button class="semi-transparent-button"><?php echo $c->CatName ?></button>
+            <button class="semi-transparent-button"> <a href="<?php echo URLROOT . 'products/shop?id='.$c->catID; ?>" ><?php echo $c->CatName ?></a> </button>
         
       </div>
   </div>

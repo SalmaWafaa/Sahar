@@ -79,7 +79,6 @@ public function getpass($id){
     $this->dbh->query("SELECT password from users where `ID`=:id");
     $this->dbh->bind(':id',$id);
     return $this->dbh->single()->password;
-
 }
 public function setpass($password){
     $this->password=$password;

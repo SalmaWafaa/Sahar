@@ -16,7 +16,7 @@
   </div>
 EOT;
     echo $text;
-    $product=$this->model->getAllProducts();
+    $product=$this->model->getCategoryProducts($_GET['id']);
        ?>
        <div class="row row-cols-2 row-cols-md-4">
          <?php

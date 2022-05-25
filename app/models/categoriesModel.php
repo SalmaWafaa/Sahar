@@ -6,6 +6,7 @@ class categoriesModel extends Model
     protected $CategoryNameErr;
     protected $CategoryImage;
     protected $CategoryImageErr;
+    protected $id;
 
     public function __construct()
     {
@@ -14,6 +15,7 @@ class categoriesModel extends Model
         $this->CategoryNameErr = "";
         $this->CategoryImage= "";
         $this->CategoryImageErr = "";
+        $this->id = "";
        
     }
 
@@ -24,6 +26,14 @@ class categoriesModel extends Model
     public function setCategoryName($CategoryName)
     {
         $this->CategoryName = $CategoryName;
+    }
+    public function getCategoryID()
+    {
+        return $this->id;
+    }
+    public function setCategoryID($id)
+    {
+        $this->id = $id;
     }
 
     public function getCategoryNameErr()
@@ -79,7 +89,7 @@ class categoriesModel extends Model
         $this->dbh->query('select * from categories ');
         $categRecords = $this->dbh->resultSet();
         return $categRecords;
-
     }
+   
 }
 ?>
