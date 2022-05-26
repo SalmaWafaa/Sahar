@@ -314,6 +314,14 @@ class Products extends Controller
         $edit=new edit_prod($this->getModel(),$this);
         $edit->output();
     }
+
+    public function Ordershistory(){
+        $viewPath= VIEWS_PATH . 'products/Ordershistory.php';
+        require_once $viewPath;
+        $Ordershis=new Ordershistory($this->getModel(),$this);
+        $Ordershis->output();
+    }
+    
     public function view_categories(){
         $viewPath= VIEWS_PATH . 'products/view_categories.php';
         require_once $viewPath;

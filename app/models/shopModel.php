@@ -20,6 +20,8 @@ class shopModel extends Model
     protected $img3Err;
     protected $Category;
     protected $CategoryErr;
+     public $datee ;
+
 
 
     public function __construct()
@@ -44,6 +46,7 @@ class shopModel extends Model
         $this->rate = "";
         $this->rateErr = "";
         $this->Category="";
+        $this->datee="";
     }
 
     public function getDescription()
@@ -55,7 +58,15 @@ class shopModel extends Model
     {
         $this->description = $description;
     }
-    
+    public function getDate()
+    {
+        return $this->datee;
+    }
+
+    public function setDate($datee)
+    {
+        $this->datee = date('Y-m-d');
+    }
     public function getDescriptionErr()
     {
         return $this->descriptionErr;
