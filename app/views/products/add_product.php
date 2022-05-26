@@ -126,7 +126,7 @@ EOT;
     $categ=$this->model->getCategs();
     foreach ($categ as $c){
       ?>
-    <input type="radio" name="q1" value=<?php $c->catID;?> />
+    <input type="radio" name="q1" value=<?php 1 ;?> />
     <?php echo $c->CatName ; ?> <br>
    
     <?php
