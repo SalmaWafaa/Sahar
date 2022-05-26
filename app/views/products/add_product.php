@@ -126,13 +126,13 @@ EOT;
     $categ=$this->model->getCategs();
     foreach ($categ as $c){
       ?>
-    <input type="radio" name="q1" value=<?php $c->catID;?> />
+    <input type="radio" name="q1" value="<?php echo $c->catID ;?>" />
     <?php echo $c->CatName ; ?> <br>
    
     <?php
     }
     ?>
-    <input type="radio" name="q1" value=<?php $this->model->countID()+1 ;?> />
+    <input type="radio" name="q1" value="<?php echo $this->model->countID()+1 ;?>" />
     <a href= "<?php echo URLROOT . 'products/add_category' ; ?>"> + Add new Category </a> <br>
     </div>
    

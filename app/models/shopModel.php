@@ -72,7 +72,7 @@ class shopModel extends Model
 
     public function setCategory($Category)
     {
-        $this->Category = $Category;
+        $this->Category =$Category;
     }
     
     public function getCategoryErr()

@@ -48,7 +48,7 @@ EOT;
     <div class="col-md-12 mx-auto">
     <div class="card card-body bg-light mt-6">
     <h2>Edit Product</h2>
-    <form action="$action" method="post" >
+    <form action="$action" method="post" enctype='multipart/form-data' >
 EOT;
     echo $text;
     $this->printProdImage1();

@@ -75,24 +75,33 @@ class Products extends Controller
     {
         $edit_delete_productModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
             $dir= ImageRoot;
-            $fileName1=$_FILES['Product_Image']['name'];
-            move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
+            $fileName1= $root.basename($_FILES['Product_Image']['name']);
+            $file_name = $_FILES['Product_Image']['name'];
+            $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image']['tmp_name'],$fileName1);
+            //$dir= ImageRoot;
+            //$fileName1=$_FILES['Product_Image']['name'];
+            //move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
            // $edit_delete_productModel->setProductimg1(trim($fileName1));
-            $fileName2=$_FILES['Product_Image2']['name'];
-            move_uploaded_file($_FILES['Product_Image2']['tmp_name'], $dir.$fileName2);
+            $fileName2=$root.basename($_FILES['Product_Image2']['name']);
+            $file_name2 = $_FILES['Product_Image2']['name'];
+            $file_ext2 = pathinfo($file_name2, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image2']['tmp_name'],$fileName2);
             //$edit_delete_productModel->setProductimg2(trim($fileName2));
-            $fileName3=$_FILES['Product_Image2']['name'];
-            move_uploaded_file($_FILES['Product_Image3']['tmp_name'], $dir.$fileName3);
+            $fileName3=$root.basename($_FILES['Product_Image3']['name']);
+            $file_name3 = $_FILES['Product_Image3']['name'];
+            $file_ext3 = pathinfo($file_name3, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image3']['tmp_name'],$fileName3);
            // $edit_delete_productModel->setProductimg3(trim($fileName3));
         $edit_delete_productModel->setPName(trim($_POST['Product_Name']));
         $edit_delete_productModel->setProductDesc(trim($_POST['Product_Description']));
-        $edit_delete_productModel->setProductimg1(trim($_POST['Product_Image']));
-        $edit_delete_productModel->setProductimg2(trim($_POST['Product_Image2']));
-        $edit_delete_productModel->setProductimg3(trim($_POST['Product_Image3']));
+        $edit_delete_productModel->setProductimg1(trim($file_name));
+        $edit_delete_productModel->setProductimg2(trim($file_name2));
+        $edit_delete_productModel->setProductimg3(trim($file_name3));
         $edit_delete_productModel->setProductPrice(trim($_POST['Product_Price']));
         $edit_delete_productModel->setProductQuantity(trim($_POST['Product_Quantity']));
-        
         //validation
         /*if (empty($edit_delete_productModel->getDescription())) {
             $edit_delete_productModel->setDescriptionErr('Please enter description for product');
@@ -141,11 +150,15 @@ class Products extends Controller
     {
         $Edit_categoriesModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
             $dir= ImageRoot;
-            $fileName1=$_FILES['Category_Image']['name'];
-            move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
+            $fileName1= $root.basename($_FILES['Category_Image']['name']);
+            $file_name = $_FILES['Category_Image']['name'];
+            $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Category_Image']['tmp_name'], $fileName1);
+
         $Edit_categoriesModel->setCName(trim($_POST['Category_Name']));   
-        $Edit_categoriesModel->setCimage(trim($_POST['Category_Image']));
+        $Edit_categoriesModel->setCimage(trim($file_name));
        
         //validation
         /*if (empty($edit_delete_productModel->getDescription())) {
@@ -281,6 +294,13 @@ class Products extends Controller
         require_once $viewPath;
         $offersView = new offers($this->getModel(), $this);
         $offersView->output();
+    }
+    public function summary()
+    {
+        $viewPath = VIEWS_PATH . 'products/summary.php';
+        require_once $viewPath;
+        $View = new summary($this->getModel(), $this);
+        $View->output();
     }
 
     public function add_offer()

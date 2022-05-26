@@ -11,6 +11,7 @@ class edit_delete_productModel extends shopModel
     protected $Product_Image2;
     protected $Product_Image3;
     protected $Cat_ID;
+    protected $id;
 
 public function getPName($id){
     $this->dbh->query("SELECT ProductName from products where `ProductID` =:id");
