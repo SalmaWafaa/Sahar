@@ -13,103 +13,113 @@ class Contact extends View
     //$title = $this->model->title;
 
      require APPROOT . '/views/inc/header.php';
-     $contact=$this->model->Contact();
-    foreach($contact as $con)
-     ?>
-      <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
+     $text = <<<EOT
+     EOT;
+     echo $text;
+     $this->printForm();
+     require APPROOT . '/views/inc/footer.php';
+  }
+  private function printForm()
+  {
+    $action = URLROOT . 'pages/contact';
+    $loginUrl = URLROOT . 'pages/Contact Us';
+
+    $text = <<<EOT
+     <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
       <div class="container">
       <h1 class="display-4">Get in touch </h1>
      </div>
      </div>
-
-     <div class="jumbotron jumbotron-fluid">  
-     <div class="container">
-      <h3>If you need any Help, simply emal us or just call</h3>
-      <div class="info">
-      <div class="social-information"> <i class="fa fa-map-marker"></i>
-      <?php
-     echo $con->Location
-      ?>
-       </div>
-       <div class="social-information"> <i class="fa fa-envelope-o"></i>
-       <?php
-     echo $con->Email_Contact
-      ?>
-       </div>
-       <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-       <?php
-     echo $con->Mobile_contact
-      ?>
-       </div>
-       <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-       <?php
-     echo $con->Store_contact
+     <form action="$action" method="post">
      EOT;
     echo $text;
-    $this->printUserEmail();
-    $this->printUserID();
-    $this->printSubject();
-    $this->printmsg();
+    
+    $contact=$this->model->Contact();
+    foreach($contact as $con)
     $text = <<<EOT
-      ?>
-       </div>
-       </div>
-       </div>
-       </div>
-
-       <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
-	   <div class="contact-info-form"> 
-       <div class="container">
-       <form action="$action" method="post" onclick="return false;" autocomplete="off">
-     <h3 class="title">Contact us</h3>
-     <div class="social-input-containers"> <input type="text" name="name" class="input" placeholder="Name" /> </div>
-     <div class="social-input-containers"> <input type="email" name="email" class="input" placeholder="Email" /> </div>
-     <div class="social-input-containers"> <input type="tel" name="phone" class="input" placeholder="Phone" /> </div>
-    <div class="social-input-containers textarea"> <textarea name="message" class="input" placeholder="Message"></textarea> </div> 
-	<input type="submit" value="Send" class="btn btn-inverse btn-secondary" />
-
-     </form>
-       </div>
-       </div>
-       </div>
-       </body>
-       </div>
-       </div>
-
-
-
-
-
-       <?php
-       require APPROOT . '/views/inc/footer.php';
-  }
-  EOT;
-    echo $text;
-  }
+            <div class="jumbotron jumbotron-fluid">  
+            <div class="container">
+           <h3>If you need any Help, simply emal us or just call</h3>
+           <div class="info">
+           <div class="social-information"> <i class="fa fa-map-marker"></i>
+           <?php
+           echo $con->Location
+            ?>
+            </div>
+           <div class="social-information"> <i class="fa fa-envelope-o"></i>
+           <?php
+           echo $con->Email_Contact
+           ?>
+           </div>
+           <div class="social-information"> <i class="fa fa-mobile-phone"></i>
+           <?php
+           echo $con->Mobile_contact
+            ?>
+           </div>
+           <div class="social-information"> <i class="fa fa-mobile-phone"></i>
+           <?php
+           echo $con->Store_contact;
+     
+    
+           ?>
+           </div>
+           </div>
+           </div>
+           </div>
+           <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
+             <div class="contact-info-form"> 
+           <div class="container">
+           
+           <form action="$action" method="post" <?php onclick="return false;"?> 
+           
+           
+           <h3 class="title">Contact us</h3>
+           EOT;echo $text;
+           $this->printUserEmail();
+           //$this->printUserID();
+           $this->printSubject();
+           $this->printmsg();
+           $text = <<<EOT
+           <input type="submit" value="Send" class="btn btn-inverse btn-secondary" />
+           </form>
+           </div>
+           </div>
+           </div>
+           </body>
+           </div>
+           </div>
+           
+           EOT;
+           echo $text;
+      }
+ 
   
-  private function printUserEmail()
-  {
-    $val = $this->model->getuserMail();
-    $err = $this->model->getuserMailErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
+   
+  
+  
+      private function printUserEmail()
+     {
+      $val = $this->model->getuserMail();
+      $err = $this->model->getuserMailErr();
+     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('email', 'userMail', $val, $err, $valid);
-  }
-  private function printUserID()
-  {
+     $this->printInput('email', 'Email', $val, $err, $valid);
+     }
+     /*private function printUserID()
+    {
     $val = $this->model->getuserID();
     $err = $this->model->getuserID();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'userID', $val, $err, $valid);
-  }
+  }*/
   private function printSubject()
   {
     $val = $this->model->getSubj();
     $err = $this->model->getSubj();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('text', 'Subj', $val, $err, $valid);
+    $this->printInput('text', 'Subject', $val, $err, $valid);
   }
   private function printmsg()
   {
@@ -117,7 +127,7 @@ class Contact extends View
     $err = $this->model->getmsg();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('text', 'msg', $val, $err, $valid);
+    $this->printInput('textarea', 'Message', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
@@ -125,12 +135,11 @@ class Contact extends View
     $label = ucwords($label);
     $text = <<<EOT
     <div class="form-group">
-      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
+      <label for="$fieldName"> </i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
       <span class="invalid-feedback">$err</span>
     </div>
-    
-
+    EOT;
+    echo $text;
+  }
 }
-
-?>

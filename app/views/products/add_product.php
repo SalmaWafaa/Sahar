@@ -127,6 +127,7 @@ EOT;
     foreach ($categ as $c){
       ?>
     <input type="radio" name="q1" value="<?php echo $c->catID ;?>" />
+    <input type="radio" name="q1" value=<?php 1 ;?> />
     <?php echo $c->CatName ; ?> <br>
    
     <?php

@@ -8,16 +8,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?php echo URLROOT . 'public'; ?>">Home</a>
-        </li>
+      
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'products/shop'; ?>">Shop</a>
            </li>
            <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'products/categories'; ?>">Categories</a>
            </li>
-
+           <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'products/Ordershistory'; ?>">Orders History</a>
+           </li>
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
            </li>
