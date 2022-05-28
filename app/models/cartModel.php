@@ -7,9 +7,9 @@ class cartModel extends Model
 
     public function cart()
     {
-        $this->dbh->query('SELECT * from products ');
+        /*$this->dbh->query('SELECT * from products ');
         $records=$this->dbh->resultSet();
-        return $records;
+        return $records;*/
 
         
         if(!empty($_SESSION["shopping_cart"]))
@@ -43,6 +43,23 @@ class cartModel extends Model
         
     }
 }
+    class DB {
+        private $host = "localhost";
+        private $user = "root";
+        private $password = "";
+        private $database = "sahar";
+        public $conn;
+    
+        function __construct() {
+        $this->conn = $this->connectDB();
+        }
+    
+        function connectDB() {
+        $conn = mysqli_connect($this->host,$this->user,$this->password,$this->database);
+        return $conn;
+        }
+    }
+
     class Product
     {
         public $id;
@@ -52,7 +69,7 @@ class cartModel extends Model
         public $options;
         function __construct($id) {
             $db_handle = new DB();
-            $sql="SELECT * FROM product WHERE id=".$id;
+            $sql="SELECT * FROM products WHERE id=".$id;
             /////
             $result = mysqli_query($db_handle->conn,$sql);
             if($row=mysqli_fetch_array($result)) {
@@ -84,7 +101,7 @@ class cartModel extends Model
             return $products;
         }
     }
-    class Cart
+    class Cartt
     {
         public $productsQuantity;
     
