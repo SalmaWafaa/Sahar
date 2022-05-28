@@ -27,7 +27,7 @@ class About extends view
   <div class="container">
       <h1 class="display-4"  > WHO WE ARE</h1>
       <?php
-     echo $abt->whoWeAre
+     echo $abt->WhoWeAre
       ?>
       </div>
     </div>
