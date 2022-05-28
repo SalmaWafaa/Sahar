@@ -58,6 +58,8 @@ EOT;
     $this->printProdDescr();
     $this->printProdQuantity();
     $this->printProdPrice();
+    $this->printProdAbout();
+    $this->printProdCondition();
    ?>
     <div class="container">
       <div class="row mt-4">
@@ -122,6 +124,22 @@ EOT;
 
     $this->printInput('text', 'Product_Name', $val, $err, $valid,'bi bi-bag-dash-fill');
   }
+  private function printProdAbout()
+  {
+    $val =$this->model->getPAbout($_GET['id']);
+    $err = $this->model->getProductNameErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printTextArea('Product_About', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
+  private function printProdCondition()
+  {
+    $val =$this->model->getPconditionn($_GET['id']);
+    $err = $this->model->getProductNameErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('text', 'Product_Condition', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
   private function printProdDescr()
   {
     $val =$this->model->getProductDesc($_GET['id']);
@@ -149,7 +167,22 @@ EOT;
 
     $this->printInput('text', 'Product_Price', $val, $err, $valid,'bi bi-cash');
   }
-  
+  private function printTextArea($fieldName, $val, $err, $valid,$icon)
+  {
+    $label = str_replace("_", " ", $fieldName);
+    $label = ucwords($label);
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
+      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="10" cols="50">
+      $val
+      </textarea>
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
+    echo $text;
+  }
   private function printInput($type, $fieldName, $val, $err, $valid,$icon)
   {
     $label = str_replace("_", " ", $fieldName);

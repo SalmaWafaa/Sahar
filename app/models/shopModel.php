@@ -20,7 +20,15 @@ class shopModel extends Model
     protected $img3Err;
     protected $Category;
     protected $CategoryErr;
-     public $datee ;
+     //public $datee ;
+    protected $About;
+    protected $PCondition; 
+    protected $AboutErr;
+    protected $PConditionErr; 
+    protected $Quality=[];
+    protected $color=[];
+    protected $ColorErr;
+    protected $QualityErr;
 
 
 
@@ -39,14 +47,20 @@ class shopModel extends Model
         $this->img3Err = "";
         $this->price = "";
         $this->priceErr = "";
-
         $this->quantity     = "";
         $this->quantityErr = "";
-
         $this->rate = "";
         $this->rateErr = "";
         $this->Category="";
         $this->datee="";
+        $this->About="";
+        $this->PCondition="";
+        $this->AboutErr="";
+        $this->PConditionErr="";
+        $this->color=array();
+        $this->Quality=array();
+        $this->ColorErr="";
+        $this->QualityErr="";
     }
 
     public function getDescription()
@@ -57,6 +71,42 @@ class shopModel extends Model
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+    public function getAbout()
+    {
+        return $this->About;
+    }
+
+    public function setAbout($About)
+    {
+        $this->About = $About;
+    }
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    public function setcolor($color)
+    {
+        $this->color = $color;
+    }
+    public function getQuality()
+    {
+        return $this->Quality;
+    }
+
+    public function setQuality($Quality)
+    {
+        $this->Quality = $Quality;
+    }
+    public function getPCondition()
+    {
+        return $this->PCondition;
+    }
+
+    public function setPCondition($PCondition)
+    {
+        $this->PCondition = $PCondition;
     }
     public function getDate()
     {
@@ -227,15 +277,41 @@ class shopModel extends Model
     {
         $this->rateErr = $rateErr;
     }
+    public function getAboutErr()
+    {
+        return $this->AboutErr;
+    }
+    public function setAboutErr($AboutErr)
+    {
+        $this->AboutErr = $AboutErr;
+    }
+    public function getPConditionErr()
+    {
+        return $this->PConditionErr;
+    }
+    public function setPConditionErr($PConditionErr)
+    {
+        $this->PConditionErr = $PConditionErr;
+    }
+    public function getQualityErr()
+    {
+        return $this->QualityErr;
+    }
+    public function setQualityErr($QualityErr)
+    {
+        $this->QualityErr = $QualityErr;
+    }
+    public function getColorErr()
+    {
+        return $this->ColorErr;
+    }
+    public function setColorErr($ColorErr)
+    {
+        $this->ColorErr = $ColorErr;
+    }
     public function shop()
     {
         $this->dbh->query('SELECT * from products');
-        $this->dbh->bind(':description', $this->description);
-        $this->dbh->bind(':productName', $this->productName);
-        $this->dbh->bind(':price', $this->price);
-        $this->dbh->bind(':quantity', $this->quantity);
-        $this->dbh->bind(':rate', $this->rate);
-
         $record = $this->dbh->resultSet();
         $product = $record->product;
     }
@@ -265,4 +341,18 @@ class shopModel extends Model
         $categRecords = $this->dbh->resultSet();
         return $categRecords;
     }
+    public function getAvgRate($id){
+        $this->dbh->query('SELECT ROUND(AVG(rate)) from review where `ProductID`=:id');
+        $this->dbh->bind(':id',$id);
+        $RateRecords = $this->dbh->resultSet();
+        return $RateRecords;
+    }
+    public function getColors()
+    {
+        $this->dbh->query('select * from color ');
+        $Record = $this->dbh->resultSet();
+        return $Record;
+
+    }
+   
 }

@@ -43,8 +43,12 @@ EOT;
     $this->printProdImage3();
     $this->printProdName();
     $this->printProdDescr();
+    $this->printProdAbout();
+    $this->printProdCondition();
     $this->printProdQuantity();
     $this->printRadio();
+    $this->printColor();
+    $this->printQuality();
     $this->printProdPrice();
     $text = <<<EOT
     
@@ -100,6 +104,22 @@ EOT;
 
     $this->printInput('text', 'Product_Description', $val, $err, $valid,'bi bi-bag-dash-fill');
   }
+  private function printProdAbout()
+  {
+    $val = $this->model->getAbout();
+    $err = $this->model->getAboutErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printTextArea('Product_About', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
+  private function printProdCondition()
+  {
+    $val = $this->model->getPCondition();
+    $err = $this->model->getPConditionErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('text', 'Product_Condition', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
 
   private function printProdQuantity()
   {
@@ -127,7 +147,6 @@ EOT;
     foreach ($categ as $c){
       ?>
     <input type="radio" name="q1" value="<?php echo $c->catID ;?>" />
-    <input type="radio" name="q1" value=<?php 1 ;?> />
     <?php echo $c->CatName ; ?> <br>
    
     <?php
@@ -135,6 +154,44 @@ EOT;
     ?>
     <input type="radio" name="q1" value="<?php echo $this->model->countID()+1 ;?>" />
     <a href= "<?php echo URLROOT . 'products/add_category' ; ?>"> + Add new Category </a> <br>
+    </div>
+   
+  <?php
+  }
+  private function printQuality(){
+    ?>
+    <div class="form-group">
+    <label for="c1[]"> Quality: <sup>*</sup> </label>
+    <br>
+    <?php 
+    $Quality=$this->model->getQualties();
+    foreach ($Quality as $q){
+      ?>
+    <input type="checkbox" name="c1[]" value="<?php echo $q->Quality_ID ;?>" />
+    <?php echo $q->value ; ?>
+    
+    <?php
+    }
+    ?>
+    </div>
+    <?php
+  }
+  private function printColor(){
+    ?>
+    <div class="form-group">
+    <label for="c1"> Color: <sup>*</sup> </label>
+    <br>
+    <?php 
+    $color=$this->model->getColors();
+    foreach ($color as $co){
+      ?>
+    <input type="checkbox" name="c2[]" value="<?php echo $co->cID ;?>" />
+    <?php echo $co->color ; ?> <br>
+    <?php
+    }
+    ?>
+    <input type="checkbox" name="c2[]" value="<?php echo $this->model->countColorID()+1 ;?>" />
+    <a href= "<?php echo URLROOT . 'products/add_color' ; ?>"> + Add new Color </a> <br>
     </div>
    
   <?php
@@ -148,6 +205,21 @@ EOT;
     <div class="form-group">
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
+    echo $text;
+  }
+  private function printTextArea($fieldName, $val, $err, $valid,$icon)
+  {
+    $label = str_replace("_", " ", $fieldName);
+    $label = ucwords($label);
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
+      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
+      </textarea>
       <span class="invalid-feedback">$err</span>
     </div>
     
