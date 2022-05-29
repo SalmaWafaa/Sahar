@@ -1,6 +1,7 @@
 <?php
 class ContactModel extends model{
 	public $title='Contact Page';
+    protected $a=2;
 	protected $dsent;
 	protected $userMail;
 	protected $userID;
@@ -32,6 +33,7 @@ class ContactModel extends model{
 	public function getdsent()
     {
         return $this->dsent;
+        
     }
 	public function getuserMail()
     {
@@ -70,7 +72,7 @@ class ContactModel extends model{
     {
         $this->Subj = $Subj;
     }
-	public function setmsg($msgt)
+	public function setmsg($msg)
     {
         $this->msg= $msg;
     }
@@ -126,19 +128,22 @@ class ContactModel extends model{
 
     public function contactMsg()
     {
-        $this->dbh->query("INSERT INTO contacttable (`datSent`,`UserEmail`, `UserID`, `Subject`,`Message`) VALUES(:dsent, :userMail, :userID,  :Subj, :msg)");
+        $this->dbh->query("INSERT INTO contacttable (`dateSent`,`UserEmail`, `UserID`, `Subject`,`Message`) VALUES(:dsent, :userMail, :userID,  :Subj, :msg)" );
         $this->dbh->bind(':dsent', $this->dsent);
         $this->dbh->bind(':userMail', $this->userMail);
-        $this->dbh->bind(':userID', $this->userID);
+        $this->dbh->bind(':userID',$this->userID);
         $this->dbh->bind(':Subj', $this->Subj);
         $this->dbh->bind(':msg', $this->msg); 
 
         return $this->dbh->execute();
     }
+    
 
 	public function Contact()
     {
-        $this->dbh->query('SELECT * from pages ');
+        $this->dbh->query('SELECT * from pages where `Pages_ID` = :id');
+        $this->dbh->bind(':id', $this->a); 
+
         $records=$this->dbh->resultSet();
         return $records;
 

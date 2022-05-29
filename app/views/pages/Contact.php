@@ -13,9 +13,6 @@ class Contact extends View
     //$title = $this->model->title;
 
      require APPROOT . '/views/inc/header.php';
-     $text = <<<EOT
-     EOT;
-     echo $text;
      $this->printForm();
      require APPROOT . '/views/inc/footer.php';
   }
@@ -35,25 +32,26 @@ class Contact extends View
     echo $text;
     
     $contact=$this->model->Contact();
-    foreach($contact as $con)
-    $text = <<<EOT
+    foreach($contact as $con){
+      ?>
+    
             <div class="jumbotron jumbotron-fluid">  
             <div class="container">
            <h3>If you need any Help, simply emal us or just call</h3>
            <div class="info">
            <div class="social-information"> <i class="fa fa-map-marker"></i>
            <?php
-           echo $con->Location
+           echo $con->Location;
             ?>
             </div>
            <div class="social-information"> <i class="fa fa-envelope-o"></i>
            <?php
-           echo $con->Email_Contact
+           echo $con->Email_Contact;
            ?>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
            <?php
-           echo $con->Mobile_contact
+           echo $con->Mobile_contact;
             ?>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
@@ -69,12 +67,16 @@ class Contact extends View
            <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
              <div class="contact-info-form"> 
            <div class="container">
-           
-           <form action="$action" method="post" <?php onclick="return false;"?> 
+   <?php 
+   }
+   
+   ?>
+           <form action="$action" method="post">
            
            
            <h3 class="title">Contact us</h3>
-           EOT;echo $text;
+           <?php
+           echo $text;
            $this->printUserEmail();
            //$this->printUserID();
            $this->printSubject();
@@ -91,12 +93,7 @@ class Contact extends View
            
            EOT;
            echo $text;
-      }
- 
-  
-   
-  
-  
+  }
       private function printUserEmail()
      {
       $val = $this->model->getuserMail();
@@ -143,3 +140,4 @@ class Contact extends View
     echo $text;
   }
 }
+?>

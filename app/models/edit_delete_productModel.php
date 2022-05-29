@@ -103,6 +103,7 @@ public function setProductimg3($Product_Image3){
     public function deleteProducts($id)
     {
         $result = $this->dbh->query("delete from products where ProductID ='$id'");
+        $this->db->delete('mvc', "`id` = {$id}");
         return ($result)?true:false;
     }
 }
