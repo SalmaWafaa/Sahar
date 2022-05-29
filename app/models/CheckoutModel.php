@@ -1,53 +1,56 @@
 <?php
 class CheckoutModel extends model{
-	public $title='Checkout Page';
+    public $title='Checkout Page';
+    
     protected $ordernumb;
     protected $productid;
     protected $quantity;
     protected $address;
     protected $idclient;
-	protected $paymentt;
-	protected $shfees;
-	protected $mobile;
-	protected $total;
-	protected $date;
+    protected $paymentt;
+    protected $shfees;
+    protected $mobile;
+    protected $total;
+    protected $date;
 
-	protected $ordernumbErr;
-	protected $productidErr;
-	protected $quantityErr;
-	protected $addrssErr;
-	protected $idclientErr;
-	protected $paymenttErr;
-	protected $shfeesErr;
-	protected $mobileErr;
-	protected $totalErr;
+    protected $ordernumbErr;
+    protected $productidErr;
+    protected $quantityErr;
+    protected $addrssErr;
+    protected $idclientErr;
+    protected $paymenttErr;
+    protected $shfeesErr;
+    protected $mobileErr;
+    protected $totalErr;
     protected $dateErr; 
-	public function __construct()
+
+    public function __construct()
     {
         parent::__construct();
-        $this->$ordernumb   = "";
-        $this-> $productid= "";
-		$this->  $quantity= "";
-		$this->  $address= "";
-		$this->  $idclient= "";
-		$this->  $paymentt= "";
-		$this->  $shfees= "";
-		$this->  $mobile= "";
-		$this->  $total= "";
-		$this->  $date= "";
+
+        $this->ordernumb   = "";
+        $this-> productid= "";
+        $this->  quantity= "";
+        $this->  address= "";
+        $this->  idclient= "";
+        $this->  paymentt= "";
+        $this->  shfees= "";
+        $this->  mobile= "";
+        $this->  total= "";
+        $this->  date= "";
         
-		$this->$ordernumbErr   = "";
-        $this-> $productidErr= "";
-		$this->  $quantityErr= "";
-		$this->  $addressErr= "";
-		$this->  $idclientErr= "";
-		$this->  $paymenttErr= "";
-		$this->  $shfeesErr= "";
-		$this->  $mobileErr= "";
-		$this->  $totalErr= "";
-		$this->  $dateErr= "";
+        $this->ordernumbErr   = "";
+        $this-> productidErr= "";
+        $this->  quantityErr= "";
+        $this->  addressErr= "";
+        $this->  idclientErr= "";
+        $this->  paymenttErr= "";
+        $this->  shfeesErr= "";
+        $this->  mobileErr= "";
+        $this->  totalErr= "";
+        $this->  dateErr= "";
     }
-	public function getordernumb()
+    public function getordernumb()
     {
         return $this->ordernumb;
     }
@@ -58,7 +61,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getproductid()
+    public function getproductid()
     {
         return $this->productid;
     }
@@ -69,7 +72,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getquantity()
+    public function getquantity()
     {
         return $this->quantity;
     }
@@ -80,7 +83,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getaddress()
+    public function getaddress()
     {
         return $this->address;
     }
@@ -91,7 +94,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getidclient()
+    public function getidclient()
     {
         return $this->idclient;
     }
@@ -102,7 +105,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getpaymentt()
+    public function getpaymentt()
     {
         return $this->paymentt;
     }
@@ -113,7 +116,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getshfees()
+    public function getshfees()
     {
         return $this->shfees;
     }
@@ -124,7 +127,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getmobile()
+    public function getmobile()
     {
         return $this->mobile;
     }
@@ -135,7 +138,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function gettotal()
+    public function gettotal()
     {
         return $this->total;
     }
@@ -146,7 +149,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getdate()
+    public function getdate()
     {
         return $this->date;
     }
@@ -158,7 +161,7 @@ class CheckoutModel extends model{
 
 
 
-	public function getordernumbErr()
+    public function getordernumbErr()
     {
         return $this->ordernumbErr;
     }
@@ -169,7 +172,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getproductidErr()
+    public function getproductidErr()
     {
         return $this->productidErr;
     }
@@ -180,18 +183,18 @@ class CheckoutModel extends model{
     }
 
 
-	public function getquantityErr()
+    public function getquantityErr()
     {
         return $this->quantityErr;
     }
 
-    public function setquantity($quantityErr)
+    public function setquantityErr($quantityErr)
     {
         $this->quantityErr = $quantityErr;
     }
 
 
-	public function getaddressErr()
+    public function getaddressErr()
     {
         return $this->addressErr;
     }
@@ -202,7 +205,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getidclientErr()
+    public function getidclientErr()
     {
         return $this->idclientErr;
     }
@@ -213,7 +216,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getpaymenttErr()
+    public function getpaymenttErr()
     {
         return $this->paymenttErr;
     }
@@ -224,7 +227,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getshfeesErr()
+    public function getshfeesErr()
     {
         return $this->shfeesErr;
     }
@@ -235,7 +238,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getmobileErr()
+    public function getmobileErr()
     {
         return $this->mobileErr;
     }
@@ -246,7 +249,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function gettotalErr()
+    public function gettotalErr()
     {
         return $this->totalErr;
     }
@@ -257,7 +260,7 @@ class CheckoutModel extends model{
     }
 
 
-	public function getdateErr()
+    public function getdateErr()
     {
         return $this->dateErr;
     }
@@ -266,22 +269,26 @@ class CheckoutModel extends model{
     {
         $this->date = $dateErr;
     }
-	public function signup()
+    public function checko()
     {
-        $this->dbh->query("INSERT INTO users (`FirstName`,`LastName`, `Email`, `Password`,`Address`,`Mobile`,`user_Type_ID`) VALUES(:fname, :lname, :email, :pass, :addr, :mob,2)");
-        $this->dbh->bind(':fname', $this->Fname);
-        $this->dbh->bind(':lname', $this->Lname);
-        $this->dbh->bind(':email', $this->email);
-        $this->dbh->bind(':pass', $this->password);
+        $this->dbh->query("INSERT INTO users (`orderNumb`,`productID`, `Quantity`, `Address`,`ID`,`PaymentType`,`shippingFees`,`MobileNumb`,`Total`,`Date`) VALUES(:ordernumb, :productid, :quantity, :addrs, :idclient, :paymentt,:shfees,:mobile,:total,:datee)");
+        $this->dbh->bind(':ordernumb', $this->ordernumb);
+        $this->dbh->bind(':productid', $this->productid);
+        $this->dbh->bind(':quantity', $this->quantity);
         $this->dbh->bind(':addr', $this->address); 
-        $this->dbh->bind(':mob', $this->mobile);
+        $this->dbh->bind(':idclient', $this->idclient);
+        $this->dbh->bind(':paymentt', $this->paymentt);
+        $this->dbh->bind(':shfees', $this->shfees);
+        $this->dbh->bind(':mobile', $this->mobile);
+        $this->dbh->bind(':total', $this->total);
+        $this->dbh->bind(':datee', $this->date);
 
         return $this->dbh->execute();
     }
 
 
-	
-	
+    
+    
 
-	
+    
 }

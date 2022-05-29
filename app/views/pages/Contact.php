@@ -13,20 +13,25 @@ class Contact extends View
     //$title = $this->model->title;
 
      require APPROOT . '/views/inc/header.php';
+     $text = <<<EOT
+     <div class="p-5 mb-4 bg-warning bg-gradient text-dark">
+      <div class="container">
+      <h1 class="display-4">Get in touch </h1>
+     </div>
+     </div>
+     EOT;
+    echo $text;
      $this->printForm();
-     require APPROOT . '/views/inc/footer.php';
+    require APPROOT . '/views/inc/footer.php';
   }
   private function printForm()
   {
     $action = URLROOT . 'pages/contact';
     $loginUrl = URLROOT . 'pages/Contact Us';
+    
 
     $text = <<<EOT
-     <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
-      <div class="container">
-      <h1 class="display-4">Get in touch </h1>
-     </div>
-     </div>
+     
      <form action="$action" method="post">
      EOT;
     echo $text;
@@ -78,7 +83,6 @@ class Contact extends View
            <?php
            echo $text;
            $this->printUserEmail();
-           //$this->printUserID();
            $this->printSubject();
            $this->printmsg();
            $text = <<<EOT
@@ -102,14 +106,6 @@ class Contact extends View
 
      $this->printInput('email', 'Email', $val, $err, $valid);
      }
-     /*private function printUserID()
-    {
-    $val = $this->model->getuserID();
-    $err = $this->model->getuserID();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'userID', $val, $err, $valid);
-  }*/
   private function printSubject()
   {
     $val = $this->model->getSubj();
@@ -124,7 +120,7 @@ class Contact extends View
     $err = $this->model->getmsg();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('textarea', 'Message', $val, $err, $valid);
+    $this->printTextArea('print_Message', 'Message', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
@@ -137,6 +133,20 @@ class Contact extends View
       <span class="invalid-feedback">$err</span>
     </div>
     EOT;
+    echo $text;
+  }
+   private function printTextArea($fieldName, $val, $err, $valid)
+  {
+    
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName">  </label>
+      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
+      </textarea>
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
     echo $text;
   }
 }
