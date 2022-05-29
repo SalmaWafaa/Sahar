@@ -17,8 +17,39 @@ class Pages extends Controller
         $aboutView = new About($this->getModel(), $this);
         $aboutView->output();
     }
-    
-    public function contact(){
+    public function contact()
+    {
+        $contactModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $contactModel->setuserMail(trim($_POST['Email']));
+            $contactModel-> setdsent(date("Y-m-d"));
+            $contactModel->setuserID(($_SESSION['user_id']));
+            $contactModel->setSubj(trim($_POST['Subject']));
+            $contactModel->setmsg(trim($_POST['Message']));
+            /*if (empty($add_categoryModel->getCategoryName())) {
+                $add_categoryModel->setCategoryNameErr('Please enter a name for the category');
+            } elseif ($add_categoryModel->CategoryExist($_POST['Category_Name'])) {
+                $add_categoryModel->setCategoryNameErr('There is already a category with that name');
+            }
+           
+            if (
+                empty($add_categoryModel->getCategoryNameErr())
+               
+            ) {*/
+                
+
+                if ($contactModel->contactMsg()) {
+                    //alert
+                    flash('message_sent', 'Message Sent');
+                    //redirect('products/categories');
+                } else {
+                    die('Error sending message');
+                }
+            //}
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
         $viewPath= VIEWS_PATH . 'pages/contact.php';
         require_once $viewPath;
         $contactView=new Contact($this->getModel(),$this);
