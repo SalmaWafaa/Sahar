@@ -127,8 +127,6 @@ class Users extends Controller
             $EditProfileModel->setFirstName(trim($_POST['first_name']));
             $EditProfileModel->setLastName(trim($_POST['last_name']));
             $EditProfileModel->setEm(trim($_POST['email']));
-            $EditProfileModel->setpass(trim($_POST['password']));
-            $EditProfileModel->setConfirmPassword(trim($_POST['confirm_password']));
             $EditProfileModel->setAddr(trim($_POST['address']));
             $EditProfileModel->setMob(trim($_POST['mobile']));
 
@@ -145,11 +143,7 @@ class Users extends Controller
             } elseif ($EditProfileModel->emailExist($_POST['email'])) {
                 $EditProfileModel->setEmailErr('Email is already registered');
             }
-            if (empty($EditProfileModel->getpass($_SESSION['user_id']))) {
-                $EditProfileModel->setPasswordErr('Please enter a password');
-            } elseif (strlen($EditProfileModel->getpass($_SESSION['user_id'])) < 8) {
-                $EditProfileModel->setPasswordErr('Password must contain at least 8 characters');
-            }
+           
 
            /* if ($EditProfileModel->getpassword($_SESSION['user_id'])) != $EditProfileModel->getConfirmPassword($_SESSION['user_id']) {
                 $EditProfileModel->setConfirmPasswordErr('Passwords do not match');
@@ -168,14 +162,11 @@ class Users extends Controller
                 empty($EditProfileModel->getFNameErr()) &&
                 empty($EditProfileModel->getLNameErr())&&
                 empty($EditProfileModel->getEmailErr()) &&
-                empty($EditProfileModel->getPasswordErr()) &&
-                empty($EditProfileModel->getConfirmPasswordErr())&&
                 empty($EditProfileModel->getAddressErr())&&
                 empty($EditProfileModel->getMobileErr())
 
             ) {
                 //Hash Password
-                $EditProfileModel->setpass(password_hash($EditProfileModel->getpass($_SESSION['user_id']), PASSWORD_DEFAULT));
                 $EditProfileModel->EditProfile($_SESSION['user_id']);
                 if ($EditProfileModel->EditProfile($_SESSION['user_id'])) {
                     //header('location: ' . URLROOT . 'users/login');
