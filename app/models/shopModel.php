@@ -115,7 +115,7 @@ class shopModel extends Model
 
     public function setDate($datee)
     {
-        $this->datee = date('Y-m-d');
+        $this->datee =$datee;
     }
     public function getDescriptionErr()
     {

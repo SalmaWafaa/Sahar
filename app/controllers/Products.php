@@ -11,8 +11,9 @@ class Products extends Controller
             $add_productModel->setPrice(trim($_POST['Product_Price']));
             $add_productModel->setQuantity(trim($_POST['Product_Quantity']));
             $add_productModel->setCategory(trim($_POST['q1']));
-            //$add_productModel->setQuality($_POST['c1']); 
+            $add_productModel->setQuality($_POST['c1']); 
             $add_productModel->setcolor($_POST['c2']);
+            $add_productModel->setDate( date('Y-m-d'));
             $add_productModel->setAbout(trim($_POST['Product_About']));
             $add_productModel->setPCondition(trim($_POST['Product_Condition']));
             $dir= ImageRoot;
@@ -71,13 +72,11 @@ class Products extends Controller
             ) {
                 
 
-                if ($add_productModel->add_product()) {
+            $add_productModel->add_product();
                     //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');
-                } else {
-                    die('Error in adding product');
-                }
+                
             }
         }
         // Load form
