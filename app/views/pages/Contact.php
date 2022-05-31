@@ -14,46 +14,49 @@ class Contact extends View
 
      require APPROOT . '/views/inc/header.php';
      $text = <<<EOT
+     <div class="p-5 mb-4 bg-warning bg-gradient text-dark">
+      <div class="container">
+      <h1 class="display-4">Get in touch </h1>
+     </div>
+     </div>
      EOT;
-     echo $text;
+    echo $text;
      $this->printForm();
-     require APPROOT . '/views/inc/footer.php';
+    require APPROOT . '/views/inc/footer.php';
   }
   private function printForm()
   {
     $action = URLROOT . 'pages/contact';
     $loginUrl = URLROOT . 'pages/Contact Us';
+    
 
     $text = <<<EOT
-     <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
-      <div class="container">
-      <h1 class="display-4">Get in touch </h1>
-     </div>
-     </div>
+     
      <form action="$action" method="post">
      EOT;
     echo $text;
     
     $contact=$this->model->Contact();
-    foreach($contact as $con)
-    $text = <<<EOT
+    foreach($contact as $con){
+      ?>
+    
             <div class="jumbotron jumbotron-fluid">  
             <div class="container">
            <h3>If you need any Help, simply emal us or just call</h3>
            <div class="info">
            <div class="social-information"> <i class="fa fa-map-marker"></i>
            <?php
-           echo $con->Location
+           echo $con->Location;
             ?>
             </div>
            <div class="social-information"> <i class="fa fa-envelope-o"></i>
            <?php
-           echo $con->Email_Contact
+           echo $con->Email_Contact;
            ?>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
            <?php
-           echo $con->Mobile_contact
+           echo $con->Mobile_contact;
             ?>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
@@ -69,14 +72,17 @@ class Contact extends View
            <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
              <div class="contact-info-form"> 
            <div class="container">
-           
-           <form action="$action" method="post" <?php onclick="return false;"?> 
+   <?php 
+   }
+   
+   ?>
+           <form action="$action" method="post">
            
            
            <h3 class="title">Contact us</h3>
-           EOT;echo $text;
+           <?php
+           echo $text;
            $this->printUserEmail();
-           //$this->printUserID();
            $this->printSubject();
            $this->printmsg();
            $text = <<<EOT
@@ -91,12 +97,7 @@ class Contact extends View
            
            EOT;
            echo $text;
-      }
- 
-  
-   
-  
-  
+  }
       private function printUserEmail()
      {
       $val = $this->model->getuserMail();
@@ -105,14 +106,6 @@ class Contact extends View
 
      $this->printInput('email', 'Email', $val, $err, $valid);
      }
-     /*private function printUserID()
-    {
-    $val = $this->model->getuserID();
-    $err = $this->model->getuserID();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'userID', $val, $err, $valid);
-  }*/
   private function printSubject()
   {
     $val = $this->model->getSubj();
@@ -127,7 +120,7 @@ class Contact extends View
     $err = $this->model->getmsg();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('textarea', 'Message', $val, $err, $valid);
+    $this->printTextArea('print_Message', 'Message', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
@@ -142,4 +135,19 @@ class Contact extends View
     EOT;
     echo $text;
   }
+   private function printTextArea($fieldName, $val, $err, $valid)
+  {
+    
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName">  </label>
+      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
+      </textarea>
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
+    echo $text;
+  }
 }
+?>

@@ -11,6 +11,9 @@ class edit_delete_productModel extends shopModel
     protected $Product_Image2;
     protected $Product_Image3;
     protected $Cat_ID;
+    protected $id;
+    protected $Aboutt;
+    protected $Pconditionn;
 
 public function getPName($id){
     $this->dbh->query("SELECT ProductName from products where `ProductID` =:id");
@@ -20,6 +23,25 @@ public function getPName($id){
 }
    public function setPName($ProductName){
        $this->ProductName=$ProductName;
+   } 
+   public function getPAbout($id){
+    $this->dbh->query("SELECT About from products where `ProductID` =:id");
+    $this->dbh->bind(':id',$id);
+    return $this->dbh->single()->About;
+
+}
+   public function setPAbout($Aboutt){
+       $this->Aboutt=$Aboutt;
+   } 
+   
+   public function getPconditionn($id){
+    $this->dbh->query("SELECT PCondition from products where `ProductID` =:id");
+    $this->dbh->bind(':id',$id);
+    return $this->dbh->single()->PCondition;
+
+}
+   public function setPconditionn($Pconditionn){
+       $this->Pconditionn=$Pconditionn;
    } 
    public function getProductDesc($id){
     $this->dbh->query("SELECT Description from products where `ProductID` =:id");
@@ -88,9 +110,11 @@ public function setProductimg3($Product_Image3){
 
     public function editProducts($id)
     {
-        $this->dbh->query("UPDATE products SET `ProductName`= :pname , `Quantity`= :pquantity , `Description`= :pdesc, `Price`= :pprice, `ProductImage`=:pimg1 ,`Product_Image2`=:pimg2 , `Product_Image3`=:pimg3 WHERE `ProductID`=:id");
+        $this->dbh->query("UPDATE products SET `ProductName`= :pname , `Quantity`= :pquantity , `Description`= :pdesc , `Price`= :pprice ,`About` = :ab , `PCondition` = :cond , `ProductImage`=:pimg1 ,`Product_Image2`=:pimg2 , `Product_Image3`=:pimg3 WHERE `ProductID`=:id");
         $this->dbh->bind(':pname',$this->ProductName);
         $this->dbh->bind(':pdesc',$this->Description);
+        $this->dbh->bind(':ab',$this->Aboutt);
+        $this->dbh->bind(':cond',$this->Pconditionn);
         $this->dbh->bind(':pquantity',$this->Quantity);
         $this->dbh->bind(':pprice',$this->Price);
         $this->dbh->bind(':pimg1',$this->ProductImage);
@@ -103,6 +127,7 @@ public function setProductimg3($Product_Image3){
     public function deleteProducts($id)
     {
         $result = $this->dbh->query("delete from products where ProductID ='$id'");
+        $this->db->delete('mvc', "`id` = {$id}");
         return ($result)?true:false;
     }
 }

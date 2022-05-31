@@ -127,8 +127,6 @@ class Users extends Controller
             $EditProfileModel->setFirstName(trim($_POST['first_name']));
             $EditProfileModel->setLastName(trim($_POST['last_name']));
             $EditProfileModel->setEm(trim($_POST['email']));
-            $EditProfileModel->setpass(trim($_POST['password']));
-            $EditProfileModel->setConfirmPassword(trim($_POST['confirm_password']));
             $EditProfileModel->setAddr(trim($_POST['address']));
             $EditProfileModel->setMob(trim($_POST['mobile']));
 
@@ -145,11 +143,7 @@ class Users extends Controller
             } elseif ($EditProfileModel->emailExist($_POST['email'])) {
                 $EditProfileModel->setEmailErr('Email is already registered');
             }
-            if (empty($EditProfileModel->getpass($_SESSION['user_id']))) {
-                $EditProfileModel->setPasswordErr('Please enter a password');
-            } elseif (strlen($EditProfileModel->getpass($_SESSION['user_id'])) < 8) {
-                $EditProfileModel->setPasswordErr('Password must contain at least 8 characters');
-            }
+           
 
            /* if ($EditProfileModel->getpassword($_SESSION['user_id'])) != $EditProfileModel->getConfirmPassword($_SESSION['user_id']) {
                 $EditProfileModel->setConfirmPasswordErr('Passwords do not match');
@@ -168,14 +162,11 @@ class Users extends Controller
                 empty($EditProfileModel->getFNameErr()) &&
                 empty($EditProfileModel->getLNameErr())&&
                 empty($EditProfileModel->getEmailErr()) &&
-                empty($EditProfileModel->getPasswordErr()) &&
-                empty($EditProfileModel->getConfirmPasswordErr())&&
                 empty($EditProfileModel->getAddressErr())&&
                 empty($EditProfileModel->getMobileErr())
 
             ) {
                 //Hash Password
-                $EditProfileModel->setpass(password_hash($EditProfileModel->getpass($_SESSION['user_id']), PASSWORD_DEFAULT));
                 $EditProfileModel->EditProfile($_SESSION['user_id']);
                 if ($EditProfileModel->EditProfile($_SESSION['user_id'])) {
                     //header('location: ' . URLROOT . 'users/login');
@@ -223,4 +214,54 @@ class Users extends Controller
         return isset($_SESSION['user_id']);
     }
    
+    public function changePass()
+    {
+        $registerModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $registerModel->setNewPass(trim($_POST['password']));
+            $registerModel->setNewCPass(trim($_POST['confirm_password']));
+            $registerModel->setOldPass(trim($_POST['Old_Password']));
+           
+            //validation
+           
+            if (empty($registerModel->getNewPass())) {
+                $registerModel->setNewPassErr('Please enter a password');
+            } elseif (strlen($registerModel->getNewPass()) < 8) {
+                $registerModel->setNewPassErr('Password must contain at least 8 characters');
+            }
+
+            if ($registerModel->getNewPass() != $registerModel->getNewCPass()) {
+                $registerModel->setNewCPassErr('Passwords do not match');
+            }
+            
+
+            if (
+                empty($registerModel->getNewPassErr()) &&
+                empty($registerModel->getNewCPassErr())
+                
+
+            ) {
+                //Hash Password
+                $registerModel->setNewPass(password_hash($registerModel->getNewPass(), PASSWORD_DEFAULT));
+
+                if ($registerModel->checkpass($_SESSION['user_id'])) {
+                    //header('location: ' . URLROOT . 'users/login');
+                    flash('register_success', 'You have changed password successfully');
+                    unset($_SESSION['user_id']);
+                    session_destroy();
+                    redirect('users/login');
+                } else {
+                    die('Error in sign up');
+                }
+            }
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
+        $viewPath = VIEWS_PATH . 'users/changePass.php';
+        require_once $viewPath;
+        $view = new changePass($this->getModel(), $this);
+        $view->output();
+    }
+    
 }

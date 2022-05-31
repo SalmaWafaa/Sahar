@@ -16,7 +16,11 @@
   </div>
 EOT;
     echo $text;
-    $product=$this->model->getCategoryProducts($_GET['id']);
+    $this->CatShop();
+    require APPROOT . '/views/inc/footer.php';
+  }
+    public function CatShop(){
+    $product=$this->model->getCategoryProducts($_GET['cid']);
        ?>
        <div class="row row-cols-2 row-cols-md-4">
          <?php
@@ -24,8 +28,10 @@ EOT;
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
+    <a href="<?php echo URLROOT . "products/product?id=$p->ProductID&cid=$p->Cat_ID";?>">
       <img src="<?php echo ImageRoot . $p->ProductImage ; ?>" alt="Image1" class="card-img-top"  >
 </div>
+   </a>
    
       <div class="card-body">
         <h5 class="card-title"><?php echo $p->ProductName;?></h5>
@@ -42,19 +48,21 @@ EOT;
                               <small><s class="text-secondary">419 EGP</s></small>
                                <span class="price"> <?php echo $p->Price;?> EGP</span>
                               </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="bi bi-cart4"></i></button>
+                              <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="bi bi-cart4"></i><a href="<?php echo URLROOT . 'products/cart?id='.$p->ProductID; ?>" ></a></button>
                                <input type='hidden' name='product_id' value='<?php  $p->ProductID;?>'>
       </div>
 </form>
    </div>
    
-  <?php }?>
-  </div>
-  
-<?php
-    require APPROOT . '/views/inc/footer.php';
+  <?php 
   }
-}
+
+  ?>
+  </div>
+  <?php
+    }
+  }
+
 ?>
 
 

@@ -19,53 +19,101 @@
 class cart extends View
 {
   public function output()
-  { 
-    $title = $this->model->title;
-    require APPROOT . '/views/inc/header.php';
-    ?>
-<div class="container">
-
-    <div class="bg-warning">
-<h1 class="display-4"> <center> My Cart</center></h1>
-    </div>
- <div class=”Cart-Container”></div>
-<div class=”Header”>
- <h3 class=”Heading”><i class="bi bi-cart3"></i> Preview Your Cart </h3>
- <button type="button" class="btn btn-danger">Your cart is currently empty!</button>
- <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
- <button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
- </div>
-
- <div style="clear: both"></div>
-        <h3 class="title2"><i class="bi bi-cart3"></i> Shopping Cart Details</h3>
-        <div class="table-responsive">
-        <table class="table-warning">
-            <tr>
-                <th width="30%">  Product Name</th>
-                <th width="10%">Quantity</th>
-                <th width="13%">Price Details</th>
-                <th width="10%">Total Price</th>
-                <th width="17%">Remove Item</th>
-            </tr>
-            <tr>
-                <td width="30%">  car holder</td>
-                <td width="10%">1</td>
-                <td width="13%">300</td>
-                <td width="10%">300</td>
-                <td width="17%"><button type="button" class="btn btn-danger">Remove Item</button></td>
-            </tr>
-            <tr>
-                <td width="30%"> Headphones</td>
-                <td width="10%">1</td>
-                <td width="13%">500</td>
-                <td width="10%">800</td>
-                <td width="17%"><button type="button" class="btn btn-danger">Remove Item</button></td>
-            </tr>
-            </table>
-        </div>
-  </div>
+    {
+     $title = $this->model->title;
+      require APPROOT . '/views/inc/header.php';
+      if(!empty($_POST['cart'])) 
+     {
+		$this->model->productsQuantity=json_decode($_POST['cart'],true);
+     }
+     if(!empty($_GET["action"])) 
+     {
+	  switch($_GET["action"]) 
+      {
+		case "add":
+			if(!empty($_POST["quantity"])) {
+				$this->model->addProduct($_GET["id"],$_POST["quantity"]);
+			}
+		break;
+		case "remove":
+			$this->model->removeProduct($_GET["id"]);
+		break;
+		case "empty":
+			$this->model->emptyCart();	
+		break;	
+	   }
+      if(count($cart->productsQuantity)>0)
+      {
+		$item_total = 0;
+        ?>
+        <button type="button" class="btn btn-danger">Your cart is currently empty!</button>
         <?php
-    require APPROOT . '/views/inc/footer.php';
-  }
-}
-?>
+      }
+     }
+  
+ 
+      ?>
+      <div class="container">
+
+     <div class="bg-warning">
+     <h1 class="display-4"> <center> My Cart</center></h1>
+     </div>
+     <div class=”Cart-Container”></div>
+     <div class=”Header”>
+     <h3 class=”Heading”><i class="bi bi-cart3"></i> Preview Your Cart </h3>
+     <button type="button" class="btn btn-danger">Your cart is currently empty!</button>
+      <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
+     <button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
+     </div>
+ 
+
+
+      <div style="clear: both"></div>
+        <div class="table-responsive">
+        <tr>
+				<th><strong>Name</strong></th>
+                <th><strong>Description</strong></th>
+				<th><strong>Quantity</strong></th>
+				<th><strong>Price</strong></th>
+                <th><strong>Rate</strong></th>
+				<th><strong>Action</strong></th>
+			</tr>	
+			<?php	
+			foreach ($cart->productsQuantity as $productID => $Quantity)
+            {  
+				$product=$this->prod($productID);						
+				?>
+				<tr>
+					<td><strong><?php echo $product->ProductName; ?></strong></td>
+                    <td><strong><?php echo $product->Description; ?></strong></td>
+					<td><?php echo $Quantity; ?></td>
+					<td><?php echo "$".$product->Price; ?></td>
+                    <td><strong><?php echo $product->Rate; ?></strong></td>
+					<td>
+						<form method="post" action= "<?php URLROOT . 'products/cart?action=remove&id='.$product->ProductID; ?>">
+							<input type="submit" value="Remove Item" class="btnAddAction" />
+							<input type='hidden' name='cart' value='<?php echo (json_encode($cart->productsQuantity)); ?>' />
+						</form>
+					</td>
+				</tr>
+				<?php
+				$item_total += ($product->Price*$Quantity);
+			}
+			?>
+			<tr>
+				<td colspan="4"><strong>Total:</strong> 
+				<?php 
+				echo "$".$item_total; ?></td>
+			</tr>
+		</table>		
+	 <?php
+    
+     ?>
+      </div>
+     <?php
+	
+     require APPROOT . '/views/inc/footer.php';
+        
+    }
+}?>
+

@@ -56,8 +56,6 @@ EOT;
     $this->printFName();
     $this->printLName();
     $this->printEmail();
-    $this->printPassword();
-    $this->printConfirmPassword();
     $this->printAddress();
     $this->printMobile();
    ?>
@@ -65,6 +63,9 @@ EOT;
       <div class="row mt-4">
         <div class="col-2">
           <input type="submit" value="Edit Profile" class="form-control btn btn-warning btn-block">
+        </div>
+        <div class="col-2">
+        <button class="form-control btn btn-warning btn-block"> <a href="<?php echo URLROOT . 'users/changePass';?>" </a> Change Password </button>
         </div>
         <div class="col-2">
         <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
@@ -117,24 +118,8 @@ EOT;
     $this->printInput('email', 'email', $val, $err, $valid,'bi bi-envelope-fill');
   }
 
-  private function printPassword()
-  {
-    //$val = $this->model->setpass(password_verify(,getpass($_SESSION['user_id'])));
-    $val="......";
-    $err = $this->model->getPasswordErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('password', 'password', $val, $err, $valid,'bi bi-lock-fill');
-  }
-  private function printConfirmPassword()
-  {
-    //$val = $this->model->getpass($_SESSION['user_id']);
-    $val="......";
-    $err = $this->model->getConfirmPasswordErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('password', 'confirm_password', $val, $err, $valid,'bi bi-lock-fill');
-  }
+  
+ 
   private function printAddress()
   {
     $val =$this->model->getAddr($_SESSION['user_id']);
