@@ -20,10 +20,10 @@
      </div>
      
      EOT;
-    echo $text;
-    $this->printForm();
-    require APPROOT . '/views/inc/footer.php';
-  }
+     echo $text;
+     $this->printForm();
+     require APPROOT . '/views/inc/footer.php';
+    }
   private function printForm()
   {
      $action = URLROOT . 'users/register';
@@ -67,7 +67,7 @@
           echo $text;
          $this->printFName();
          $this->printLName();
-         //$this->printEmail();
+         $this->printEmail();
          $this->printAddress();
          $this->printMobile();
            $text = <<<EOT
