@@ -39,12 +39,7 @@ EOT;
     echo $text;
     $this->printMessage();
     $this->printOrderInfo();
-    $this->printProdImage3();
-    $this->printProdName();
-    $this->printProdDescr();
-    $this->printProdQuantity();
-    $this->printRadio();
-    $this->printProdPrice();
+   
     $text = <<<EOT
     
     <div class="container">
@@ -71,72 +66,27 @@ EOT;
   public function printOrderInfo()
   {
   $order= $this->model->orderSummary($_SESSION['user_id']);
+  $p=$this->model->orderProduct($order->productID);
     ?>
     <h4>Order number</h4>
     <h6><?php echo $order->orderNumb ; ?></h6>
+    <h4>Order Address</h4>
+    <h6><?php echo $order->Address ; ?></h6>
+    <h4>Order shipping fees</h4>
+    <h6><?php echo $order->shippingFees ; ?></h6>
+    <h4>Order Total</h4>
+    <h6><?php echo $order->Total ; ?></h6>
+    <h4>Order Mobile Number</h4>
+    <h6><?php echo $order->MobileNumb ; ?></h6>
+   <?php 
+   //foreach($p as $PP){?>
+    <h4>Order Product Name</h4>
+    <h6><?php echo $p->ProductName ; ?></h6>
+
   <?php
+   //}
   }
-  private function printProdImage3()
-  {
-    //$val = $this->model->getimg();
-    $err = $this->model->getimg3Err();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-    $this->printPictures('file', 'Product_Image_3', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
-  }
-  private function printProdName()
-  {
-    $val = $this->model->getProductName();
-    $err = $this->model->getProductNameErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'Product_Name', $val, $err, $valid,'bi bi-bag-dash-fill');
-  }
-  private function printProdDescr()
-  {
-    $val = $this->model->getDescription();
-    $err = $this->model->getDescriptionErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'Product_Description', $val, $err, $valid,'bi bi-bag-dash-fill');
-  }
-
-  private function printProdQuantity()
-  {
-    $val = $this->model->getQuantity();
-    $err = $this->model->getQuantityErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'Product_Quantity', $val, $err, $valid,'bi bi-123');
-  }
-  private function printProdPrice()
-  {
-    $val = $this->model->getPrice();
-    $err = $this->model->getPriceErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'Product_Price', $val, $err, $valid,'bi bi-cash');
-  }
-  private function printRadio(){
-    ?>
-    <div class="form-group">
-    <label for="q1"> Category: <sup>*</sup> </label>
-    <br>
-    <?php 
-    $categ=$this->model->getCategs();
-    foreach ($categ as $c){
-      ?>
-    <input type="radio" name="q1" value="<?php echo $c->catID ;?>" />
-    <?php echo $c->CatName ; ?> <br>
-   
-    <?php
-    }
-    ?>
-    <input type="radio" name="q1" value="<?php echo $this->model->countID()+1 ;?>" />
-    <a href= "<?php echo URLROOT . 'products/add_category' ; ?>"> + Add new Category </a> <br>
-    </div>
-   
-  <?php
-  }
+  
   
   private function printInput($type, $fieldName, $val, $err, $valid,$icon)
   {

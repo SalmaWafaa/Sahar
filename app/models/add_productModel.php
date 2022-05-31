@@ -5,7 +5,7 @@ class add_productModel extends shopModel{
     {   $this->dbh->query("SELECT ProductID from products order by ProductID desc limit 1");
         $prodID=$this->dbh->single()->ProductID;
         $newID= $prodID+1;
-        $this->dbh->query("INSERT INTO products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`Cat_ID`,`About`,`PCondition`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :prod_name, :descr, :quantity, :price , :categ,:about,:pcond)");
+        $this->dbh->query("INSERT INTO products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`Cat_ID`,`About`,`PCondition`,`Date`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :prod_name, :descr, :quantity, :price , :categ,:about,:pcond,:datee)");
         $this->dbh->bind(':prod_img1', $this->img1);
         $this->dbh->bind(':prod_img2', $this->img2);
         $this->dbh->bind(':prod_img3', $this->img3);
@@ -16,7 +16,7 @@ class add_productModel extends shopModel{
         $this->dbh->bind(':categ', $this->Category); 
         $this->dbh->bind(':about', $this->About); 
         $this->dbh->bind(':pcond', $this->PCondition); 
-        //$this->dbh->bind(':datee', $this->datee); 
+        $this->dbh->bind(':datee', $this->datee); 
          $this->dbh->execute();
        //echo $this->Category;
        foreach($this->color as $CID ){
@@ -25,12 +25,12 @@ class add_productModel extends shopModel{
         $this->dbh->bind(':cid', $CID); 
         $this->dbh->execute();
        }
-      /*foreach($this->Quality as $QID ){
-        $this->dbh->query("UPDATE attributes SET `Q_ID`=:qid WHERE `Product_ID`=:pid ");
+        foreach($this->Quality as $QID ){
+        $this->dbh->query("INSERT INTO attributesquality (`p_ID`,`q_ID`) VALUES(:pid , :qid )");
         $this->dbh->bind(':pid', $newID);
         $this->dbh->bind(':qid', $QID); 
         $this->dbh->execute();
-    }*/
+    }
 }
     public function countID(){
        $x=$this->dbh->query("SELECT COUNT(catID) FROM categories");

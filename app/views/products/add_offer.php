@@ -27,14 +27,14 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'products/add_product';
+    $action = URLROOT . 'products/offers';
 
     $text = <<<EOT
     <div class="Regform">
     <div class="row">
     <div class="col-md-12 mx-auto">
     <div class="card card-body bg-light mt-6">
-    <h2>Add Product</h2>
+    <h2>Add Offer</h2>
     <form action="$action" method="post" enctype="multipart/form-data">
 EOT;
     echo $text;
@@ -46,7 +46,7 @@ EOT;
     <div class="container">
       <div class="row mt-4">
         <div class="col-4">
-          <center><input type="submit" value=" Add Category " class="form-control btn btn-warning btn-block"></center>
+          <center><input type="submit" value=" Add Offers " class="form-control btn btn-warning btn-block"></center>
         </div>
       </div>
       </div>
