@@ -288,12 +288,12 @@ class Products extends Controller
         $add_offerModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $add_offerModel->setproductName(trim($_POST['Offer_Name']));
+            $add_offerModel->setOfferProductName(trim($_POST['Offer_Name']));
             //validation
             if (
-                empty($add_productModel->getProductNameErr())
+                empty($add_offerModel->getOfferProductNameErr())
             ) {
-                if ($add_offerModel->add_offer()) {
+                if ($add_offerModel->add_offerr()) {
                     //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');

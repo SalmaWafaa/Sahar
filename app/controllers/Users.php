@@ -204,6 +204,7 @@ class Users extends Controller
         $_SESSION['user_mobile'] = $user->Mobile;
         $_SESSION['user_Email'] = $user->Email;
         $_SESSION['user_pass']=$user->password;
+        $_SESSION['user_Type_ID']=$user->user_Type_ID;
         //header('location: ' . URLROOT . 'pages');
         redirect('pages');
     }
@@ -221,5 +222,5 @@ class Users extends Controller
     {
         return isset($_SESSION['user_id']);
     }
-    
+   
 }
