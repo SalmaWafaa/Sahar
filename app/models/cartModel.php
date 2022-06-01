@@ -57,10 +57,11 @@ class cartModel extends Model
             unset($this->productsQuantity); 
             $this->productsQuantity=array();
         }
-        function prod(){
+       
+    }
+    public function prod(){
         $this->dbh->query('SELECT * from products where `ProductID`=:id ');
         $records=$this->dbh->resultSet();
         return $records;
         }
-    }
 }
