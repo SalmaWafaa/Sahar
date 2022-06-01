@@ -1,68 +1,31 @@
 <?php
-class offersModel extends Model
+require_once "shopModel.php";
+
+class offersModel extends shopModel
 {
     public  $title = 'Offers Page';
-    protected $OfferProductName;
-    protected $OfferProductNameErr;
-    protected $OfferProductImage;
-    protected $OfferProductImageErr;
-    protected $OfferName;
-    protected $Offerimage;
+    protected $OfferDescription;
 
     public function __construct()
     {
         parent::__construct();
-        $this->OfferProductName= "";
-        $this->OfferProductNameErr = "";
-        $this->OfferProductImage= "";
-        $this->OfferProductImageErr = "";
-        $this->OfferName= "";
-        $this->Offerimage  = "";
+        $this->OfferDescription="";
        
     }
-
-    public function getOfferProductName()
+   
+    public function getOfferDescription()
     {
-        return $this->OfferName;
+        return $this->OfferDescription;
     }
-    public function setOfferProductName($OfferName)
+    public function setOfferDescription($OfferDescription)
     {
-        $this->OfferName = $OfferName;
+        $this->OfferDescription = $OfferDescription;
     }
-
-    public function getOfferProductNameErr()
-    {
-        return $this->OfferProductNameErr;
-    }
-    public function setOfferProductNameErr($OfferProductNameErr)
-    {
-        $this->OfferProductNameErr = $OfferProductNameErr;
-    }
-    public function getOfferProductImage()
-    {
-        return $this->Offerimage;
-    }
-    public function setOfferProductImage($Offerimage)
-    {
-        $this->Offerimage = $Offerimage;
-    }
-
-    public function getOfferProductImageErr()
-    {
-        return $this->OfferProductImageErr;
-    }
-    public function setOfferProductImageErr($Offerimage)
-    {
-        $this->Offerimage = $Offerimage;
-    }
-
     public function view_offers()
     {
-        $this->dbh->query('SELECT * from offers ');
-        $this->dbh->bind(':Offer_Name', $this->OfferName);
-        $this->dbh->bind(':offer_img', $this->Offerimage);
+        $this->dbh->query('SELECT * from offers, products where Product_ID = ProductID'  );
         $records=$this->dbh->resultSet();
-        $OfferProduct = $records->OfferProduct;
+        return $records;
 
     }
     public function findOfferProduct($OfferProductName)
@@ -72,15 +35,6 @@ class offersModel extends Model
         $userRecord = $this->dbh->single();
         return $this->dbh->rowCount();
     }
-
-    public function ordersHistory($id)
-    {
-    $this->dbh->query('SELECT * from products WHERE `ProductID` =:id');
-    $this->dbh->bind(':id',$id);
-    $Record = $this->dbh->resultSet();
-    return $Record;
-    }
-    
 
     public function ProductExist($OfferProductName)
     {
