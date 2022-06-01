@@ -4,6 +4,7 @@ require_once "shopModel.php";
 class productModel extends shopModel
 {
     public  $title = 'Product Page';
+    //public $cartModel cartLM {get;set;}
 
     public function product($id)
     {
