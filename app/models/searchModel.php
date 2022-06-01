@@ -28,7 +28,7 @@ if (mysqli_num_rows($result) > 0) {
     echo          "<h5 class='card-title'>"  . $row['ProductName'] . "</h5>";
     echo          "<p class='card-text'>" . $row['email'] . "</p>";
    
-    echo      "</div>"
+    echo      "</div>";
   }
   echo "</div>";
 } else {
