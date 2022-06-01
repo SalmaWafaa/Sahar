@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo URLROOT; ?>css/alert.css">
 
 <?php
 
@@ -22,8 +23,16 @@ class edit_prod extends View
 EOT;
     echo $text;
     $product=$this->model->getAllProducts();
-    //$e="Edit";
+    $pp=$this->model->getproductsOFS();
+    foreach($pp as $prod)
+    {
     ?>
+    <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong><?php echo $prod->ProductName;?></strong> is about to be out of stock.
+</div>
+    <?php } ?>
+
     <table class='table table-striped table-bordered table-hover '>
 		<thead><tr class='table-warning'>
 			<th>ID</th>
@@ -35,7 +44,7 @@ EOT;
 			<th>Quantity</th>
 			<th>Price</th>
 			<th>Rate</th>
-            <th>Edit/Delete</th>
+      <th>Edit/Delete</th>
 		</tr>
     </thead>
        <?php  foreach($product as $x)

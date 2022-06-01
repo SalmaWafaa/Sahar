@@ -354,5 +354,12 @@ class shopModel extends Model
         return $Record;
 
     }
+    public function getQualities()
+    {
+        $this->dbh->query('select * from quality ');
+        $Record = $this->dbh->resultSet();
+        return $Record;
+
+    }
    
 }
