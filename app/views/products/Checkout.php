@@ -8,9 +8,9 @@
     {
      public function output()
      {
-    $title=$this->model->title;
-    require APPROOT . '/views/inc/header.php';
-    $text = <<<EOT
+     $title=$this->model->title;
+     require APPROOT . '/views/inc/header.php';
+     $text = <<<EOT
     
      <body>
      <main>
@@ -23,9 +23,9 @@
      echo $text;
      $this->printForm();
      require APPROOT . '/views/inc/footer.php';
-    }
-  private function printForm()
-  {
+     }
+      private function printForm()
+      {
      $action = URLROOT . 'users/register';
      $loginUrl = URLROOT . 'users/login';
 
@@ -60,7 +60,6 @@
             </li>
             </div>
             </div>
-            </form>
             </div>
             </div>
             EOT;
@@ -81,8 +80,9 @@
            <input type="submit" value="check out" class="form-control btn btn-warning btn-block">
            </div>
            </div>
-           </div>
            </form>
+           </div>
+           </div>
            </div>
            </div>
            EOT;
@@ -107,14 +107,14 @@
          $this->printInput('text', 'last_name', $val, $err, $valid);
         }
 
-        /*private function printEmail()
+        private function printEmail()
         {
           $val = $this->model->getEmail($_SESSION['user_id']);
           $err = $this->model->getEmailErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('email', 'email', $val, $err, $valid);
-        }*/
+        }
 
         private function printAddress()
         {
@@ -136,19 +136,19 @@
 
         private function printInput($type, $fieldName, $val, $err, $valid)
         {
-         $label = str_replace("_", " ", $fieldName);
+          $label = str_replace("_", " ", $fieldName);
           $label = ucwords($label);
-         $text = <<<EOT
-         <div class="form-group">
-         <label for="$fieldName">  $label: <sup>*</sup> </label>
-         <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
-         <span class="invalid-feedback">$err</span>
-         </div>
-        }
-        EOT;
-     echo $text;  
+          $text = <<<EOT
+          <div class="form-group">
+          <label for="$fieldName">  $label: <sup>*</sup> </label>
+          <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+          <span class="invalid-feedback">$err</span>
+          </div>
+          EOT;
+          echo $text;
+        } 
    }
-}
+
   
      
      
