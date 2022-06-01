@@ -3,12 +3,12 @@ class searchModel extends model
 {
   function getProducts()
   {
-    $conn = new mysqli("localhost", "root", "", "miublog");
+    $conn = new mysqli("localhost", "root", "", "sahar");
 if (isset($_POST["query"])) {
   $search = mysqli_real_escape_string($conn, $_POST["query"]);
   $query = "
-  SELECT * FROM doctors 
-  WHERE name LIKE '%" . $search . "%'
+  SELECT * FROM products
+  WHERE ProductName LIKE '%" . $search . "%'
   
  ";
 } else {
