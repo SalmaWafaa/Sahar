@@ -6,10 +6,12 @@ class CheckoutModel extends model{
     protected $productid;
     protected $quantity;
     protected $address;
+    protected $email;
     protected $idclient;
     protected $paymentt;
     protected $shfees;
     protected $mobile;
+    protected $mobile2;
     protected $total;
     protected $date;
     protected $Fname;
@@ -22,10 +24,12 @@ class CheckoutModel extends model{
     protected $productidErr;
     protected $quantityErr;
     protected $addrssErr;
+    protected $emailErr;
     protected $idclientErr;
     protected $paymenttErr;
     protected $shfeesErr;
     protected $mobileErr;
+    protected $mobile2Err;
     protected $totalErr;
     protected $dateErr; 
     protected $FnameErr;
@@ -110,6 +114,15 @@ class CheckoutModel extends model{
     {
         $this->address = $address;
     }
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
 
 
     public function getidclient()
@@ -154,6 +167,16 @@ class CheckoutModel extends model{
     {
         $this->mobile = $mobile;
     }
+    public function getmobile2()
+    {
+        return $this->mobile2;
+    }
+
+    public function setmobile2($mobile2)
+    {
+        $this->mobile2 = $mobile2;
+    }
+
 
 
     public function gettotal()
@@ -239,6 +262,15 @@ class CheckoutModel extends model{
     {
         $this->addressErr = $addressErr;
     }
+    public function getEmailErr()
+    {
+        return $this->emailErr;
+    }
+
+    public function setEmailErr($emailErr)
+    {
+        $this->emailErr = $emailErr;
+    }
 
 
     public function getidclientErr()
@@ -274,17 +306,22 @@ class CheckoutModel extends model{
     }
 
 
-    public function getmobileErr()
+   public function getmobileErr()
     {
         return $this->mobileErr;
     }
-
     public function setmobileErr($mobileErr)
     {
         $this->mobileErr = $mobileErr;
+    } public function getmobile2Err()
+    {
+        return $this->mobile2Err;
     }
-
-
+    public function setmobile2Err($mobile2Err)
+    {
+        $this->mobile2Err = $mobile2Err;
+    }
+    
     public function gettotalErr()
     {
         return $this->totalErr;
