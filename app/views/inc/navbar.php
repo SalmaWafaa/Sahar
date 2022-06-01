@@ -29,8 +29,14 @@
          </li>
          </ul>
           <form class="form-inline">
+<<<<<<< HEAD
+       
+       
+        <button class="p-2"><a href="users/logout">Logout</a></button>
+=======
         <button class="btn btn-warning" type="submit">Search</button>
         <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+>>>>>>> 66cba4bf60f7f38c48f683f8e7a9cccc4cffe9fa
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
        
