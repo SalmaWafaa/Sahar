@@ -65,23 +65,23 @@ class cart extends View
       <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
      <button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
     </div>
-    <table class='table table-striped table-bordered table-hover '>
-		<thead><tr class='table-warning'>
-        <tr>
+               <table class='table table-striped table-bordered table-hover '>
+		     <thead><tr class='table-warning'>
+             <tr>
 				<th><strong>Name</strong></th>
                 <th><strong>Description</strong></th>
 				<th><strong>Quantity</strong></th>
 				<th><strong>Price</strong></th>
                 <th><strong>Rate</strong></th>
 				<th><strong>Action</strong></th>
-			</tr></thead>
-			<?php	
-            $item_total=0;
-			foreach ($cart->productsQuantity as $productID => $Quantity)
-            {  
-				$product=$this->model->prod($productID);						
-				?>
-				<tr>
+			 </tr></thead>
+			 <?php	
+             $item_total=0;
+			 foreach ($cart->productsQuantity as $productID => $Quantity)
+               {  
+				 $product=$this->model->prod($productID);						
+				 ?>
+				 <tr>
 					<td><strong><?php echo $product->ProductName; ?></strong></td>
                     <td><strong><?php echo $product->Description; ?></strong></td>
 					<td><?php echo $Quantity; ?></td>
@@ -93,18 +93,19 @@ class cart extends View
 							<input type='hidden' name='cart' value='<?php echo (json_encode($cart->productsQuantity)); ?>' />
 						</form>
 					</td>
-				</tr>
-				<?php
-				$item_total += ($product->Price*$Quantity);
-			 }
+				 </tr>
+				 <?php
+				 $item_total += ($product->Price*$Quantity);
+			   }
 			 ?>
 			 <tr>
 				<td colspan="4"><strong>Total:</strong> 
 				<?php 
-				echo "$".$item_total; ?></td>
-			</tr>
-		</table>		
-	 <?php
+				echo "EPG".$item_total; ?></td>
+			   </tr>
+		      </table>		
+	           <?php
+           
     
      ?>
       </div>
