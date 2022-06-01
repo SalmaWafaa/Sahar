@@ -38,7 +38,7 @@ if (mysqli_num_rows($result) > 0) {
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-    <a href="<?php echo URLROOT . "products/product?id=$p->ProductID&cid=$p->Cat_ID";?>">
+    <a href="<?php echo URLROOT . "products/product?id=$row['ProductID&cid=$p->Cat_ID";?>">
       <img src="<?php echo ImageRoot . $p->ProductImage ; ?>" alt="Image1" class="card-img-top"  >
 </div>
    </a>
