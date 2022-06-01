@@ -15,40 +15,24 @@
            <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'products/categories'; ?>">Categories</a>
            </li>
-           <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT . 'products/Ordershistory'; ?>">Orders History</a>
-           </li>
+          
         <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
            </li>
            <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/gallery'; ?>">Gallery</a>
-           </li>
-         
-    <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
+           </li> 
+            <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
          </li>
+         
+  
          </ul>
-          <form class="form-inline">
-       
-       
-        <button class="p-2"><a href="users/logout">Logout</a></button>
-        
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-       
-        <li class="nav-item">
-        <a class="nav-link" href="<?php echo URLROOT . 'products/cart'; ?>">Cart</a>
-</ul>  </li>
-
-              <span class="badge">3</span>
               
             <?php if (isset($_SESSION['user_id'])) : 
             ?> 
-            <div class=" btn btn-warning">
-            <a class="nav-link" href="<?php echo URLROOT . 'users/EditProfile'; ?>"> <?php echo $_SESSION['user_Fname']; ?> </a>
-              </div> <button class="p-2"><a href="users/logout">Logout</a></button>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+            
               <?php
               if($_SESSION['user_Type_ID']== 1):
 ?> 
@@ -58,14 +42,25 @@
               </li>
               </ul>
               <?php else:?>
+                <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'products/Ordershistory'; ?>">Orders History</a>
+           </li>
+           <form class="form-inline">
+        <li class="nav-item">
+        <a class="nav-link" href="<?php echo URLROOT . 'products/cart'; ?>">Cart</a>
+              </li>
+              <span class="badge">3</span>
               <?php endif;?>
       
-       
+       <div class=" btn btn-warning">
+            <a class="nav-link" href="<?php echo URLROOT . 'users/EditProfile'; ?>"> <?php echo $_SESSION['user_Fname']; ?> </a>
+              </div> <button class="p-2"><a href="users/logout">Logout</a></button>
+
             <?php else : ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/login'; ?>" >Login</a></button>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/register'; ?>" >Sign_Up</a></button>
-            <?php endif; ?>
-      </form>
+                 </form>
+ <?php endif; ?>
     </div>
   </div>
 </nav>
