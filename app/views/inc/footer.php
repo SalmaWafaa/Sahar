@@ -33,10 +33,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="!">About Us</a>
+            <a href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
           </li>
           <li>
-            <a href="#!">Shipping Details</a>
+            <a href="<?php echo URLROOT . 'products/summary'; ?>">Shipping Details</a>
           </li>         
         </ul>
 
@@ -54,7 +54,7 @@
             <a href="#!">Terms and conditions</a>
           </li>
           <li>
-            <a href="#!">Contact Us</a>
+            <a href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact Us</a>
           </li>
         </ul>
 
