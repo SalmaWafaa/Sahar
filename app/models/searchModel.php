@@ -13,7 +13,7 @@ if (isset($_POST["query"])) {
  ";
 } else {
   $query = "
-  SELECT * FROM doctors ORDER BY id
+  SELECT * FROM products ORDER BY ProductID
  ";
 }
 $result = mysqli_query($conn, $query);
