@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) > 0) {
     echo      "</div>";
 
     
-       ?>
+       
        <div class="row row-cols-2 row-cols-md-4">
         
    
