@@ -9,6 +9,7 @@ class OrdershistoryModel extends model
     $Record = $this->dbh->resultSet();
     return $Record;
     }
+    
 
 }
 ?>

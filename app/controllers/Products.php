@@ -299,13 +299,49 @@ class Products extends Controller
         $cartView = new cart($this->getModel(), $this);
         $cartView->output();
     }
-  
-    public function Checkout(){
+    public function Checkout()
+    {
+        $checkModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            
+            $checkModel->setordernumb(trim($_POST['orderNumb']));
+            $checkModel->setproductid(trim($_POST['productID']));
+            $checkModel->setquantity(trim($_POST['Quantity']));
+            $checkModel->setaddress(trim($_POST['Address']));
+            $checkModel->setidclient(($_SESSION['user_id']));
+            $checkModel->setpaymentt(trim($_POST['PaymentType']));
+            $checkModel->setshfees(trim($_POST['shippingFees']));
+            $checkModel->setmobile(trim($_POST['MobileNumb']));
+            $checkModel->settotal(trim($_POST['Total']));
+            $checkModel->setdate(date("Y-m-d"));
+            /*if (empty($add_categoryModel->getCategoryName())) {
+                $add_categoryModel->setCategoryNameErr('Please enter a name for the category');
+            } elseif ($add_categoryModel->CategoryExist($_POST['Category_Name'])) {
+                $add_categoryModel->setCategoryNameErr('There is already a category with that name');
+            }
+           
+            if (
+                empty($add_categoryModel->getCategoryNameErr())
+               
+            ) {*/
+                
+
+                if ($checkModel->checko()) {
+                    //alert
+                    flash('order_ourchase', 'Your Order Has Been Purchased Successfully');
+                    //redirect('products/categories');
+                } else {
+                    die('Error Purchasing This Order');
+                }
+            //}
+        }
+        // Load form
+        //echo 'Load form, Request method: ' . $_SERVER['REQUEST_METHOD'];
         $viewPath= VIEWS_PATH . 'products/Checkout.php';
         require_once $viewPath;
         $CheckoutView=new Checkout($this->getModel(),$this);
         $CheckoutView->output();
-    }     
+    }    
     public function offers()
     {
         $viewPath = VIEWS_PATH . 'products/offers.php';
@@ -326,12 +362,12 @@ class Products extends Controller
         $add_offerModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $add_offerModel->setproductName(trim($_POST['Offer_Name']));
+            $add_offerModel->setOfferProductName(trim($_POST['Offer_Name']));
             //validation
             if (
-                empty($add_productModel->getProductNameErr())
+                empty($add_offerModel->getOfferProductNameErr())
             ) {
-                if ($add_offerModel->add_offer()) {
+                if ($add_offerModel->add_offerr()) {
                     //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');

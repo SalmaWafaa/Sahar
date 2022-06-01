@@ -103,7 +103,8 @@ if($_GET['id'] == $f->ProductID){?>
     ?>
     </div>
         <br>
-        <button class="btn btn-warning" type="submit"><a href="<?php echo URLROOT . 'products/cart?pid='.$p->ProductID; ?>">Add to cart</button>
+        <button class="btn btn-warning" type="submit"><a href="<?php echo URLROOT . 'products/cart?action=add&pid='.$p->ProductID; ?>">Add to cart</button>
+        <input type='hidden' name='cart' value='<?php echo (json_encode($cart->productsQuantity)); ?>' />
         <button class="btn btn-warning"> <a href="<?php echo URLROOT . 'products/review'; ?>" >Add Review</a></button>
 
 

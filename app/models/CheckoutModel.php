@@ -12,7 +12,12 @@ class CheckoutModel extends model{
     protected $mobile;
     protected $total;
     protected $date;
+    protected $Fname;
+    protected $Lname;
+    
 
+
+    
     protected $ordernumbErr;
     protected $productidErr;
     protected $quantityErr;
@@ -23,7 +28,10 @@ class CheckoutModel extends model{
     protected $mobileErr;
     protected $totalErr;
     protected $dateErr; 
-
+    protected $FnameErr;
+    protected $LnameErr; 
+    
+    
     public function __construct()
     {
         parent::__construct();
@@ -38,7 +46,13 @@ class CheckoutModel extends model{
         $this->  mobile= "";
         $this->  total= "";
         $this->  date= "";
+        $this->Fname     = "";
+        $this->Lname     = "";
         
+       
+        
+
+       
         $this->ordernumbErr   = "";
         $this-> productidErr= "";
         $this->  quantityErr= "";
@@ -49,6 +63,10 @@ class CheckoutModel extends model{
         $this->  mobileErr= "";
         $this->  totalErr= "";
         $this->  dateErr= "";
+        $this->FnameErr = ""; 
+        $this->LnameErr = "";
+        $this->addressErr = "";
+        $this->mobileErr = "";
     }
     public function getordernumb()
     {
@@ -157,6 +175,24 @@ class CheckoutModel extends model{
     public function setdate($date)
     {
         $this->date = $date;
+    }
+    public function getFName()
+    {
+        return $this->Fname;
+    }
+
+    public function setFName($Fname)
+    {
+        $this->Fname = $Fname;
+    }
+    public function getLName()
+    {
+        return $this->Lname;
+    }
+
+    public function setLName($Lname)
+    {
+        $this->Lname = $Lname;
     }
 
 
@@ -268,6 +304,24 @@ class CheckoutModel extends model{
     public function setdateErr($dateErr)
     {
         $this->date = $dateErr;
+    }
+    public function getFNameErr()
+    {
+        return $this->FnameErr;
+    }
+
+    public function setFNameErr($FnameErr)
+    {
+        $this->FnameErr = $FnameErr;
+    }
+    public function getLNameErr()
+    {
+        return $this->LnameErr;
+    }
+
+    public function setLNameErr($LnameErr)
+    {
+        $this->LnameErr = $LnameErr;
     }
     public function checko()
     {

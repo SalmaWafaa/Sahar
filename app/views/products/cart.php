@@ -20,6 +20,8 @@ class cart extends View
 {
   public function output()
     {
+        $cart= $this->model;
+       // $product= $this->model->getProduct($_GET["pid"]);
      $title = $this->model->title;
       require APPROOT . '/views/inc/header.php';
       if(!empty($_POST['cart'])) 
@@ -32,11 +34,11 @@ class cart extends View
       {
 		case "add":
 			if(!empty($_POST["quantity"])) {
-				$this->model->addProduct($_GET["id"],$_POST["quantity"]);
+				$this->model->addProduct($_GET["pid"],$_POST["quantity"]);
 			}
 		break;
 		case "remove":
-			$this->model->removeProduct($_GET["id"]);
+			$this->model->removeProduct($_GET["pid"]);
 		break;
 		case "empty":
 			$this->model->emptyCart();	
@@ -54,22 +56,17 @@ class cart extends View
  
       ?>
       <div class="container">
-
      <div class="bg-warning">
      <h1 class="display-4"> <center> My Cart</center></h1>
      </div>
      <div class=”Cart-Container”></div>
      <div class=”Header”>
      <h3 class=”Heading”><i class="bi bi-cart3"></i> Preview Your Cart </h3>
-     <button type="button" class="btn btn-danger">Your cart is currently empty!</button>
       <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
      <button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
-     </div>
- 
-
-
-      <div style="clear: both"></div>
-        <div class="table-responsive">
+    </div>
+    <table class='table table-striped table-bordered table-hover '>
+		<thead><tr class='table-warning'>
         <tr>
 				<th><strong>Name</strong></th>
                 <th><strong>Description</strong></th>
@@ -77,17 +74,18 @@ class cart extends View
 				<th><strong>Price</strong></th>
                 <th><strong>Rate</strong></th>
 				<th><strong>Action</strong></th>
-			</tr>	
+			</tr></thead>
 			<?php	
+            $item_total=0;
 			foreach ($cart->productsQuantity as $productID => $Quantity)
             {  
-				$product=$this->prod($productID);						
+				$product=$this->model->prod($productID);						
 				?>
 				<tr>
 					<td><strong><?php echo $product->ProductName; ?></strong></td>
                     <td><strong><?php echo $product->Description; ?></strong></td>
 					<td><?php echo $Quantity; ?></td>
-					<td><?php echo "$".$product->Price; ?></td>
+					<td><?php echo "EPG".$product->Price; ?></td>
                     <td><strong><?php echo $product->Rate; ?></strong></td>
 					<td>
 						<form method="post" action= "<?php URLROOT . 'products/cart?action=remove&id='.$product->ProductID; ?>">
@@ -98,9 +96,9 @@ class cart extends View
 				</tr>
 				<?php
 				$item_total += ($product->Price*$Quantity);
-			}
-			?>
-			<tr>
+			 }
+			 ?>
+			 <tr>
 				<td colspan="4"><strong>Total:</strong> 
 				<?php 
 				echo "$".$item_total; ?></td>
@@ -110,10 +108,11 @@ class cart extends View
     
      ?>
       </div>
+     </div>
      <?php
-	
-     require APPROOT . '/views/inc/footer.php';
-        
+     
+      require APPROOT . '/views/inc/footer.php'; 
     }
+   
 }?>
 
