@@ -61,11 +61,11 @@ class dashboard extends view{
                 <div class="recent-payments">
                     <div class="title">
                         <h2>Recent Messages</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
-                    <?php
-                    $str="<table class='table table-striped table-bordered table-hover '>
-                    <thead><tr>
+                        <li> <a href="<?php echo URLROOT . 'pages/view_messages'; ?>">View All</a></li>
+                     </div>
+                     <?php
+                     $str="<table class='table table-striped table-bordered table-hover '>
+                     <thead><tr>
                         <th>ID</th>
                           <th>Date</th>
                           <th>User Email</th>
