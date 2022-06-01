@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="<?php echo URLROOT; ?>css/dashboard.css">
+
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> 
     <title>Admin Panel</title>
 </head>
 <?php
@@ -19,6 +19,7 @@ class dashboard extends view{
   {
     $title = $this->model->title;
     $viewPath= VIEWS_PATH . 'pages/view_users.php';
+
     $messages=$this->model->Msg();
     foreach($messages as $msg)
    ?>
@@ -61,11 +62,11 @@ class dashboard extends view{
                 <div class="recent-payments">
                     <div class="title">
                         <h2>Recent Messages</h2>
-                        <a href="#" class="btn">View All</a>
-                    </div>
-                    <?php
-                    $str="<table class='table table-striped table-bordered table-hover '>
-                    <thead><tr>
+                        <li> <a href="<?php echo URLROOT . 'pages/view_messages'; ?>">View All</a></li>
+                     </div>
+                     <?php
+                     $str="<table class='table table-striped table-bordered table-hover '>
+                     <thead><tr>
                         <th>ID</th>
                           <th>Date</th>
                           <th>User Email</th>
