@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
     
        ?>
        <div class="row row-cols-2 row-cols-md-4">
-         <?php
+        
    
   <div class="col mb-4">
       <form action="" method="post">
