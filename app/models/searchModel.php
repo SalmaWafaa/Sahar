@@ -38,13 +38,13 @@ if (mysqli_num_rows($result) > 0) {
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-    <a href="<?php echo URLROOT . "products/product?id=$row['ProductID&cid=$p->Cat_ID";?>">
-      <img src="<?php echo ImageRoot . $p->ProductImage ; ?>" alt="Image1" class="card-img-top"  >
+    <a href="<?php echo URLROOT . "products/product?id=.$row['ProductID']&cid=.$row['Cat_ID']";?>">
+      <img src="<?php echo ImageRoot .$row ['ProductImage'] ; ?>" alt="Image1" class="card-img-top"  >
 </div>
    </a>
    
       <div class="card-body">
-        <h5 class="card-title"><?php echo $p->ProductName;?></h5>
+        <h5 class="card-title"><?php echo.$row['ProductName'];?></h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
