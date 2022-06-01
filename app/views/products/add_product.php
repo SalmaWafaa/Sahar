@@ -43,8 +43,12 @@ EOT;
     $this->printProdImage3();
     $this->printProdName();
     $this->printProdDescr();
+    $this->printProdAbout();
+    $this->printProdCondition();
     $this->printProdQuantity();
     $this->printRadio();
+    $this->printColor();
+    $this->printQuality();
     $this->printProdPrice();
     $text = <<<EOT
     
@@ -100,6 +104,22 @@ EOT;
 
     $this->printInput('text', 'Product_Description', $val, $err, $valid,'bi bi-bag-dash-fill');
   }
+  private function printProdAbout()
+  {
+    $val = $this->model->getAbout();
+    $err = $this->model->getAboutErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printTextArea('Product_About', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
+  private function printProdCondition()
+  {
+    $val = $this->model->getPCondition();
+    $err = $this->model->getPConditionErr();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('text', 'Product_Condition', $val, $err, $valid,'bi bi-bag-dash-fill');
+  }
 
   private function printProdQuantity()
   {
@@ -118,33 +138,63 @@ EOT;
     $this->printInput('text', 'Product_Price', $val, $err, $valid,'bi bi-cash');
   }
   private function printRadio(){
-    $text = <<<EOT
+    ?>
     <div class="form-group">
     <label for="q1"> Category: <sup>*</sup> </label>
     <br>
-    <input type="radio" name="q1" value="1" />
-    chargers <br>
-    <input type="radio" name="q1" value="2" />
-    Power Banks <br>
-    <input type="radio" name="q1" value="3" />
-    Earphones <br>
-    <input type="radio" name="q1" value="5" />
-    Memory <br>
-    <input type="radio" name="q1" value="6" />
-    Speakers <br>
-    <input type="radio" name="q1" value="7" />
-    Car Holders <br>
-    <input type="radio" name="q1" value="8" />
-    Maintanince <br>
-    <input type="radio" name="q1" value="9" />
-    HeadPhones <br>
-    <input type="radio" name="q1" value="10" />
-    Cables <br>
+    <?php 
+    $categ=$this->model->getCategs();
+    foreach ($categ as $c){
+      ?>
+    <input type="radio" name="q1" value="<?php echo $c->catID ;?>" />
+    <?php echo $c->CatName ; ?> <br>
+   
+    <?php
+    }
+    ?>
+    <input type="radio" name="q1" value="<?php echo $this->model->countID()+1 ;?>" />
+    <a href= "<?php echo URLROOT . 'products/add_category' ; ?>"> + Add new Category </a> <br>
     </div>
    
-  EOT;
-    echo $text;
-  
+  <?php
+  }
+  private function printQuality(){
+    ?>
+    <div class="form-group">
+    <label for="c1[]"> Quality: <sup>*</sup> </label>
+    <br>
+    <?php 
+    $Quality=$this->model->getQualties();
+    foreach ($Quality as $q){
+      ?>
+    <input type="checkbox" name="c1[]" value="<?php echo $q->Quality_ID ;?>" />
+    <?php echo $q->value ; ?>
+    
+    <?php
+    }
+    ?>
+    </div>
+    <?php
+  }
+  private function printColor(){
+    ?>
+    <div class="form-group">
+    <label for="c1"> Color: <sup>*</sup> </label>
+    <br>
+    <?php 
+    $color=$this->model->getColors();
+    foreach ($color as $co){
+      ?>
+    <input type="checkbox" name="c2[]" value="<?php echo $co->cID ;?>" />
+    <?php echo $co->color ; ?> <br>
+    <?php
+    }
+    ?>
+    <input type="checkbox" name="c2[]" value="<?php echo $this->model->countColorID()+1 ;?>" />
+    <a href= "<?php echo URLROOT . 'products/add_color' ; ?>"> + Add new Color </a> <br>
+    </div>
+   
+  <?php
   }
   
   private function printInput($type, $fieldName, $val, $err, $valid,$icon)
@@ -155,6 +205,21 @@ EOT;
     <div class="form-group">
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <span class="invalid-feedback">$err</span>
+    </div>
+    
+EOT;
+    echo $text;
+  }
+  private function printTextArea($fieldName, $val, $err, $valid,$icon)
+  {
+    $label = str_replace("_", " ", $fieldName);
+    $label = ucwords($label);
+    $text = <<<EOT
+    <div class="form-group">
+      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
+      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
+      </textarea>
       <span class="invalid-feedback">$err</span>
     </div>
     

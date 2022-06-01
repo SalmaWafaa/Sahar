@@ -1,7 +1,6 @@
-
-    <link rel="stylesheet" href="<?php echo URLROOT; ?>css/shopCSS.CSS">
+<link rel="stylesheet" href="<?php echo URLROOT; ?>css/shopCSS.CSS">
 <?php
-    class shop extends view
+    class offers extends view
 {
   public function output()
   {
@@ -16,11 +15,11 @@
   </div>
 EOT;
     echo $text;
-    $product=$this->model->getCategoryProducts($_GET['id']);
+    $Offers=$this->model->getCategoryProducts($_GET['id']);
        ?>
        <div class="row row-cols-2 row-cols-md-4">
          <?php
-   foreach($product as $p){?>
+   foreach($Offers as $p){?>
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">

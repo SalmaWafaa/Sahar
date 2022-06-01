@@ -15,17 +15,17 @@ window.onclick = function(event) {
 
 <?php
 
-class EditProfile extends view
+class Edit_category extends view
 {
   public function output()
   {
-    $title = $_SESSION['user_id'];
+    $title = $this->model->title;
 
     require APPROOT . '/views/inc/header.php';
     $text = <<<EOT
     <div class="bg-warning">
     <div class="container">
-      <h1 class="display-4"> <center>$title  </center></h1>
+      <h1 class="display-4"> <center>$title</center></h1>
     </div>
   </div>
 
@@ -40,35 +40,27 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'users/editprofile';
-    $loginUrl = URLROOT . 'users/login';
+    $action = URLROOT . 'products/Edit_category?id='.$_GET['id'];
 
     $text = <<<EOT
     <div class="Regform">
     <div class="row">
     <div class="col-md-12 mx-auto">
     <div class="card card-body bg-light mt-6">
-    <h2>Edit Profile</h2>
-    <form action="$action" method="post" >
+    <h2>Edit Product</h2>
+    <form action="$action" method="post" enctype='multipart/form-data' >
 EOT;
     echo $text;
-   
-    $this->printFName();
-    $this->printLName();
-    $this->printEmail();
-    $this->printAddress();
-    $this->printMobile();
+    $this->printCImage();
+    $this->printCName();
    ?>
     <div class="container">
       <div class="row mt-4">
         <div class="col-2">
-          <input type="submit" value="Edit Profile" class="form-control btn btn-warning btn-block">
+          <input type="submit" value="Edit Category" class="form-control btn btn-warning btn-block">
         </div>
         <div class="col-2">
-        <button class="form-control btn btn-warning btn-block"> <a href="<?php echo URLROOT . 'users/changePass';?>" </a> Change Password </button>
-        </div>
-        <div class="col-2">
-        <input type="button" value="Delete Profile" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
+        <input type="button" value="Delete Category" class="form-control btn btn-danger btn-block"  onclick="document.getElementById('id01').style.display='block'">
         <div id="id01" class="modal">
   <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
   <form class="modal-content" action="<?php $action ?>">
@@ -93,56 +85,30 @@ EOT;
 <?php
   }
 
-  private function printFName()
+  private function printCImage()
   {
-    $val = $this->model->getFirstName($_SESSION['user_id']);
-    $err = $this->model->getFNameErr();
+    //$val = $this->model->getProductimg1($_GET['id']);
+    $err = $this->model->getCategoryImageErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'first_name', $val, $err, $valid,'bi bi-person-circle');
+    $url=ImageRoot . $this->model->getCimage($_GET['id']);
+    $this->printPictures('file', 'Category_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg',$url);
   }
-  private function printLName()
-  {
-    $val = $this->model->getLastName($_SESSION['user_id']);
-    $err = $this->model->getLNameErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'last_name', $val, $err, $valid,'bi bi-person-circle');
-  }
-  private function printEmail()
-  {
-    $val = $this->model->getEm($_SESSION['user_id']);
-    $err = $this->model->getEmailErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('email', 'email', $val, $err, $valid,'bi bi-envelope-fill');
-  }
-
-  
  
-  private function printAddress()
+  private function printCName()
   {
-    $val =$this->model->getAddr($_SESSION['user_id']);
-    $err = $this->model->getAddressErr();
+    $val =$this->model->getCName($_GET['id']);
+    $err = $this->model->getCategoryNameErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('text', 'address', $val, $err, $valid,'bi bi-geo-alt-fill');
+    $this->printInput('text', 'Category_Name', $val, $err, $valid,'bi bi-bag-dash-fill');
   }
-  private function printMobile()
-  {
-    $val =$this->model->getMob($_SESSION['user_id']);
-    $err = $this->model->getMobileErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printInput('text', 'mobile', $val, $err, $valid,'bi bi-phone-fill');
-  }
+ 
   private function printInput($type, $fieldName, $val, $err, $valid,$icon)
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
     $text = <<<EOT
     <div class="form-group">
-    
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
       <span class="invalid-feedback">$err</span>
@@ -151,4 +117,23 @@ EOT;
 EOT;
     echo $text;
   }
-}
+  private function printPictures($type, $fieldName, $err, $valid,$icon,$accept, $url)
+  {
+     
+    $label = str_replace("_", " ", $fieldName);
+    $label = ucwords($label);
+    $text ="
+    <div class='form-group'>
+      <label for='$fieldName'> <i class='$icon'></i> $label: <sup>*</sup> </label>"
+      ;
+      ?><img src="<?php echo $url;?> " width="100" height="100">
+      <?php
+      $text.="<input type='$type' name='$fieldName' class='form-control form-control-lg $valid' id='$fieldName' accept='$accept'>
+      <span class='invalid-feedback'>$err</span>
+    </div>";
+    
+
+    echo $text;
+  }
+  }
+

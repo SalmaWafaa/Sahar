@@ -77,26 +77,31 @@ class Index extends View
            Deal of the Month!</h2>
 <br>
         <p>Fix Your Iphone battery With 25% Discount.</p>
+        <center><button type="button" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/offers';   ?>
+        ">Shop <i class="bi bi-cart"></i> </a></button></center>
       </div>
     </div>
   </div>
-
-
-
    <br>
+
+
 
 
 <div class="p-3 mb-2 bg-warning bg-gradient text-dark">
 <h2><center>New Arrival</center></h2>
   </div>
-<div class="row row-cols-2 row-cols-md-4">
+<?php
+$products= $this->model->newarrival();
+foreach ($products as $f)
+{?>
+  <div class="row row-cols-2 row-cols-md-4">
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop7.jpg' ; ?>" alt="Image1" class="card-img-top" >
+      <img src="<?php echo ImageRoot . $f->ProductImage ; ?>" alt="Image1" class="card-img-top" >
 </div>
       <div class="card-body">
-        <h5 class="card-title">IPhone Back Glass</h5>
+        <h5 class="card-title"><?php echo $f->ProductName;?></h5>
         <h6>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
@@ -104,171 +109,22 @@ class Index extends View
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-        <p class="card-text">Back Glass IPhone 13.
+        <p class="card-text"><?php echo $f->Description;?> 
                               </p>
                               <h5>
-                              <small><s class="text-secondary">419 EGP</s></small>
-                               <span class="price">$$productprice</span>
+                              <small><s class="text-secondary"><?php echo $f->Price;?></s></small>
+                               <span class="price"><?php echo $f->Price;?></span>
                               </h5>
                               <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
                                <input type='hidden' name='product_id' value='1'>
       </div>
 </form>
     </div>
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop2.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-      <div class="card-body">
-        <h5 class="card-title">Car Holder</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-        <p class="card-text"> POWREOLOGY Car Mount Wireless Charger.
-                              </p>
-                              <h5>
-                                  <small>212 EGP</small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-  
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-</form>
-    </div>
+<?php
+}
+?>
+  </div>
 
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop3.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-      <div class="card-body">
-        <h5 class="card-title">HEAD PHONE</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                 <p class="card-text"> JBL Harman Pure Bass Sound Tune500bt.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">280 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-  
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-</form>
-    </div>
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop4.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-      <div class="card-body">
-        <h5 class="card-title">Charger</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text"> JOYROOM 2USB Travel Charger L-M226.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">160 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-</form>
-    </div>  
-
-  <div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop5.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-      <div class="card-body">
-        <h5 class="card-title">Speaker</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text">HAVIT Wireless Speaker M8.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">220 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-</form>
-  </div>
-<div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop6.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-<div class="card-body">
-        <h5 class="card-title"> Memory card</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text">ADATA UV260 32 GB Memory card .
-                              </p>
-                              <h5>
-                                  <small>100 EGP</small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-</form>
-  </div>
-<div class="col mb-4">
-      <form action="" method="post">
-    <div class="card shadow">
-      <img src="<?php echo ImageRoot . 'shop1.jpg' ; ?>" alt="Image1" class="card-img-top" >
-</div>
-  <div class="card-body">
-        <h5 class="card-title"> Car Holder</h5>
-        <h6>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-                              <i class="bi bi-star-fill"></i>
-        </h6>
-                          <p class="card-text"> Back Glass IPhone 12.
-                              </p>
-                              <h5>
-                                  <small><s class="text-secondary">130 EGP</s></small>
-                                  <span class="price">$$productprice</span>
-                              </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Buy Now<i class="bi bi-cart4"></i></button>
-                               <input type='hidden' name='product_id' value='1'>
-      </div>
-  </form>
-  </div>
   </div>
   <?php
     require APPROOT . '/views/inc/footer.php';

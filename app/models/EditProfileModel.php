@@ -79,7 +79,6 @@ public function getpass($id){
     $this->dbh->query("SELECT password from users where `ID`=:id");
     $this->dbh->bind(':id',$id);
     return $this->dbh->single()->password;
-
 }
 public function setpass($password){
     $this->password=$password;
@@ -97,10 +96,9 @@ public function setEm($Email){
  
     public function EditProfile($id)
     {
-        $this->dbh->query("UPDATE users SET `FirstName`= :fname , `LastName`= :lname , `password`= :pass, `Mobile`= :mob, `Address`=:addr ,`Email`=:email  WHERE `ID`=:id");
+        $this->dbh->query("UPDATE users SET `FirstName`= :fname , `LastName`= :lname ,  `Mobile`= :mob, `Address`=:addr ,`Email`=:email  WHERE `ID`=:id");
         $this->dbh->bind(':fname',$this->FirstName);
         $this->dbh->bind(':lname',$this->LastName);
-        $this->dbh->bind(':pass',$this->password);
         $this->dbh->bind(':mob',$this->Mobile);
         $this->dbh->bind(':addr',$this->Address);
         $this->dbh->bind(':email',$this->Email);
