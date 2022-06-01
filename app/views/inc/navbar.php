@@ -29,8 +29,7 @@
          </li>
          </ul>
           <form class="form-inline">
-        <button class="btn btn-warning" type="submit">Search</button>
-        <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+       
        
         <button class="p-2"><a href="users/logout">Logout</a></button>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
