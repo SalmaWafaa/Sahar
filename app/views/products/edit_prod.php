@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo URLROOT; ?>css/alert.css">
 
 <?php
 
@@ -24,8 +25,13 @@ EOT;
     $product=$this->model->getAllProducts();
     $pp=$this->model->getproductsOFS();
     foreach($pp as $prod)
-    flash('product_Alert', 'Product'.$prod->ProductName.'is about to be out of stock');
+    {
     ?>
+    <div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong><?php echo $prod->ProductName;?></strong> is about to be out of stock.
+</div>
+    <?php } ?>
 
     <table class='table table-striped table-bordered table-hover '>
 		<thead><tr class='table-warning'>
