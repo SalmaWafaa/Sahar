@@ -22,8 +22,11 @@ class edit_prod extends View
 EOT;
     echo $text;
     $product=$this->model->getAllProducts();
-    //$e="Edit";
+    $pp=$this->model->getproductsOFS();
+    foreach($pp as $prod)
+    flash('product_Alert', 'Product'.$prod->ProductName.'is about to be out of stock');
     ?>
+
     <table class='table table-striped table-bordered table-hover '>
 		<thead><tr class='table-warning'>
 			<th>ID</th>
@@ -35,7 +38,7 @@ EOT;
 			<th>Quantity</th>
 			<th>Price</th>
 			<th>Rate</th>
-            <th>Edit/Delete</th>
+      <th>Edit/Delete</th>
 		</tr>
     </thead>
        <?php  foreach($product as $x)

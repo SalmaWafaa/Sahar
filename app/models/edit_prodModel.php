@@ -10,6 +10,13 @@ class edit_prodModel extends Model
         return $usersRecord;
 
     }
+    public function getproductsOFS()
+    {
+        $this->dbh->query('SELECT * from products where Quantity <7 ');
+        $Record = $this->dbh->resultSet();
+        return $Record;
+
+    }
     
 }
 ?>
