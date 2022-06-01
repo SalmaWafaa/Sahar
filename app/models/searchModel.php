@@ -52,14 +52,14 @@ if (mysqli_num_rows($result) > 0) {
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
         </h6>
-        <p class="card-text"> <?php echo $p->Description ;?>
+        <p class="card-text"> <?php echo .$row['Description'] ;?>
                               </p>
                               <h5>
                               <small><s class="text-secondary">419 EGP</s></small>
-                               <span class="price"> <?php echo $p->Price;?> EGP</span>
+                               <span class="price"> <?php echo .$row ['Price'];?> EGP</span>
                               </h5>
                               <button class="btn btn-warning my-3" name="add">Add to Cart <i class="bi bi-cart4"></i><a href="<?php echo URLROOT . 'products/cart?pid='.$p->ProductID; ?>" ></a></button>
-                               <input type='hidden' name='product_id' value='<?php  $p->ProductID;?>'>
+                               <input type='hidden' name='product_id' value='<?php  .$row['ProductID'];?>'>
       </div>
 </form>
    </div>
