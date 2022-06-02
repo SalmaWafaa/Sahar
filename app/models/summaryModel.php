@@ -25,8 +25,7 @@ class summaryModel extends Model
         $this->dbh->query("SELECT a.* ,b.Id from  orders a inner join users b on  b.ID = a.Id 
         where  a.Date = ( select max(Date) from   orders where  a.Id = b.ID AND a.ID =:id)");
         $this->dbh->bind(':id', $id);
-       // $rec= $this->dbh->single()->productID;
-       // $this->SetIDprod($rec);
+       
         return $this->dbh->single();
     }
     public function orderProduct($id)
