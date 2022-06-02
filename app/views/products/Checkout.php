@@ -2,6 +2,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>css/StyleCheckout.css">
+  
     <?php
 
     class Checkout extends View
@@ -31,37 +32,7 @@
 
          $text = <<<EOT
 
-            <div class="row">
-            <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-muted">Your cart</span>
-            <span class="badge badge-secondary badge-pill">3</span>
-            </h4> <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-            <h6 class="my-0">Product name</h6>
-            <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$12</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$8</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between lh-condensed">
-            <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-            </div>
-            <span class="text-muted">$5</span>
-            </li>
-            </div>
-            </div>
-            </div>
-            </div>
+            
             EOT;
           echo $text;
          $this->printFName();
