@@ -38,9 +38,10 @@ EOT;
     <form action="$action" method="post" enctype="multipart/form-data">
 EOT;
     echo $text;
-    $this->printOfferImage();
-    $this->printOfferName();
-    
+    $this->printOfferDescription();
+    $this->printOld_Price();
+    $this->printNew_Price();
+
     $text = <<<EOT
     
     <div class="container">
@@ -57,25 +58,32 @@ EOT;
 EOT;
     echo $text;
   }
-
-  private function printOfferImage()
-  {
-    //$val = $this->model->getimg();
-    $err = $this->model->getOfferProductImageErr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-    $this->printPicture('file', 'Offer_Image', $err, $valid,'bi bi-images','image/png, image/gif, image/jpeg');
-  }
   
-  private function printOfferName()
+  private function printOfferDescription()
   {
-    $val = $this->model->getOfferProductName();
-    $err = $this->model->getOfferProductNameErr();
+    $val = $this->model->getOfferDescription();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
-    $this->printInput('text', 'Offer_Name', $val, $err, $valid,'bi bi-bag-dash-fill');
+    $this->printInput('text', 'Offer_Description', $val, $valid,'bi bi-bag-dash-fill');
   }
-  
-  private function printInput($type, $fieldName, $val, $err, $valid,$icon)
+  private function printOld_Price()
+  {
+    $val = $this->model->getOld_price();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('text', 'Old_Price', $val, $valid,'bi bi-bag-dash-fill');
+  }
+
+  private function printNew_Price()
+  {
+    $val = $this->model->getNew_price();
+    $valid = (!empty($err) ? 'is-invalid' : '');
+
+    $this->printInput('text', 'New_Price', $val, $valid,'bi bi-bag-dash-fill');
+  }
+
+
+  private function printInput($type, $fieldName, $val, $valid,$icon)
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
@@ -83,24 +91,10 @@ EOT;
     <div class="form-group">
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
       <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
-      <span class="invalid-feedback">$err</span>
     </div>
     
 EOT;
     echo $text;
   }
-  private function printPicture($type, $fieldName, $err, $valid,$icon,$accept)
-  {
-    $label = str_replace("_", " ", $fieldName);
-    $label = ucwords($label);
-    $text = <<<EOT
-    <div class="form-group">
-      <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" accept="$accept">
-      <span class="invalid-feedback">$err</span>
-    </div>
-    
-EOT;
-    echo $text;
-  }
+
 }

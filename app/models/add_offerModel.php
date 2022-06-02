@@ -3,9 +3,10 @@ require_once "offersModel.php";
 class add_offerModel extends offersModel{
     public function add_offerr()
     {
-        $this->dbh->query("INSERT INTO offers (`OfferName`,`Offerimage`) VALUES(:Offer_Name, :offer_img)");
-        $this->dbh->bind(':offer_img', $this->Offerimage);
-        $this->dbh->bind(':Offer_Name', $this->OfferName);
+        $this->dbh->query("INSERT INTO offers (`OfferDescription`,`Old_Price`,`New_Price`) VALUES(:OfferDescription, :Old_Price, :New_Price)");
+        $this->dbh->bind(':OfferDescription', $this->OfferDescription);
+        $this->dbh->bind(':New_Price', $this->New_Price);
+        $this->dbh->bind(':Old_Price', $this->Old_Price);
         return $this->dbh->execute();
     }
 }

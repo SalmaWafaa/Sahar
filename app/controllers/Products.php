@@ -362,11 +362,9 @@ class Products extends Controller
         $add_offerModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $add_offerModel->setOfferProductName(trim($_POST['Offer_Name']));
+            $add_offerModel->setOfferDescription(trim($_POST['OfferDesription']));
             //validation
-            if (
-                empty($add_offerModel->getOfferProductNameErr())
-            ) {
+           
                 if ($add_offerModel->add_offerr()) {
                     //alert
                     flash('register_success', 'You have added product successfully');
@@ -375,7 +373,6 @@ class Products extends Controller
                     die('Error in adding product');
                 }
             }
-        }
         // Load form
         $viewPath = VIEWS_PATH . 'products/add_offer.php';
         require_once $viewPath;
