@@ -45,6 +45,7 @@ EOT;
 			<th>Price</th>
 			<th>Rate</th>
       <th>Edit/Delete</th>
+      <th>Add Offer</th>
 		</tr>
     </thead>
        <?php  foreach($product as $x)
@@ -60,9 +61,10 @@ EOT;
        <td><?php echo $x->Description;?></td> 
        <td><?php echo $x->Quantity;?></td>
        <td><?php echo $x->Price;?></td>
-      <td><?php echo $x->Rate;?></td>
-     
+      <td><?php echo $x->Rate;?></td>     
     <td><a href= "<?php echo URLROOT . 'products/edit_delete_product?id='.$x->ProductID; ?>" >Edit/Delete</td>
+    <td><a href= "<?php echo URLROOT . 'products/add_offer?id='.$x->ProductID; ?>" >Add Offer</td>
+
         </tr>
     
     <?php
