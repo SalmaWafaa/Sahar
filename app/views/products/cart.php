@@ -26,7 +26,9 @@ class cart extends View
       require APPROOT . '/views/inc/header.php';
       if(!empty($_POST['cart'])) 
      {
-		$this->model->productsQuantity=json_decode($_POST['cart'],true);
+		$this->model->productsQuantity=json_decode($_POST['cart'],true);?>
+        <button type="button" class="btn btn-danger">Your cart is currently empty!</button>
+<?php
      }
      if(!empty($_GET["action"])) 
      {

@@ -361,5 +361,22 @@ class shopModel extends Model
         return $Record;
 
     }
+    public function addToCart($pid,$cid,$uid,$qid,$quan)
+    {
+        $this->dbh->query("INSERT INTO cart ( `Product_ID`,`Color_ID`,`User_ID`, `Quality_ID`,`Quantity`) VALUES(:pid, :cid,:usid, :qid, :quan)");
+        $this->dbh->bind(':pid', $pid);
+        $this->dbh->bind(':cid', $cid);
+        $this->dbh->bind(':usid', $uid);
+        $this->dbh->bind(':qid', $qid);
+        $this->dbh->bind(':quan', $quan); 
+        return $this->dbh->execute();
+    }
+    public function RemovefromCart($pid)
+    {
+        $this->dbh->query("DELETE FROM cart  WHERE `User_ID`=:Usid AND `Product_ID`=:pid");
+        $this->dbh->bind(':pid', $pid);
+        $this->dbh->bind(':USid', $_SESSION['user_id']);   
+        return $this->dbh->execute();
+    }
    
 }
