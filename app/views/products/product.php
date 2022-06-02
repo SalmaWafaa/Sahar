@@ -73,8 +73,9 @@ if($_GET['id'] == $f->ProductID){?>
                               <i class="bi bi-star-fill"></i>
                               <i class="bi bi-star-fill"></i>
   </div>
-        </h6>        <p class="price" ><?php echo $p->Price; ?> EGP</p>
-        <p><b> Availability:</b>
+  <h4><b> Price:</b></h4>
+        <h6 class="price" ><?php echo $p->Price; ?> EGP</h6>
+       <h4> <p><b> Availability:</b></h4>
         <?php 
         $q=$this->model->InStock($_GET['id']);
         if($q == 0){
@@ -85,19 +86,29 @@ if($_GET['id'] == $f->ProductID){?>
         }
         ?>
         </p>
-        <p><b> Condition:<?php echo $p->PCondition; ?></b></p>
-        <label>Quantity:</label>
+        <h4><b> Condition:<?php echo $p->PCondition; ?></b></p></h4>
+        <h4> <label>Quantity:</label></h4>
         <input type="text" value="1">
         <br>
         <div>
-    <label for="c1"> Color: <sup>*</sup> </label>
-    <br>
+   <h4> <label for="c1"> Color: <sup>*</sup> </label></h4>
     <?php 
     $color=$this->model->getColors();
     foreach ($color as $co){
       ?>
-    <input type="checkbox" name="c2[]" value="<?php echo $co->cID ;?>" />
-    <h4><?php echo $co->color ; ?> </h4><br>
+    <input type="checkbox" name="c22[]" value="<?php echo $co->cID ;?>" />
+    <h6><?php echo $co->color ; ?> </h6>
+    <?php
+    }
+    ?>
+     <h4> <label for="c1"> Quality: <sup>*</sup> </label></h4>
+    <br>
+    <?php 
+    $quality=$this->model->getQualities();
+    foreach ($quality as $co){
+      ?>
+    <input type="checkbox" name="c11[]" value="<?php echo $co->Quality_ID ;?>" />
+    <h6><?php echo $co->value ; ?> </h6>
     <?php
     }
     ?>

@@ -1,68 +1,54 @@
 <?php
-class offersModel extends Model
+require_once "shopModel.php";
+
+class offersModel extends shopModel
 {
     public  $title = 'Offers Page';
-    protected $OfferProductName;
-    protected $OfferProductNameErr;
-    protected $OfferProductImage;
-    protected $OfferProductImageErr;
-    protected $OfferName;
-    protected $Offerimage;
+    protected $OfferDescription;
+    protected $Old_Price;
+    protected $New_Price;
 
     public function __construct()
     {
         parent::__construct();
-        $this->OfferProductName= "";
-        $this->OfferProductNameErr = "";
-        $this->OfferProductImage= "";
-        $this->OfferProductImageErr = "";
-        $this->OfferName= "";
-        $this->Offerimage  = "";
+        $this->OfferDescription="";
        
     }
+   
+    public function getOfferDescription()
+    {
+        return $this->OfferDescription;
+    }
+    public function setOfferDescription($OfferDescription)
+    {
+        $this->OfferDescription = $OfferDescription;
+    }
+    public function getOld_Price()
+{
+    return $this->Old_Price;
 
-    public function getOfferProductName()
-    {
-        return $this->OfferName;
-    }
-    public function setOfferProductName($OfferName)
-    {
-        $this->OfferName = $OfferName;
-    }
+}
 
-    public function getOfferProductNameErr()
+public function setOld_Price($Old_Price)
     {
-        return $this->OfferProductNameErr;
-    }
-    public function setOfferProductNameErr($OfferProductNameErr)
-    {
-        $this->OfferProductNameErr = $OfferProductNameErr;
-    }
-    public function getOfferProductImage()
-    {
-        return $this->Offerimage;
-    }
-    public function setOfferProductImage($Offerimage)
-    {
-        $this->Offerimage = $Offerimage;
+        $this->Old_Price = $Old_Price;
     }
 
-    public function getOfferProductImageErr()
+    public function setNew_Price($New_Price)
     {
-        return $this->OfferProductImageErr;
-    }
-    public function setOfferProductImageErr($Offerimage)
-    {
-        $this->Offerimage = $Offerimage;
+        $this->New_Price = $New_Price;
     }
 
+public function getNew_Price()
+{
+    return $this->New_Price;
+
+}
     public function view_offers()
     {
-        $this->dbh->query('SELECT * from offers ');
-        $this->dbh->bind(':Offer_Name', $this->OfferName);
-        $this->dbh->bind(':offer_img', $this->Offerimage);
+        $this->dbh->query('SELECT * from offers, products where Product_ID = ProductID'  );
         $records=$this->dbh->resultSet();
-        $OfferProduct = $records->OfferProduct;
+        return $records;
 
     }
     public function findOfferProduct($OfferProductName)
@@ -72,15 +58,6 @@ class offersModel extends Model
         $userRecord = $this->dbh->single();
         return $this->dbh->rowCount();
     }
-
-    public function ordersHistory($id)
-    {
-    $this->dbh->query('SELECT * from products WHERE `ProductID` =:id');
-    $this->dbh->bind(':id',$id);
-    $Record = $this->dbh->resultSet();
-    return $Record;
-    }
-    
 
     public function ProductExist($OfferProductName)
     {
