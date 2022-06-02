@@ -81,6 +81,18 @@ class Pages extends Controller
         $dashboardView=new dashboard($this->getModel(),$this);
         $dashboardView->output();
     }
+    public function search(){
+        $viewPath= VIEWS_PATH . 'pages/search.php';
+        require_once $viewPath;
+        $dashboardView=new search($this->getModel(),$this);
+        $dashboardView->output();
+    }
+    public function fetch(){
+        $viewPath= VIEWS_PATH . 'pages/fetch.php';
+        require_once $viewPath;
+        $dashboardView=new fetch($this->getModel(),$this);
+        $dashboardView->output();
+    }
     public function add_gallery()
     {
         $add_galleryModel = $this->getModel();

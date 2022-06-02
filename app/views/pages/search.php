@@ -7,14 +7,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </head>
-
-  
-  
-      
  <?php
 class search extends view{
   
@@ -31,7 +27,7 @@ class search extends view{
   
       <div class="nav-item">
         <div class="input-group">
-          <span class="input-group-addon">Search : </span> <input type="text" name="search_text" id="search_text" placeholder="Search for Doctors" class="form-control" />
+          <span class="input-group-addon">Search : </span> <input type="text" name="search_text" id="search_text" placeholder="Search for Products" class="form-control" />
   
          
   
@@ -60,7 +56,7 @@ class search extends view{
   
       function load_data(query) {
         $.ajax({
-          url: "fetch",
+          url:'fetch.php',
           method: "POST",
           data: {
             query: query
