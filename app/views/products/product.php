@@ -119,7 +119,7 @@ if($_GET['id'] == $f->ProductID){?>
     </div>
         <br>
        
-        <button class="btn btn-warning" type="submit" name="add">Add to cart</button></a>
+        <button class="btn btn-warning" type="submit" name="add">Add to cart</button>
         <button class="btn btn-warning"> <a href="<?php echo URLROOT . 'products/review'; ?>" >Add Review</a></button>
 
   </form>

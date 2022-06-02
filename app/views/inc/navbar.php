@@ -34,22 +34,18 @@
             ?> 
             
               <?php
-              if($_SESSION['user_Type_ID']== 1):
+              if($_SESSION['user_Type_ID']== 2):
 ?> 
-
+      <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'products/Ordershistory'; ?>">Orders History</a>
+           </li>
+             
+              <?php else:?>
+          
               <li class="nav-item">
              <a class="nav-link " href= "<?php echo URLROOT . 'pages/dashboard'; ?>">Dashboard</a>
               </li>
               </ul>
-              <?php else:?>
-                <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT . 'products/Ordershistory'; ?>">Orders History</a>
-           </li>
-           <form class="form-inline">
-        <li class="nav-item">
-        <a class="nav-link" href="<?php echo URLROOT . 'products/cart'; ?>">Cart</a>
-              </li>
-              <span class="badge">3</span>
               <?php endif;?>
       
        <div class=" btn btn-warning">

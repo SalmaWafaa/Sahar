@@ -11,7 +11,7 @@ class cartModel extends shopModel
     }
     public function getProductCartQuantity($userID){
 
-        $this->dbh->query("SELECT products.ProductName FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->query("SELECT cart.Quantity FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
         $this->dbh->bind(':userID',$userID);
         return $this->dbh->resultFetchCol();
     }
