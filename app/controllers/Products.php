@@ -279,6 +279,21 @@ class Products extends Controller
     
     public function product()
     {
+        $product=$this->getModel();
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+    for($i=0;$i<2;$i++){
+    $cid=$_POST['c2'];
+    $qid=$_POST['c1'];
+}
+    $quan=$_POST['q'];
+    $pid=$_GET['id'];
+    ?>
+   <script> alert("<?php echo $pid;?>")  </script>
+   <?php
+    $product->addToCart($pid,$cid[0],$_SESSION['user_id'],$qid[0],$quan);
+
+}
+
         $viewPath = VIEWS_PATH . 'products/product.php';
         require_once $viewPath;
         $productView = new product($this->getModel(), $this);
