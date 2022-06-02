@@ -31,11 +31,7 @@ class view_messages extends View
 			<th>User Email</th>
 			<th>User ID</th>
 			<th>Subject ID</th>
-			<th>Message Type</th>
-      <th>Shipping Fees</th>
-      <th>Mobile Number</th>
-      <th>Total</th>
-      <th>Date</th>
+			<th>Message</th>
       </tr>
     	</thead>";
       foreach($msgs as $m)
