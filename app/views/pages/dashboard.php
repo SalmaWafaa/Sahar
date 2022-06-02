@@ -31,8 +31,14 @@ class dashboard extends view{
             <li><i class="bi bi-speedometer2"></i><a href="<?php echo URLROOT . 'pages/index'; ?>"> Home</a> </li>
             <li><i class="bi bi-people"></i>  <a href="<?php echo URLROOT . 'pages/view_users'; ?>">Users</a></li>
             <li><i class="bi bi-table"></i>  <a href="<?php echo URLROOT . 'pages/view_order'; ?>">Orders</a> </li>
-            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_product'; ?>">Add Product</a> </li>
-            <li><i class="bi bi-trash-fill"></i> <a href="<?php echo URLROOT . 'products/edit_delete_product'; ?>">Edit delete Product</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/edit_prod'; ?>">View Product</a> </li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_product'; ?>">Add Product</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_category'; ?>">Add Category</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_gallery'; ?>">Add Gallery</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/view_messages'; ?>">View Messages</a></li>
+
+
+
         </ul>
     </div>
     <div class="container">

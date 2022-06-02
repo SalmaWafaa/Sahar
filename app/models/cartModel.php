@@ -1,33 +1,48 @@
 <?php
-require_once "productModel.php";
-class cartModel extends productModel 
+require_once "shopModel.php";
+class cartModel extends shopModel 
 {
     public  $title = ' My Cart ';
-    public $productsQuantity;
-    function __construct(){
-        $this->productsQuantity=array();
+    public function getProductCartName($userID){
+
+        $this->dbh->query("SELECT products.ProductName FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
     }
-        public function addProduct($productID,$q){
-            if (array_key_exists((string)$productID,$this->productsQuantity))
-                $this->productsQuantity[(string)$productID]+= $q;
-            else
-                $this->productsQuantity[(string)$productID]= $q;
-        }
-    
-        public function removeProduct($productID){
-            unset($this->productsQuantity[(string)$productID]); 
-        }
-    
-        public function emptyCart(){
-            unset($this->productsQuantity); 
-            $this->productsQuantity=array();
-        }
-        
-  
-     public function prod($id){
-        $this->dbh->query('SELECT * from products where `ProductID`=:id ');
-        $records=$this->dbh->resultSet();
-        $this->dbh->bind(':id', $id);
-        return $records;
-        }
+    public function getProductCartQuantity($userID){
+
+        $this->dbh->query("SELECT products.ProductName FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function getProductCartImage($userID){
+
+        $this->dbh->query("SELECT products.ProductImage FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function getProductCartPrice($userID){
+
+        $this->dbh->query("SELECT products.Price FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function getProductCartColor($userID){
+
+        $this->dbh->query("SELECT color.color FROM cart, color, products WHERE color.cID = cart.Color_ID AND cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function getProductCartQuality($userID){
+
+        $this->dbh->query("SELECT quality.value FROM cart, quality, products WHERE quality.Quality_ID = cart.Quality_ID AND cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function getNumberOfCartItems($userID){
+    $this->dbh->query("SELECT User_ID FROM cart WHERE User_ID=:userID");
+    $this->dbh->bind(":userID",$userID);
+    return $this->dbh->resultFetchCol();
+}
+
 }
