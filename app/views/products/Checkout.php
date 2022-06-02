@@ -10,8 +10,8 @@
      {
      $title=$this->model->title;
      require APPROOT . '/views/inc/header.php';
+     
      $text = <<<EOT
-    
      <body>
      <main>
      

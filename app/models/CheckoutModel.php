@@ -383,9 +383,10 @@ class CheckoutModel extends model{
         $this->dbh->bind(':mobile', $this->mobile);
         $this->dbh->bind(':total', $this->total);
         $this->dbh->bind(':datee', $this->date);
-
         return $this->dbh->execute();
     }
+
+       
 
 
     
