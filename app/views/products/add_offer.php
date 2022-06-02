@@ -27,7 +27,7 @@ EOT;
 
   private function printForm()
   {
-    $action = URLROOT . 'products/offers';
+    $action = URLROOT . 'products/add_offer?id='.$_GET['id'];
 
     $text = <<<EOT
     <div class="Regform">

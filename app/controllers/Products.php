@@ -362,10 +362,13 @@ class Products extends Controller
         $add_offerModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $add_offerModel->setOfferDescription(trim($_POST['OfferDesription']));
+            $add_offerModel->setOfferDescription(trim($_POST['Offer_Description']));
+            $add_offerModel->setOld_Price(trim($_POST['Old_Price']));
+            $add_offerModel->setNew_Price(trim($_POST['New_Price']));
+
             //validation
            
-                if ($add_offerModel->add_offerr()) {
+                if ($add_offerModel->add_offer($_GET['id'])) {
                     //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');
@@ -378,6 +381,7 @@ class Products extends Controller
         require_once $viewPath;
         $view = new add_offer($this->getModel(), $this);
         $view->output();
+  
     }
     public function edit_prod(){
         $viewPath= VIEWS_PATH . 'products/edit_prod.php';
