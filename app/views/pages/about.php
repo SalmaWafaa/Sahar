@@ -36,7 +36,8 @@ class About extends view
     <div class="container">
         <h1 class="display-4"> Mission</h1>
         <?php
-     echo $abt->Mission
+         echo $abt->Mission
+    
       ?>
         <img src="<?php echo ImageRoot . 'mission.jpg' ; ?>" class="d-block w-100" alt="...">
       </div>
