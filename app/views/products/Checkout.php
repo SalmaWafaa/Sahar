@@ -25,11 +25,11 @@
      require APPROOT . '/views/inc/footer.php';
      }
       private function printForm()
-      {
-     $action = URLROOT . 'users/register';
-     $loginUrl = URLROOT . 'users/login';
+        {
+          $action = URLROOT . 'users/register';
+          $loginUrl = URLROOT . 'users/login';
 
-     $text = <<<EOT
+         $text = <<<EOT
 
             <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
@@ -128,7 +128,7 @@
         private function printMobile()
         {
          $val = $this->model->getmobile($_SESSION['user_id']);
-         $err = $this->model->getmobile();
+         $err = $this->model->getmobileErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('text', 'mobile', $val, $err, $valid);

@@ -105,18 +105,22 @@ class CheckoutModel extends model{
     }
 
 
-    public function getaddress()
+    public function getaddress($id)
     {
-        return $this->address;
+        $this->dbh->query("SELECT Address from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Address;
     }
 
     public function setaddress($address)
     {
         $this->address = $address;
     }
-    public function getEmail()
+    public function getEmail($id)
     {
-        return $this->email;
+        $this->dbh->query("SELECT Email from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Email;
     }
 
     public function setEmail($email)
@@ -158,9 +162,11 @@ class CheckoutModel extends model{
     }
 
 
-    public function getmobile()
+    public function getmobile($id)
     {
-        return $this->mobile;
+        $this->dbh->query("SELECT Mobile from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Mobile;
     }
 
     public function setmobile($mobile)
@@ -199,18 +205,22 @@ class CheckoutModel extends model{
     {
         $this->date = $date;
     }
-    public function getFName()
+    public function getFName($id)
     {
-        return $this->Fname;
+        $this->dbh->query("SELECT FirstName from users where `ID`=:id");
+    $this->dbh->bind(':id',$id);
+    return $this->dbh->single()->FirstName;
     }
 
     public function setFName($Fname)
     {
         $this->Fname = $Fname;
     }
-    public function getLName()
+    public function getLName($id)
     {
-        return $this->Lname;
+     $this->dbh->query("SELECT LastName from users where `ID`=:id");
+     $this->dbh->bind(':id',$id);
+     return $this->dbh->single()->LastName;
     }
 
     public function setLName($Lname)
