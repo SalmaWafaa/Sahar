@@ -17,9 +17,13 @@ require_once 'shop.php';
         <h1 class="display-4"><center> $title</center></h1>     
   </div>
 EOT;
+
     echo $text;
+    
     $prod=$this->model->getProduct($_GET['id']);
     ?>
+     <form action="" method="POST">
+
     <div class="container">
 <div class="row row-cols-2 row-cols-md-8">
   <?php
@@ -88,7 +92,7 @@ if($_GET['id'] == $f->ProductID){?>
         </p>
         <h4><b> Condition:<?php echo $p->PCondition; ?></b></p></h4>
         <h4> <label>Quantity:</label></h4>
-        <input type="text" value="1">
+        <input type="text" value="1" name="q">
         <br>
         <div>
    <h4> <label for="c1"> Color: <sup>*</sup> </label></h4>
@@ -96,7 +100,7 @@ if($_GET['id'] == $f->ProductID){?>
     $color=$this->model->getColors();
     foreach ($color as $co){
       ?>
-    <input type="checkbox" name="c22[]" value="<?php echo $co->cID ;?>" />
+    <input type="checkbox" name="c2[]" value="<?php echo $co->cID ;?>" />
     <h6><?php echo $co->color ; ?> </h6>
     <?php
     }
@@ -107,18 +111,18 @@ if($_GET['id'] == $f->ProductID){?>
     $quality=$this->model->getQualities();
     foreach ($quality as $co){
       ?>
-    <input type="checkbox" name="c11[]" value="<?php echo $co->Quality_ID ;?>" />
+    <input type="checkbox" name="c1[]" value="<?php echo $co->Quality_ID ;?>" />
     <h6><?php echo $co->value ; ?> </h6>
     <?php
     }
     ?>
     </div>
         <br>
-        <button class="btn btn-warning" type="submit"><a href="<?php echo URLROOT . 'products/cart?action=add&pid='.$p->ProductID; ?>">Add to cart</button>
-        <input type='hidden' name='cart' value='<?php echo (json_encode($cart->productsQuantity)); ?>' />
+       
+        <button class="btn btn-warning" type="submit" name="add">Add to cart</button></a>
         <button class="btn btn-warning"> <a href="<?php echo URLROOT . 'products/review'; ?>" >Add Review</a></button>
 
-
+  </form>
         <br>
         <br>
     </div>
