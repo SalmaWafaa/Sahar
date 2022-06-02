@@ -91,40 +91,8 @@ class dashboard extends view{
                          $str.="</table> </div>";
                          echo $str;
                          ?>
-                <div class="new-students">
-                    <div class="title">
-                        <h2>Top Users</h2>
-                        <a href= "<?php  VIEWS_PATH . 'pages/view_users.php';?>" class="btn">View All</a>
-                    </div>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>orders</th>
-                        </tr>
-                        <tr>
-                            <td>67</td>
-                            <td>Yasmin Kandil</td>
-                            <td>35</td>
-                        </tr>
-                        <tr>
-                            <td>105</td>
-                            <td>Miriam Ayman</td>
-                            <td>27</td>
-                        </tr>
-                        <tr>
-                            <td>64</td>
-                            <td>Salma Osama</td>
-                            <td>17</td>
-                        </tr>
-                        <tr>
-                            <td>57</td>
-                            <td>rogina Michelle</td>
-                            <td>9</td>
-                        </tr>
-
-                    </table>
-                </div>
+                
+                        
             </div>
         </div>
     </div>
