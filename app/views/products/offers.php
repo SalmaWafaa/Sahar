@@ -39,12 +39,11 @@ EOT;
                               <small><s class="text-secondary"> <?php echo $p->Old_Price;?></s></small>
                                <span class="price"> <?php echo $p->New_Price;?> EGP</span>
                               </h5>
-                              <button type="submit" class="btn btn-warning my-3" name="add">Add to Cart <i class="bi bi-cart4"></i></button>
+                              <button class="btn btn-warning" type="submit"><a href="<?php echo URLROOT . 'products/cart?action=add&pid='.$p->ProductID; ?>">Add to cart</button><a>
                                <input type='hidden' name='product_id' value='<?php  $p->ProductID;?>'>
       </div>
 </form>
    </div>
-   
   <?php 
 }
 ?>
