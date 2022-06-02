@@ -48,7 +48,7 @@ EOT;
                               <small><s class="text-secondary">419 EGP</s></small>
                                <span class="price"> <?php echo $p->Price;?> EGP</span>
                               </h5>
-                              <button class="btn btn-warning my-3" name="add">Add to Cart <i class="bi bi-cart4"></i><a href="<?php echo URLROOT . 'products/cart?pid='.$p->ProductID; ?>" ></a></button>
+                              <button class="submit" name="add">Add to Cart <i class="bi bi-cart4"></i></a></button>
                                <input type='hidden' name='product_id' value='<?php  $p->ProductID;?>'>
       </div>
 </form>

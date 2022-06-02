@@ -290,7 +290,14 @@ class Products extends Controller
     ?>
    <script> alert("<?php echo $pid;?>")  </script>
    <?php
-    $product->addToCart($pid,$cid[0],$_SESSION['user_id'],$qid[0],$quan);
+    if ( $product->addToCart($pid,$cid[0],$_SESSION['user_id'],$qid[0],$quan)) {
+        //alert
+        flash('add_success', 'You have added in your successfully');
+        redirect('products/cart');
+    } else {
+        die('Error in adding in cart');
+    }
+   
 
 }
 

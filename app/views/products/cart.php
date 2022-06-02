@@ -98,11 +98,19 @@ class cart extends View
             </div>
         </div>
     </div>
+   
 </form>
 
 <?php
  }
+ ?>
+ <center>
+ <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
+ <button type="submit" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
+</center>
+ <?php
     require APPROOT . '/views/inc/footer.php';
+    
     //require APPROOT . '/views/inc/footer.php';
   }
 }
