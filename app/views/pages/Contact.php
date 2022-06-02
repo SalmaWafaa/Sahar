@@ -90,6 +90,7 @@ class Contact extends View
            </div>
            </div>
            
+           
            EOT;
            echo $text;
   }
@@ -104,7 +105,7 @@ class Contact extends View
   private function printSubject()
   {
     $val = $this->model->getSubj();
-    $err = $this->model->getSubj();
+    $err = $this->model->getSubjErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'Subject', $val, $err, $valid);
@@ -112,10 +113,10 @@ class Contact extends View
   private function printmsg()
   {
     $val = $this->model->getmsg();
-    $err = $this->model->getmsg();
+    $err = $this->model->getmsgErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printTextArea('print_Message', 'Message', $val, $err, $valid);
+    
+    $this->printInput('text', 'Message', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
@@ -128,20 +129,6 @@ class Contact extends View
       <span class="invalid-feedback">$err</span>
     </div>
     EOT;
-    echo $text;
-  }
-   private function printTextArea($fieldName, $val, $err, $valid)
-  {
-    
-    $text = <<<EOT
-    <div class="form-group">
-      <label for="$fieldName">  </label>
-      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
-      </textarea>
-      <span class="invalid-feedback">$err</span>
-    </div>
-    
-EOT;
     echo $text;
   }
 }

@@ -146,6 +146,7 @@ class ContactModel extends model{
 
         $records=$this->dbh->resultSet();
         return $records;
+        
 
     }
 	
