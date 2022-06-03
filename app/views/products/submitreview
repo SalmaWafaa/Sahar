@@ -96,7 +96,7 @@ $('#save_review').click(function(){
     else
     {
         $.ajax({
-            url:"submit_rating.php",
+            url:"submitreview",
             method:"POST",
             data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
             success:function(data)
@@ -117,7 +117,7 @@ $('#ratingForm').on('submit', function(event){
     var formData = $(this).serialize();
     $.ajax({
     type : 'POST',
-    url : 'saverating',
+    url : 'submitreview',
     data : formData,
     success:function(response){
     $("#ratingForm")[0].reset();
@@ -138,10 +138,8 @@ $('#ratingForm').on('submit', function(event){
 	$total_user_rating = 0;
 	$review_content = array();
 
-	$query = "
-	SELECT * FROM review_table 
-	ORDER BY review_id DESC
-	";
+	$query = "SELECT * FROM review_table 
+	ORDER BY review_id DESC";
 
 	$result = $connect->query($query, PDO::FETCH_ASSOC);
 
