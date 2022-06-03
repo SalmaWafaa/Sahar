@@ -65,9 +65,9 @@ if($_GET['id'] == $f->ProductID){?>
 }
 ?>
 
-        <h2><?php echo $p->Description; ?></h2>
+        <h2><?php echo  $p->ProductName; ?></h2>
         <p>Product code:<?php echo $p->ProductID; ?></p>
-        <h5 class="card-title"><?php echo $p->ProductName; ?></h5>
+        <h5 class="card-title"><?php echo $p->Description; ?></h5>
         
         <h6>
           <div class=" stars">

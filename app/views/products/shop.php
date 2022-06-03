@@ -29,7 +29,7 @@ EOT;
       <form action="" method="post">
     <div class="card shadow">
     <a href="<?php echo URLROOT . "products/product?id=$p->ProductID&cid=$p->Cat_ID";?>">
-      <img src="<?php echo ImageRoot . $p->ProductImage ; ?>" alt="Image1" class="card-img-top"  >
+      <img src="<?php echo ImageRoot.$p->ProductImage ; ?>" alt="Image1" class="card-img-top"  >
 </div>
    </a>
    
@@ -48,7 +48,7 @@ EOT;
                               <small><s class="text-secondary">419 EGP</s></small>
                                <span class="price"> <?php echo $p->Price;?> EGP</span>
                               </h5>
-                              <button class="submit" name="add">Add to Cart <i class="bi bi-cart4"></i></a></button>
+                              <button type="submit" class="btn btn-warning" name="add">Add to Cart <i class="bi bi-cart4"></i></a></button>
                                <input type='hidden' name='product_id' value='<?php  $p->ProductID;?>'>
       </div>
 </form>

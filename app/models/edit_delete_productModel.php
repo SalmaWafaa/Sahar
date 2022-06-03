@@ -7,9 +7,6 @@ class edit_delete_productModel extends shopModel
     protected $Description;
     protected $Quantity;
     protected $Price;
-    protected $ProductImage;
-    protected $Product_Image2;
-    protected $Product_Image3;
     protected $Cat_ID;
     protected $id;
     protected $Aboutt;
@@ -80,46 +77,17 @@ public function getProductPrice($id){
 public function setProductPrice($Price){
     $this->Price=$Price;
 } 
-public function getProductimg1($id){
-    $this->dbh->query("SELECT ProductImage from products where `ProductID` =:id");
-    $this->dbh->bind(':id',$id);
-    return $this->dbh->single()->ProductImage;
 
-}
-public function setProductimg1($ProductImage){
-    $this->ProductImage=$ProductImage;
-} 
-
-public function getProductimg2($id){
-    $this->dbh->query("SELECT Product_Image2 from products where `ProductID` =:id");
-    $this->dbh->bind(':id',$id);
-    return $this->dbh->single()->Product_Image2;
-}
-public function setProductimg2($Product_Image2){
-    $this->Product_Image2=$Product_Image2;
-} 
-public function getProductimg3($id){
-    $this->dbh->query("SELECT Product_Image3 from products where `ProductID` =:id");
-    $this->dbh->bind(':id',$id);
-    return $this->dbh->single()->Product_Image3;
-
-}
-public function setProductimg3($Product_Image3){
-    $this->Product_Image3=$Product_Image3;
-} 
 
     public function editProducts($id)
     {
-        $this->dbh->query("UPDATE products SET `ProductName`= :pname , `Quantity`= :pquantity , `Description`= :pdesc , `Price`= :pprice ,`About` = :ab , `PCondition` = :cond , `ProductImage`=:pimg1 ,`Product_Image2`=:pimg2 , `Product_Image3`=:pimg3 WHERE `ProductID`=:id");
+        $this->dbh->query("UPDATE products SET `ProductName`= :pname , `Quantity`= :pquantity , `Description`= :pdesc , `Price`= :pprice ,`About` = :ab , `PCondition` = :cond WHERE `ProductID`=:id");
         $this->dbh->bind(':pname',$this->ProductName);
         $this->dbh->bind(':pdesc',$this->Description);
         $this->dbh->bind(':ab',$this->Aboutt);
         $this->dbh->bind(':cond',$this->Pconditionn);
         $this->dbh->bind(':pquantity',$this->Quantity);
         $this->dbh->bind(':pprice',$this->Price);
-        $this->dbh->bind(':pimg1',$this->ProductImage);
-        $this->dbh->bind(':pimg2',$this->Product_Image2);
-        $this->dbh->bind(':pimg3',$this->Product_Image3);
         $this->dbh->bind(':id',$id);
         return $this->dbh->execute();
 

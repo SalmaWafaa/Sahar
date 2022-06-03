@@ -27,11 +27,8 @@ class view_order extends View
     $str="<table class='table table-striped table-bordered table-hover '>
 		<thead><tr class='table-warning'>
 			<th>Order Number</th>
-			<th>Product ID</th>
-			<th>Quantity</th>
 			<th>Address</th>
 			<th>Client ID</th>
-			<th>Payment Type</th>
       <th>Shipping Fees</th>
       <th>Mobile Number</th>
       <th>Total</th>
@@ -40,11 +37,8 @@ class view_order extends View
     	</thead>";
       foreach($orders as $o)
       $str.="<tr><td>".$o->orderNumb."</td>
-             <td>".$o->productID."</td>
-             <td>".$o->Quantity."</td>
              <td>".$o->Address."</td> 
-             <td>".$o->IDofClient."</td>
-             <td>".$o->paymentType."</td>
+             <td>".$o->User_ID."</td>
              <td>".$o->shippingFees."</td>
              <td>".$o->MobileNumb."</td>
              <td>".$o->Total."</td>
