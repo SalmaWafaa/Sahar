@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleLoginReg.css">
 
 <?php
 class Contact extends View
@@ -22,7 +23,6 @@ class Contact extends View
   private function printForm()
   {
     $action = URLROOT . 'pages/contact';
-    $loginUrl = URLROOT . 'pages/Contact Us';
     
 
     $text = <<<EOT
@@ -37,29 +37,29 @@ class Contact extends View
     
             <div class="jumbotron jumbotron-fluid">  
             <div class="container">
-           <h3>If you need any Help, simply emal us or just call</h3>
+           <h3>If you need any Help, simply email us or just call</h3>
            <div class="info">
            <div class="social-information"> <i class="fa fa-map-marker"></i>
-           <?php
+           <h4><?php
            echo $con->Location;
             ?>
-            </div>
+            </div></h4>
            <div class="social-information"> <i class="fa fa-envelope-o"></i>
-           <?php
+          <h4> <?php
            echo $con->Email_Contact;
-           ?>
+           ?></h4>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-           <?php
+           <h4><?php
            echo $con->Mobile_contact;
-            ?>
+            ?></h4>
            </div>
            <div class="social-information"> <i class="fa fa-mobile-phone"></i>
-           <?php
+           <h4><?php
            echo $con->Store_contact;
      
     
-           ?>
+           ?></h4>
            </div>
            </div>
            </div>

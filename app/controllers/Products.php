@@ -18,26 +18,23 @@ class Products extends Controller
             $add_productModel->setPCondition(trim($_POST['Product_Condition']));
             $dir= ImageRoot;
             $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
-            $fileName1=$root.basename($_FILES['Product_Image_1']['name']);
+            $fileName1=$_FILES['Product_Image_1']['name'];
             $file_ext = pathinfo($fileName1, PATHINFO_EXTENSION);
 
-            move_uploaded_file($_FILES['Product_Image_1']['tmp_name'], $fileName1);
+            move_uploaded_file($_FILES['Product_Image_1']['tmp_name'],  $dir.$fileName1);
 
             $add_productModel->setimg1(trim($fileName1));
-            $fileName2=$root.basename($_FILES['Product_Image_2']['name']);
+            $fileName2=$_FILES['Product_Image_2']['name'];
             $file_ext2 = pathinfo($fileName2, PATHINFO_EXTENSION);
 
-            move_uploaded_file($_FILES['Product_Image_2']['tmp_name'], $fileName2);
+            move_uploaded_file($_FILES['Product_Image_2']['tmp_name'],  $dir.$fileName2);
             $add_productModel->setimg2(trim($fileName2));
-            $fileName3=$root.basename($_FILES['Product_Image_3']['name']);
+            $fileName3=$_FILES['Product_Image_3']['name'];
             $file_ext3 = pathinfo($fileName3, PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES['Product_Image_3']['tmp_name'],$fileName3);
+            move_uploaded_file($_FILES['Product_Image_3']['tmp_name'], $dir.$fileName3);
             $add_productModel->setimg3(trim($fileName3));
 
             //validation
-            if (empty($add_productModel->getDescription())) {
-                $add_productModel->setDescriptionErr('Please enter description for product');
-            }
             if (empty($add_productModel->getPrice())) {
                 $add_productModel->setPriceErr('Please enter price for product');
             }
@@ -56,18 +53,14 @@ class Products extends Controller
             if (empty($add_productModel->getAbout())) {
                 $add_productModel->setAboutErr('Please enter About for product');
             }
-            if (empty($add_productModel->getPCondition())) {
-                $add_productModel->setPConditionErr('Please enter condition for product');
-            }
+          
             
             
             if (
                 empty($add_productModel->getProductNameErr()) &&
-                empty($add_productModel->getDescriptionErr())&&
                 empty($add_productModel->getQuantityErr()) &&
                 empty($add_productModel->getPriceErr()) &&
-                empty($add_productModel->getAboutErr()) &&
-                empty($add_productModel->getPConditionErr())              
+                empty($add_productModel->getAboutErr())         
 
             ) {
                 
@@ -75,7 +68,7 @@ class Products extends Controller
             $add_productModel->add_product();
                     //alert
                     flash('register_success', 'You have added product successfully');
-                    redirect('products/shop');
+                    redirect('products/categories');
                 
             }
         }
@@ -91,33 +84,11 @@ class Products extends Controller
     {
         $edit_delete_productModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
-            $dir= ImageRoot;
-            $fileName1= $root.basename($_FILES['Product_Image']['name']);
-            $file_name = $_FILES['Product_Image']['name'];
-            $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES['Product_Image']['tmp_name'],$fileName1);
-            //$dir= ImageRoot;
-            //$fileName1=$_FILES['Product_Image']['name'];
-            //move_uploaded_file($_FILES['Product_Image']['tmp_name'], $dir.$fileName1);
-           // $edit_delete_productModel->setProductimg1(trim($fileName1));
-            $fileName2=$root.basename($_FILES['Product_Image2']['name']);
-            $file_name2 = $_FILES['Product_Image2']['name'];
-            $file_ext2 = pathinfo($file_name2, PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES['Product_Image2']['tmp_name'],$fileName2);
-            //$edit_delete_productModel->setProductimg2(trim($fileName2));
-            $fileName3=$root.basename($_FILES['Product_Image3']['name']);
-            $file_name3 = $_FILES['Product_Image3']['name'];
-            $file_ext3 = pathinfo($file_name3, PATHINFO_EXTENSION);
-            move_uploaded_file($_FILES['Product_Image3']['tmp_name'],$fileName3);
-           // $edit_delete_productModel->setProductimg3(trim($fileName3));
+           
         $edit_delete_productModel->setPName(trim($_POST['Product_Name']));
         $edit_delete_productModel->setProductDesc(trim($_POST['Product_Description']));
         $edit_delete_productModel->setPAbout($_POST['Product_About']);
         $edit_delete_productModel->setPconditionn($_POST['Product_Condition']);
-        $edit_delete_productModel->setProductimg1(trim($file_name));
-        $edit_delete_productModel->setProductimg2(trim($file_name2));
-        $edit_delete_productModel->setProductimg3(trim($file_name3));
         $edit_delete_productModel->setProductPrice(trim($_POST['Product_Price']));
         $edit_delete_productModel->setProductQuantity(trim($_POST['Product_Quantity']));
         //validation
@@ -152,7 +123,7 @@ class Products extends Controller
             if ($edit_delete_productModel->editProducts($_GET['id'])) {
                 
                 flash('register_success', 'You have Edited product successfully');
-                redirect('products/shop?cid='.$edit_delete_productModel->getProductCatID($_GET['id']));
+                redirect('products/edit_prod');
             } else {
                 die("Error in editting Product");
             }
@@ -163,6 +134,45 @@ class Products extends Controller
         $viewPath = VIEWS_PATH . 'products/edit_delete_product.php';
         require_once $viewPath;
         $view = new edit_delete_product($this->getModel(), $this);
+        $view->output();
+    }
+    public function edit_images()
+    {
+        $edit_delete_productModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
+            $dir= ImageRoot;
+            $fileName1= $root.basename($_FILES['Product_Image']['name']);
+            $file_name = $_FILES['Product_Image']['name'];
+            $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image']['tmp_name'],$fileName1);
+            $fileName2=$root.basename($_FILES['Product_Image2']['name']);
+            $file_name2 = $_FILES['Product_Image2']['name'];
+            $file_ext2 = pathinfo($file_name2, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image2']['tmp_name'],$fileName2);
+            $fileName3=$root.basename($_FILES['Product_Image3']['name']);
+            $file_name3 = $_FILES['Product_Image3']['name'];
+            $file_ext3 = pathinfo($file_name3, PATHINFO_EXTENSION);
+            move_uploaded_file($_FILES['Product_Image3']['tmp_name'],$fileName3);
+       
+        $edit_delete_productModel->setProductimg1(trim($file_name));
+        $edit_delete_productModel->setProductimg2(trim($file_name2));
+        $edit_delete_productModel->setProductimg3(trim($file_name3));
+  
+            if ($edit_delete_productModel->editimages($_GET['id'])) {
+                
+                flash('register_success', 'You have Edited product successfully');
+                redirect('products/edit_prod');
+            } else {
+                die("Error in editting Product");
+            }
+             
+    }
+
+    
+        $viewPath = VIEWS_PATH . 'products/edit_images.php';
+        require_once $viewPath;
+        $view = new edit_images($this->getModel(), $this);
         $view->output();
     }
 
@@ -237,10 +247,11 @@ class Products extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
             $add_categoryModel->setCategoryName(trim($_POST['Category_Name']));
+            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
             $dir= ImageRoot;
             $fileName1=$_FILES['Category_Image']['name'];
-            move_uploaded_file($_FILES['Category_Image']['tmp_name'], $dir.$fileName1);
-            $add_categoryModel->setCategoryImage(trim($fileName1));
+            move_uploaded_file($_FILES['Category_Image']['tmp_name'], ImageRoot.$fileName1);
+            $add_categoryModel->setCategoryImage($fileName1);
             //validation
            
             if (empty($add_categoryModel->getCategoryName())) {
@@ -397,7 +408,7 @@ class Products extends Controller
                 if ($add_offerModel->add_offer($_GET['id'])) {
                     //alert
                     flash('register_success', 'You have added product successfully');
-                    redirect('products/shop');
+                    redirect('products/edit_prod');
                 } else {
                     die('Error in adding product');
                 }

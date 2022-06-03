@@ -25,7 +25,6 @@ EOT;
       <th>Mobile number</th>
 			<th>Quantity</th>
 			<th>Price</th>
-      <th>paymentType</th>
 			<th>shipping fees</th>
       <th>Total</th>
 		</tr>
@@ -42,7 +41,6 @@ EOT;
        <td><?php echo $x->MobileNumb;?></td>
        <td> <?php echo $x->Quantity;?></td>
         <td> <?php echo $x->Price;?></td>
-        <td><?php echo $x->paymentType ;?></td>
        <td><?php echo $x->shippingFees;?></td> 
        <td><?php echo $x->Total;?></td>
              </tr>
