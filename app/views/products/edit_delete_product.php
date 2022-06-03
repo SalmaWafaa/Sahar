@@ -77,7 +77,7 @@ EOT;
     
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="button" name="del" onclick="<?php if (isset($_POST["del"])){ $this->model->deleteProduct($_GET['id']);}?>" class="deletebtn">Delete</button>
+        <button type="submit" name="del"  class="deletebtn">Delete</button>
       </div>
     </div>
   </form>
