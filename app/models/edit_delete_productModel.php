@@ -127,7 +127,7 @@ public function setProductimg3($Product_Image3){
     
     public function deleteProduct($ID)
     {
-        $this->dbh->query("DELETE  products SET `ProductName`= :pname , `Quantity`= :pquantity , `Description`= :pdesc , `Price`= :pprice ,`About` = :ab , `PCondition` = :cond , `ProductImage`=:pimg1 ,`Product_Image2`=:pimg2 , `Product_Image3`=:pimg3 WHERE `ProductID`=:id");
+        $this->dbh->query("DELETE FROM products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`Cat_ID`,`About`,`PCondition`,`Date`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :prod_name, :descr, :quantity, :price , :categ,:about,:pcond,:datee)");
         $this->dbh->bind(':pname',$this->ProductName);
         $this->dbh->bind(':pdesc',$this->Description);
         $this->dbh->bind(':ab',$this->Aboutt);
