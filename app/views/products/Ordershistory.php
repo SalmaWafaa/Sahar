@@ -31,7 +31,7 @@ EOT;
 		</tr>
     </thead>
        <?php  
-       $order=$this->model->ordersHistory($_SESSION['user_id']);
+       $order=$this->model->ordersHistory();
        foreach($order as $x)
         {
     //$action = VIEWS_PATH . 'products/edit_delete_product.php';
