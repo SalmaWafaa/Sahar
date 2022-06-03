@@ -77,7 +77,7 @@ EOT;
     
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="deletebtn">Delete</button>
+        <button type="submit" name="del"  class="deletebtn">Delete</button>
       </div>
     </div>
   </form>

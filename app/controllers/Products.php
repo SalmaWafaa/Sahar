@@ -156,7 +156,9 @@ class Products extends Controller
             } else {
                 die("Error in editting Product");
             }
+             if (isset($_POST["del"])){ $edit_delete_productModel->deleteProduct($_GET['id']);}
     }
+
     
         $viewPath = VIEWS_PATH . 'products/edit_delete_product.php';
         require_once $viewPath;
@@ -279,6 +281,28 @@ class Products extends Controller
     
     public function product()
     {
+        $product=$this->getModel();
+    if($_SERVER['REQUEST_METHOD']=='POST'){
+    for($i=0;$i<2;$i++){
+    $cid=$_POST['c2'];
+    $qid=$_POST['c1'];
+}
+    $quan=$_POST['q'];
+    $pid=$_GET['id'];
+    ?>
+   <script> alert("<?php echo $pid;?>")  </script>
+   <?php
+    if ( $product->addToCart($pid,$cid[0],$_SESSION['user_id'],$qid[0],$quan)) {
+        //alert
+        flash('add_success', 'You have added in your successfully');
+        redirect('products/cart');
+    } else {
+        die('Error in adding in cart');
+    }
+   
+
+}
+
         $viewPath = VIEWS_PATH . 'products/product.php';
         require_once $viewPath;
         $productView = new product($this->getModel(), $this);
@@ -294,6 +318,13 @@ class Products extends Controller
     
     public function cart()
     {
+        $cart=$this->getModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if(isset($_POST['del'])){
+          $cart->EmptyCart($_SESSION['user_id']);
+            }
+        }
         $viewPath = VIEWS_PATH . 'products/cart.php';
         require_once $viewPath;
         $cartView = new cart($this->getModel(), $this);
@@ -362,12 +393,13 @@ class Products extends Controller
         $add_offerModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Process form
-            $add_offerModel->setOfferProductName(trim($_POST['Offer_Name']));
+            $add_offerModel->setOfferDescription(trim($_POST['Offer_Description']));
+            $add_offerModel->setOld_Price(trim($_POST['Old_Price']));
+            $add_offerModel->setNew_Price(trim($_POST['New_Price']));
+
             //validation
-            if (
-                empty($add_offerModel->getOfferProductNameErr())
-            ) {
-                if ($add_offerModel->add_offerr()) {
+           
+                if ($add_offerModel->add_offer($_GET['id'])) {
                     //alert
                     flash('register_success', 'You have added product successfully');
                     redirect('products/shop');
@@ -375,12 +407,12 @@ class Products extends Controller
                     die('Error in adding product');
                 }
             }
-        }
         // Load form
         $viewPath = VIEWS_PATH . 'products/add_offer.php';
         require_once $viewPath;
         $view = new add_offer($this->getModel(), $this);
         $view->output();
+  
     }
     public function edit_prod(){
         $viewPath= VIEWS_PATH . 'products/edit_prod.php';

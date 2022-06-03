@@ -33,10 +33,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="!">About Us</a>
+            <a href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
           </li>
           <li>
-            <a href="#!">Shipping Details</a>
+            <a href="<?php echo URLROOT . 'products/summary'; ?>">Shipping Details</a>
           </li>         
         </ul>
 
@@ -51,10 +51,10 @@
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Terms and conditions</a>
+            <a href="products/categories">Categories</a>
           </li>
           <li>
-            <a href="#!">Contact Us</a>
+            <a href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact Us</a>
           </li>
         </ul>
 
@@ -68,19 +68,18 @@
     <!-- Section: Social media -->
     <section class="mb-4">
       <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-default" href="https://www.facebook.com/sa7ar.quick.care" role="button"
         ><i class="bi bi-facebook"></i
       ></a>
 
       <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+      <a class="btn btn-default" href="https://www.instagram.com/sa7ar_quick_care/" role="button"
         ><i class="bi bi-google"></i
       ></a>
 
       <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="bi bi-instagram"></i
-      ></a>
+      <a  class="btn btn-default" href="https://www.twitter.com/sa7ar_quick_care/" role="button">
+      <i class="bi bi-twitter"></i> </a>
 
     </section>
     <!-- Section: Social media -->

@@ -124,10 +124,20 @@ public function setProductimg3($Product_Image3){
         return $this->dbh->execute();
 
     }
-    public function deleteProducts($id)
+    
+    public function deleteProduct($ID)
     {
-        $result = $this->dbh->query("delete from products where ProductID ='$id'");
-        $this->db->delete('mvc', "`id` = {$id}");
-        return ($result)?true:false;
+        $this->dbh->query("DELETE FROM products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`Cat_ID`,`About`,`PCondition`,`Date`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :prod_name, :descr, :quantity, :price , :categ,:about,:pcond,:datee)");
+        $this->dbh->bind(':pname',$this->ProductName);
+        $this->dbh->bind(':pdesc',$this->Description);
+        $this->dbh->bind(':ab',$this->Aboutt);
+        $this->dbh->bind(':cond',$this->Pconditionn);
+        $this->dbh->bind(':pquantity',$this->Quantity);
+        $this->dbh->bind(':pprice',$this->Price);
+        $this->dbh->bind(':pimg1',$this->ProductImage);
+        $this->dbh->bind(':pimg2',$this->Product_Image2);
+        $this->dbh->bind(':pimg3',$this->Product_Image3);
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->execute();
     }
 }

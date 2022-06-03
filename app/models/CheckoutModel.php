@@ -6,10 +6,12 @@ class CheckoutModel extends model{
     protected $productid;
     protected $quantity;
     protected $address;
+    protected $email;
     protected $idclient;
     protected $paymentt;
     protected $shfees;
     protected $mobile;
+    protected $mobile2;
     protected $total;
     protected $date;
     protected $Fname;
@@ -22,10 +24,12 @@ class CheckoutModel extends model{
     protected $productidErr;
     protected $quantityErr;
     protected $addrssErr;
+    protected $emailErr;
     protected $idclientErr;
     protected $paymenttErr;
     protected $shfeesErr;
     protected $mobileErr;
+    protected $mobile2Err;
     protected $totalErr;
     protected $dateErr; 
     protected $FnameErr;
@@ -101,14 +105,27 @@ class CheckoutModel extends model{
     }
 
 
-    public function getaddress()
+    public function getaddress($id)
     {
-        return $this->address;
+        $this->dbh->query("SELECT Address from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Address;
     }
 
     public function setaddress($address)
     {
         $this->address = $address;
+    }
+    public function getEmail($id)
+    {
+        $this->dbh->query("SELECT Email from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
     }
 
 
@@ -145,15 +162,27 @@ class CheckoutModel extends model{
     }
 
 
-    public function getmobile()
+    public function getmobile($id)
     {
-        return $this->mobile;
+        $this->dbh->query("SELECT Mobile from users where `ID`=:id");
+        $this->dbh->bind(':id',$id);
+        return $this->dbh->single()->Mobile;
     }
 
     public function setmobile($mobile)
     {
         $this->mobile = $mobile;
     }
+    public function getmobile2()
+    {
+        return $this->mobile2;
+    }
+
+    public function setmobile2($mobile2)
+    {
+        $this->mobile2 = $mobile2;
+    }
+
 
 
     public function gettotal()
@@ -176,18 +205,22 @@ class CheckoutModel extends model{
     {
         $this->date = $date;
     }
-    public function getFName()
+    public function getFName($id)
     {
-        return $this->Fname;
+        $this->dbh->query("SELECT FirstName from users where `ID`=:id");
+    $this->dbh->bind(':id',$id);
+    return $this->dbh->single()->FirstName;
     }
 
     public function setFName($Fname)
     {
         $this->Fname = $Fname;
     }
-    public function getLName()
+    public function getLName($id)
     {
-        return $this->Lname;
+     $this->dbh->query("SELECT LastName from users where `ID`=:id");
+     $this->dbh->bind(':id',$id);
+     return $this->dbh->single()->LastName;
     }
 
     public function setLName($Lname)
@@ -239,6 +272,15 @@ class CheckoutModel extends model{
     {
         $this->addressErr = $addressErr;
     }
+    public function getEmailErr()
+    {
+        return $this->emailErr;
+    }
+
+    public function setEmailErr($emailErr)
+    {
+        $this->emailErr = $emailErr;
+    }
 
 
     public function getidclientErr()
@@ -274,17 +316,22 @@ class CheckoutModel extends model{
     }
 
 
-    public function getmobileErr()
+   public function getmobileErr()
     {
         return $this->mobileErr;
     }
-
     public function setmobileErr($mobileErr)
     {
         $this->mobileErr = $mobileErr;
+    } public function getmobile2Err()
+    {
+        return $this->mobile2Err;
     }
-
-
+    public function setmobile2Err($mobile2Err)
+    {
+        $this->mobile2Err = $mobile2Err;
+    }
+    
     public function gettotalErr()
     {
         return $this->totalErr;
@@ -336,9 +383,10 @@ class CheckoutModel extends model{
         $this->dbh->bind(':mobile', $this->mobile);
         $this->dbh->bind(':total', $this->total);
         $this->dbh->bind(':datee', $this->date);
-
         return $this->dbh->execute();
     }
+
+       
 
 
     

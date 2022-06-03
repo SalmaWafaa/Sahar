@@ -1,9 +1,4 @@
-<link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet'>
-<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-<script type='text/javascript' src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js'></script>
-<script type='text/javascript' src=''></script>
-<script type='text/Javascript'></script>
-<link rel="stylesheet" href="<?php echo URLROOT; ?>css/styleContact.css">
+
 <?php
 class Contact extends View
 {
@@ -95,6 +90,7 @@ class Contact extends View
            </div>
            </div>
            
+           
            EOT;
            echo $text;
   }
@@ -109,7 +105,7 @@ class Contact extends View
   private function printSubject()
   {
     $val = $this->model->getSubj();
-    $err = $this->model->getSubj();
+    $err = $this->model->getSubjErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
 
     $this->printInput('text', 'Subject', $val, $err, $valid);
@@ -117,10 +113,10 @@ class Contact extends View
   private function printmsg()
   {
     $val = $this->model->getmsg();
-    $err = $this->model->getmsg();
+    $err = $this->model->getmsgErr();
     $valid = (!empty($err) ? 'is-invalid' : '');
-
-    $this->printTextArea('print_Message', 'Message', $val, $err, $valid);
+    
+    $this->printInput('text', 'Message', $val, $err, $valid);
   }
   private function printInput($type, $fieldName, $val, $err, $valid)
   {
@@ -133,20 +129,6 @@ class Contact extends View
       <span class="invalid-feedback">$err</span>
     </div>
     EOT;
-    echo $text;
-  }
-   private function printTextArea($fieldName, $val, $err, $valid)
-  {
-    
-    $text = <<<EOT
-    <div class="form-group">
-      <label for="$fieldName">  </label>
-      <textarea name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val" rows="4" cols="50">
-      </textarea>
-      <span class="invalid-feedback">$err</span>
-    </div>
-    
-EOT;
     echo $text;
   }
 }

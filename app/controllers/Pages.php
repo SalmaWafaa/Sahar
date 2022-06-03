@@ -61,6 +61,12 @@ class Pages extends Controller
         $ViewOrdersView=new view_order($this->getModel(),$this);
         $ViewOrdersView->output();
     }
+    public function view_messages(){
+        $viewPath= VIEWS_PATH . 'pages/view_messages.php';
+        require_once $viewPath;
+        $ViewOrdersView=new view_messages($this->getModel(),$this);
+        $ViewOrdersView->output();
+    }
     public function gallery()
     {
         $viewPath = VIEWS_PATH . 'pages/Gallery.php';
