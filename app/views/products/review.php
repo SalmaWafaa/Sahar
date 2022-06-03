@@ -133,7 +133,8 @@ class review extends View
    
     require APPROOT . '/views/inc/footer.php';
   }
-}
+}?>
+<script>
 var rating_data = 0;
 
     $('#add_review').click(function(){
@@ -355,3 +356,4 @@ $.ajax({
     }
 })
 }
+</script>

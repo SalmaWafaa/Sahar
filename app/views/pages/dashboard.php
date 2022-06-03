@@ -46,7 +46,7 @@ class dashboard extends view{
             <div class="cards">
                 <div class="card">
                     <div class="box">
-                        <h1>2194</h1>
+                        <h1><?php echo $this->model->countusers()[0];?></h1>
                         <h3>Users</h3>
                     </div>
                     <div class="icon-case">
@@ -55,7 +55,7 @@ class dashboard extends view{
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>1153</h1>
+                        <h1><?php echo $this->model->countproducts()[0];?></h1>
                         <h3>Products</h3>
                     </div>
                     <div class="icon-case">

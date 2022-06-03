@@ -84,6 +84,7 @@ class Products extends Controller
     {
         $edit_delete_productModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST["delete"])){ $edit_delete_productModel->deleteProduct($_GET['id']);}
            
         $edit_delete_productModel->setPName(trim($_POST['Product_Name']));
         $edit_delete_productModel->setProductDesc(trim($_POST['Product_Description']));
@@ -127,7 +128,6 @@ class Products extends Controller
             } else {
                 die("Error in editting Product");
             }
-             if (isset($_POST["del"])){ $edit_delete_productModel->deleteProduct($_GET['id']);}
     }
 
     
@@ -447,5 +447,15 @@ class Products extends Controller
         $ViewCView=new view_categories($this->getModel(),$this);
         $ViewCView->output();
     }
-    
+    public function DeleteProd()
+    {
+        if($_SERVER['REQUEST_METHOD']=='POST')
+        { if(isset($_POST['delete'])){
+            $DeleteModel = $this->getModel();
+            $DeleteModel->deletep($_GET['id']);
+            redirect('products/shop');
+        }
+        
+        }
+    }
 }
