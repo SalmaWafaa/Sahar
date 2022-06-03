@@ -22,8 +22,8 @@ class summaryModel extends Model
     }
     public function orderSummary($id)
     {
-        $this->dbh->query("SELECT a.* ,b.Id from  orders a inner join users b on  b.ID = a.Id 
-        where  a.Date = ( select max(Date) from   orders where  a.Id = b.ID AND a.ID =:id)");
+        $this->dbh->query("SELECT a.* ,b.Id from  orders a inner join users b on  b.ID = a.User_ID 
+        where  a.Date = ( select max(Date) from   orders where  a.User_ID = b.ID AND a.User_ID =:id)");
         $this->dbh->bind(':id', $id);
        
         return $this->dbh->single();
@@ -36,6 +36,11 @@ class summaryModel extends Model
         $Record = $this->dbh->single();
         return $Record;
     }
+    public function getProductCartNamee($userID){
 
+        $this->dbh->query("SELECT products.ProductName FROM products, cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
 
 }

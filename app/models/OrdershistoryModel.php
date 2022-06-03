@@ -6,7 +6,7 @@ class OrdershistoryModel extends model
     {
       
 
-   $this->dbh->query(' SELECT * FROM products,orders,users,cart WHERE orders.ID = users.ID AND users.ID = cart.User_ID AND products.ProductID=cart.Product_ID
+   $this->dbh->query(' SELECT * FROM products,orders,users,cart WHERE orders.User_ID = users.ID AND users.ID = cart.User_ID AND products.ProductID=cart.Product_ID
    GROUP BY :id');
 
 

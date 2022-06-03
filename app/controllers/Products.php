@@ -355,7 +355,7 @@ class Products extends Controller
                 if ($checkModel->placeOrder($_SESSION['user_id'],$addr,$sf,$mob,$tot,$date)) {
                     //alert
                     flash('order_purchase', 'Your Order Has Been Purchased Successfully');
-                    redirect('products/categories');
+                    redirect('products/summary');
                 } else {
                     die('Error Purchasing This Order');
                 }
