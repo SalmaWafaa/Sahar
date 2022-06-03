@@ -46,6 +46,8 @@ class cart extends View
 <body>
 <?php
  $PN=$this->model->getProductCartName($_SESSION['user_id']);
+ $c=$this->model->Cartt($_SESSION['user_id']);
+
  $userID=$_SESSION['user_id'];
  for($i=0;$i<count($PN);$i++){
 ?>
@@ -109,7 +111,7 @@ class cart extends View
 </div>
  <center>
  <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/categories'; ?>">Continue Shopping</a> </button>
- <button type="submit" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
+ <button type="submit" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout?id='.$c->User_ID; ?>">Proceed to checkout</a></button>
  <button type="submit" class="btn btn-danger" name="del" > Empty Cart</button>
 
 </center>

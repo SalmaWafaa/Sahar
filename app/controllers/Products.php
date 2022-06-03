@@ -335,16 +335,11 @@ class Products extends Controller
         $checkModel = $this->getModel();
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             
-            $checkModel->setordernumb(trim($_POST['orderNumb']));
-            $checkModel->setproductid(trim($_POST['productID']));
-            $checkModel->setquantity(trim($_POST['Quantity']));
-            $checkModel->setaddress(trim($_POST['Address']));
-            $checkModel->setidclient(($_SESSION['user_id']));
-            $checkModel->setpaymentt(trim($_POST['PaymentType']));
-            $checkModel->setshfees(trim($_POST['shippingFees']));
-            $checkModel->setmobile(trim($_POST['MobileNumb']));
-            $checkModel->settotal(trim($_POST['Total']));
-            $checkModel->setdate(date("Y-m-d"));
+           $addr= $this->model->getaddresss($_SESSION['user_id']);
+           $sf= 40;
+           $mob= $this->model->getmobilee($_SESSION['user_id']);
+           $tot= $this->model->TotalCart($_SESSION['user_id'])[0];
+           $date= date("Y-m-d");
             /*if (empty($add_categoryModel->getCategoryName())) {
                 $add_categoryModel->setCategoryNameErr('Please enter a name for the category');
             } elseif ($add_categoryModel->CategoryExist($_POST['Category_Name'])) {
@@ -357,10 +352,10 @@ class Products extends Controller
             ) {*/
                 
 
-                if ($checkModel->checko()) {
+                if ($checkModel->placeOrder($_SESSION['user_id'],$addr,$sf,$mob,$tot,$date)) {
                     //alert
-                    flash('order_ourchase', 'Your Order Has Been Purchased Successfully');
-                    //redirect('products/categories');
+                    flash('order_purchase', 'Your Order Has Been Purchased Successfully');
+                    redirect('products/categories');
                 } else {
                     die('Error Purchasing This Order');
                 }
