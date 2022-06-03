@@ -24,10 +24,12 @@ class categories extends view{
 
   <div class="row">
   <?php 
+            $root = $_SERVER['DOCUMENT_ROOT']. "/sahar/app/views/images/";
+
       foreach($category as $c){?>
      <div class="col-md-4">
       <div class="thumbnail">
-            <img src="<?php echo ImageRoot . $c->CatImage ; ?>" style="width:100%"class="img-rounded">
+            <img src="<?php echo ImageRoot.$c->CatImage ; ?>" style="width:100%"class="img-rounded">
             <button class="semi-transparent-button"> <a href="<?php echo URLROOT . 'products/shop?cid='.$c->catID; ?>" ><?php echo $c->CatName ?></a> </button>
         
       </div>

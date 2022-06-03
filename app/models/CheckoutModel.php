@@ -94,36 +94,36 @@ class CheckoutModel extends model{
     }
 
 
-    public function getquantity()
+    public function getquantityy()
     {
         return $this->quantity;
     }
 
-    public function setquantity($quantity)
+    public function setquantityy($quantity)
     {
         $this->quantity = $quantity;
     }
 
 
-    public function getaddress($id)
+    public function getaddresss($id)
     {
         $this->dbh->query("SELECT Address from users where `ID`=:id");
         $this->dbh->bind(':id',$id);
         return $this->dbh->single()->Address;
     }
 
-    public function setaddress($address)
+    public function setaddresss($address)
     {
         $this->address = $address;
     }
-    public function getEmail($id)
+    public function getEmaill($id)
     {
         $this->dbh->query("SELECT Email from users where `ID`=:id");
         $this->dbh->bind(':id',$id);
         return $this->dbh->single()->Email;
     }
 
-    public function setEmail($email)
+    public function setEmaill($email)
     {
         $this->email = $email;
     }
@@ -162,14 +162,14 @@ class CheckoutModel extends model{
     }
 
 
-    public function getmobile($id)
+    public function getmobilee($id)
     {
         $this->dbh->query("SELECT Mobile from users where `ID`=:id");
         $this->dbh->bind(':id',$id);
         return $this->dbh->single()->Mobile;
     }
 
-    public function setmobile($mobile)
+    public function setmobilee($mobile)
     {
         $this->mobile = $mobile;
     }
@@ -196,34 +196,34 @@ class CheckoutModel extends model{
     }
 
 
-    public function getdate()
+    public function getdatee()
     {
         return $this->date;
     }
 
-    public function setdate($date)
+    public function setdatee($date)
     {
         $this->date = $date;
     }
-    public function getFName($id)
+    public function getFNamee($id)
     {
         $this->dbh->query("SELECT FirstName from users where `ID`=:id");
     $this->dbh->bind(':id',$id);
     return $this->dbh->single()->FirstName;
     }
 
-    public function setFName($Fname)
+    public function setFNamee($Fname)
     {
         $this->Fname = $Fname;
     }
-    public function getLName($id)
+    public function getLNamee($id)
     {
      $this->dbh->query("SELECT LastName from users where `ID`=:id");
      $this->dbh->bind(':id',$id);
      return $this->dbh->single()->LastName;
     }
 
-    public function setLName($Lname)
+    public function setLNamee($Lname)
     {
         $this->Lname = $Lname;
     }
@@ -252,32 +252,32 @@ class CheckoutModel extends model{
     }
 
 
-    public function getquantityErr()
+    public function getquantityyErr()
     {
         return $this->quantityErr;
     }
 
-    public function setquantityErr($quantityErr)
+    public function setquantityyErr($quantityErr)
     {
         $this->quantityErr = $quantityErr;
     }
 
 
-    public function getaddressErr()
+    public function getaddresssErr()
     {
         return $this->addressErr;
     }
 
-    public function setaddressErr($addressErr)
+    public function setaddresssErr($addressErr)
     {
         $this->addressErr = $addressErr;
     }
-    public function getEmailErr()
+    public function getEmaillErr()
     {
         return $this->emailErr;
     }
 
-    public function setEmailErr($emailErr)
+    public function setEmaillErr($emailErr)
     {
         $this->emailErr = $emailErr;
     }
@@ -316,11 +316,11 @@ class CheckoutModel extends model{
     }
 
 
-   public function getmobileErr()
+   public function getmobileeErr()
     {
         return $this->mobileErr;
     }
-    public function setmobileErr($mobileErr)
+    public function setmobileeErr($mobileErr)
     {
         $this->mobileErr = $mobileErr;
     } public function getmobile2Err()
@@ -343,30 +343,30 @@ class CheckoutModel extends model{
     }
 
 
-    public function getdateErr()
+    public function getdateeErr()
     {
         return $this->dateErr;
     }
 
-    public function setdateErr($dateErr)
+    public function setdateeErr($dateErr)
     {
         $this->date = $dateErr;
     }
-    public function getFNameErr()
+    public function getFNameeErr()
     {
         return $this->FnameErr;
     }
 
-    public function setFNameErr($FnameErr)
+    public function setFNameeErr($FnameErr)
     {
         $this->FnameErr = $FnameErr;
     }
-    public function getLNameErr()
+    public function getLNameeErr()
     {
         return $this->LnameErr;
     }
 
-    public function setLNameErr($LnameErr)
+    public function setLNameeErr($LnameErr)
     {
         $this->LnameErr = $LnameErr;
     }
@@ -385,8 +385,26 @@ class CheckoutModel extends model{
         $this->dbh->bind(':datee', $this->date);
         return $this->dbh->execute();
     }
+    public function placeOrder($userID,$addr,$sf,$mob,$tot,$date)
+    {
+        $this->dbh->query("INSERT INTO orders (`User_ID`,  `Address`,`shippingFees`,`MobileNumb`,`Total`,`Date`) VALUES(:userID, :addr,:shfees,:mobile,:total,:datee)");
+        $this->dbh->bind(':userID', $userID); 
+        $this->dbh->bind(':addr', $addr); 
+        $this->dbh->bind(':shfees', $sf);
+        $this->dbh->bind(':mobile', $mob);
+        $this->dbh->bind(':total', $tot);
+        $this->dbh->bind(':datee', $date);
+        return $this->dbh->execute();
+    }
 
-       
+    public function TotalCart($userID){
+        $this->dbh->query("SELECT SUM(cart.Quantity * products.Price) as `CartTotal`
+        FROM cart
+        INNER JOIN products ON products.ProductID = cart.Product_ID
+        WHERE cart.User_ID =:userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
 
 
     
