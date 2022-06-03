@@ -38,5 +38,6 @@ class fetchModel extends model
       echo 'Data Not Found';
     }
     }
+  
     } 
     ?>
