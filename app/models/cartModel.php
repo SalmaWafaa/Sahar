@@ -39,6 +39,7 @@ class cartModel extends shopModel
         $this->dbh->bind(':userID',$userID);
         return $this->dbh->resultFetchCol();
     }
+    
     public function getNumberOfCartItems($userID){
     $this->dbh->query("SELECT User_ID FROM cart WHERE `User_ID`=:userID");
     $this->dbh->bind(":userID",$userID);
@@ -63,7 +64,9 @@ class cartModel extends shopModel
         $this->dbh->bind(':userID',$userID);
         return $this->dbh->resultFetchCol();
     }
-
+        
 }
+
+
 
 
