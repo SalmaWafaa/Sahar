@@ -326,18 +326,13 @@ class Products extends Controller
         $reviewView = new review($this->getModel(), $this);
         $reviewView->output();
     }
-
-
-
     public function submitreview()
     {
         $viewPath = VIEWS_PATH . 'products/submitreview.php';
         require_once $viewPath;
-        $submitreviewView = new submitreview($this->getModel(), $this);
-        $submitreviewView->output();
+        $reviewView = new submitreview($this->getModel(), $this);
+        $reviewView->output();
     }
-
-
     
     public function cart()
     {
