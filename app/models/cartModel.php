@@ -64,6 +64,11 @@ class cartModel extends shopModel
         $this->dbh->bind(':userID',$userID);
         return $this->dbh->resultFetchCol();
     }
+    public function Cartt($userID){
+        $this->dbh->query("SELECT * FROM cart WHERE `User_ID`=:userID");
+        $this->dbh->bind(":userID",$userID);
+         return $this->dbh->single();
+    }
         
 }
 

@@ -23,7 +23,11 @@
          
   
          </ul>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <form class="form-inline">
+       
+       
+        
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               
             <?php if (isset($_SESSION['user_id'])) : 

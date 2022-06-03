@@ -27,8 +27,7 @@
      }
       private function printForm()
         {
-          $action = URLROOT . 'users/register';
-          $loginUrl = URLROOT . 'users/login';
+          $action = URLROOT . 'products/checkout';
 
          $text = <<<EOT
 
@@ -40,6 +39,8 @@
          $this->printEmail();
          $this->printAddress();
          $this->printMobile();
+         $this->printTotal();
+
            $text = <<<EOT
            <div class="Regform">
            <div class="row">
@@ -62,17 +63,22 @@
 
         private function printFName()
         {
-         $val = $this->model->getFName($_SESSION['user_id']);
-          $err = $this->model->getFNameErr();
+         $val = $this->model->getFNamee($_SESSION['user_id']);
+          $err = $this->model->getFNameeErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
           $this->printInput('text', 'first_name', $val, $err, $valid);
         }
-
+        private function printTotal()
+        {
+          ?>
+         <h4>Total : <?php  echo $this->model->TotalCart($_SESSION['user_id'])[0];?> 
+         <?php
+        }
         private function printLName()
         {
-          $val = $this->model->getLName($_SESSION['user_id']);
-          $err = $this->model->getLNameErr();
+          $val = $this->model->getLNamee($_SESSION['user_id']);
+          $err = $this->model->getLNameeErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('text', 'last_name', $val, $err, $valid);
@@ -80,8 +86,8 @@
 
         private function printEmail()
         {
-          $val = $this->model->getEmail($_SESSION['user_id']);
-          $err = $this->model->getEmailErr();
+          $val = $this->model->getEmaill($_SESSION['user_id']);
+          $err = $this->model->getEmaillErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('email', 'email', $val, $err, $valid);
@@ -89,8 +95,8 @@
 
         private function printAddress()
         {
-         $val = $this->model->getaddress($_SESSION['user_id']);
-         $err = $this->model->getaddressErr();
+         $val = $this->model->getaddresss($_SESSION['user_id']);
+         $err = $this->model->getaddresssErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('text', 'address', $val, $err, $valid);
@@ -98,8 +104,8 @@
 
         private function printMobile()
         {
-         $val = $this->model->getmobile($_SESSION['user_id']);
-         $err = $this->model->getmobileErr();
+         $val = $this->model->getmobilee($_SESSION['user_id']);
+         $err = $this->model->getmobileeErr();
          $valid = (!empty($err) ? 'is-invalid' : '');
 
          $this->printInput('text', 'mobile', $val, $err, $valid);
