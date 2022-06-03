@@ -26,35 +26,8 @@
 <?php
 class cart extends View
 {
-    function cartElement($productimg, $productname, $productprice, $productid){
-        $element = "
-        
-        <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
-                        <div class=\"border rounded\">
-                            <div class=\"row bg-white\">
-                                <div class=\"col-md-3 pl-0\">
-                                    <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
-                                </div>
-                                <div class=\"col-md-6\">
-                                    <h5 class=\"pt-2\">$productname</h5>
-                                    <small class=\"text-secondary\">Seller: dailytuition</small>
-                                    <h5 class=\"pt-2\">$$productprice</h5>
-                                    <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
-                                </div>
-                                <div class=\"col-md-3 py-5\">
-                                    <div>
-                                        <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
-                                        <input type=\"text\" value=\"1\" class=\"form-control w-25 d-inline\">
-                                        <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-        
-        ";
-        echo  $element;
-    }
+   
+    
   public function output()
   { 
       
@@ -76,7 +49,10 @@ class cart extends View
  $userID=$_SESSION['user_id'];
  for($i=0;$i<count($PN);$i++){
 ?>
-    <form action="cart.php?action=remove&id=$productid" method="post" class="cart-items">
+    <form action="" method="post" class="cart-items">
+    <div class="container-fluid">
+    <div class="row px-5">
+        <div class="col-md-12">
     <div class="border rounded">
         <div class="row bg-white">
             <div class="col-md-3 pl-0">
@@ -98,20 +74,49 @@ class cart extends View
             </div>
         </div>
     </div>
-   
-</form>
+ </div>
+
 
 <?php
  }
  ?>
+ <br>
+  <div class="col-md-10 offset-md-1 border rounded mt-7 bg-white h-25">
+  <div class="card-body">
+
+<div class="pt-4">
+    <div class="row price-details">
+        <div class="col-md-6">
+            
+            <h6>Delivery Charges</h6>
+            <hr>
+            <h6>Amount Payable</h6>
+        </div>
+        <div class="col-md-6">
+            <h6 class="text-success">30 EGP</h6>
+            <hr>
+            <h6>EGP<?php
+                echo $this->model->TotalCart($_SESSION['user_id'])[0];
+                ?></h6>
+        </div>
+</div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
  <center>
- <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/shop'; ?>">Continue Shopping</a> </button>
+ <button type="button" class="btn btn-info"><a href="<?php echo URLROOT . 'products/categories'; ?>">Continue Shopping</a> </button>
  <button type="submit" class="btn btn-warning"><a href="<?php echo URLROOT . 'products/Checkout'; ?>">Proceed to checkout</a></button>
+ <button type="submit" class="btn btn-danger" name="del" > Empty Cart</button>
+
 </center>
+</form>
+</div>
  <?php
     require APPROOT . '/views/inc/footer.php';
-    
-    //require APPROOT . '/views/inc/footer.php';
-  }
+      }
 }
 ?>

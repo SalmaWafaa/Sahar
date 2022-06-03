@@ -40,9 +40,30 @@ class cartModel extends shopModel
         return $this->dbh->resultFetchCol();
     }
     public function getNumberOfCartItems($userID){
-    $this->dbh->query("SELECT User_ID FROM cart WHERE User_ID=:userID");
+    $this->dbh->query("SELECT User_ID FROM cart WHERE `User_ID`=:userID");
     $this->dbh->bind(":userID",$userID);
     return $this->dbh->resultFetchCol();
-}
+    }
+    public function TotalCart($userID){
+        $this->dbh->query("SELECT SUM(cart.Quantity * products.Price) as `CartTotal`
+        FROM cart
+        INNER JOIN products ON products.ProductID = cart.Product_ID
+        WHERE cart.User_ID =:userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
+    public function EmptyCart($userID){
+        $this->dbh->query("DELETE FROM cart WHERE `User_ID`=:userID");
+        $this->dbh->bind(":userID",$userID);
+         return $this->dbh->execute();
+    }
+    public function RemoveProductCarte($userID){
+
+        $this->dbh->query("DELETE  FROM cart WHERE cart.Product_ID = products.ProductID AND cart.User_ID = :userID");
+        $this->dbh->bind(':userID',$userID);
+        return $this->dbh->resultFetchCol();
+    }
 
 }
+
+

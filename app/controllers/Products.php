@@ -156,7 +156,9 @@ class Products extends Controller
             } else {
                 die("Error in editting Product");
             }
+             if (isset($_POST["del"])){ $edit_delete_productModel->deleteProduct($_GET['id']);}
     }
+
     
         $viewPath = VIEWS_PATH . 'products/edit_delete_product.php';
         require_once $viewPath;
@@ -316,6 +318,13 @@ class Products extends Controller
     
     public function cart()
     {
+        $cart=$this->getModel();
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if(isset($_POST['del'])){
+          $cart->EmptyCart($_SESSION['user_id']);
+            }
+        }
         $viewPath = VIEWS_PATH . 'products/cart.php';
         require_once $viewPath;
         $cartView = new cart($this->getModel(), $this);
