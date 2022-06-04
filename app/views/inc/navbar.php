@@ -49,7 +49,7 @@
       
        <div class=" btn btn-warning">
             <a class="nav-link" href="<?php echo URLROOT . 'users/EditProfile'; ?>"> <?php echo $_SESSION['user_Fname']; ?> </a>
-              </div> <button class="p-2"><a href="users/logout">Logout</a></button>
+              </div> <button class="p-2"><a href="<?php echo URLROOT .'users/logout';?>">Logout</a></button>
 
             <?php else : ?>
               <button class="btn btn-outline-warning"> <a href="<?php echo URLROOT . 'users/login'; ?>" >Login</a></button>
