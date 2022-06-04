@@ -1,9 +1,8 @@
-
-
 <?php
 class fetch extends view{
 
   public function output(){
+
 $conn = new mysqli("localhost", "root", "", "sahar");
 if (isset($_POST["query"])) {
   $search = mysqli_real_escape_string($conn, $_POST["query"]);
@@ -19,12 +18,14 @@ if (isset($_POST["query"])) {
 }
 $result = mysqli_query($conn, $query);
 if (mysqli_num_rows($result) > 0) {
-  echo "<div class='row myprods'>";
+ // echo "<div class='row myprods'>";
   $result->data_seek(0);
-  echo "<div class='row myprods'>";
+  //echo "<div class='row myprods'>";
+  ?>
+  <div class="row row-cols-2 row-cols-md-4">
+<?php
   while ($row = $result->fetch_assoc()) {
    ?>
-       <div class="row row-cols-2 row-cols-md-4">
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">

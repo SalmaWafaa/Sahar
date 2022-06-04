@@ -1,6 +1,6 @@
 <?php 
 
-class add_colorModel extends Model{
+class add_colorModel extends model{
     protected $color;
     public $title ="Add Color";
     public function add_colorrr()

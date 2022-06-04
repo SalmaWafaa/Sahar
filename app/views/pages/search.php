@@ -19,31 +19,17 @@ class search extends view{
   require APPROOT . '/views/inc/header.php';
   $txt=<<<EOT
       
-      
-  
-  
-
-
-  
       <div class="nav-item">
         <div class="input-group">
           <span class="input-group-addon">Search : </span> <input type="text" name="search_text" id="search_text" placeholder="Search for Products" class="form-control" />
   
-         
-  
+            </div>
         </div>
-  
-  
-      </div>
       <div id="result"></div>
   
  EOT;
  echo $txt;
  
- 
- 
-  
-
 
 
   }

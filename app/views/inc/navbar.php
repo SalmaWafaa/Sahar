@@ -16,20 +16,17 @@
           <a class="nav-link" href="<?php echo URLROOT . 'pages/about'; ?>">About Us</a>
            </li>
            <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'pages/search'; ?>">Search</a>
+           </li>
+           <li class="nav-item">
           <a class="nav-link" href="<?php echo URLROOT . 'pages/gallery'; ?>">Gallery</a>
            </li> 
             <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
          </li>
          
-         <li class="nav-item">
-          <a class="nav-link" href="<?php echo URLROOT . 'pages/search'; ?>">Search</a>
-           </li> 
-
-          <form class="form-inline">
-       
-       
-        
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  
+         </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
               
             <?php if (isset($_SESSION['user_id'])) : 

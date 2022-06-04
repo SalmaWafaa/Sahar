@@ -441,7 +441,7 @@ class Products extends Controller
                 if ($add_colorModel->add_colorrr()){
                     //alert
                     flash('register_success', 'You have added color successfully');
-                    redirect('products/shop');
+                    redirect('products/categories');
                 } else {
                     die('Error in adding color');
                 }

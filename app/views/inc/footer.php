@@ -56,10 +56,6 @@
           <li>
             <a href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact Us</a>
           </li>
-
-          <li>
-            <a href="<?php echo URLROOT . 'products/add_color'; ?>">hh Us</a>
-          </li>
         </ul>
 
       </div>

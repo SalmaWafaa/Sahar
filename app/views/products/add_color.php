@@ -58,19 +58,19 @@ EOT;
     private function printColor()
   {
     $val = $this->model->getColorr();
-    $valid = (!empty($err) ? 'is-invalid' : '');
-    $this->printInput('text', 'color', $val, $valid,'bi bi-bag-dash-fill');
+    //$valid = (!empty($err) ? 'is-invalid' : '');
+    $this->printInput('text', 'color', $val, 'bi bi-bag-dash-fill');
  
 }
  
-  private function printInput($type, $fieldName, $val, $valid,$icon)
+  private function printInput($type, $fieldName, $val,$icon)
   {
     $label = str_replace("_", " ", $fieldName);
     $label = ucwords($label);
     $text = <<<EOT
     <div class="form-group">
       <label for="$fieldName"> <i class="$icon"></i> $label: <sup>*</sup> </label>
-      <input type="$type" name="$fieldName" class="form-control form-control-lg $valid" id="$fieldName" value="$val">
+      <input type="$type" name="$fieldName" class="form-control form-control-lg " id="$fieldName" value="$val">
     </div>
     
 EOT;
