@@ -117,6 +117,9 @@ class cart extends View
 </center>
 </form>
 </div>
+</div>
+</div>
+
  <?php
     require APPROOT . '/views/inc/footer.php';
       }

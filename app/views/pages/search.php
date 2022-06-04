@@ -56,7 +56,7 @@ class search extends view{
   
       function load_data(query) {
         $.ajax({
-          url:'fetch.php',
+          url:'fetch',
           method: "POST",
           data: {
             query: query

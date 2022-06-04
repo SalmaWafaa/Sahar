@@ -66,7 +66,6 @@ EOT;
   public function printOrderInfo()
   {
   $order= $this->model->orderSummary($_SESSION['user_id']);
-  $p=$this->model->orderProduct($order->productID);
     ?>
     <h4>Order number</h4>
     <h6><?php echo $order->orderNumb ; ?></h6>
@@ -79,12 +78,13 @@ EOT;
     <h4>Order Mobile Number</h4>
     <h6><?php echo $order->MobileNumb ; ?></h6>
    <?php 
-   //foreach($p as $PP){?>
+   $PN=$this->model->getProductCartNamee($_SESSION['user_id']);
+   for($i=0;$i<count($PN);$i++){?>
     <h4>Order Product Name</h4>
-    <h6><?php echo $p->ProductName ; ?></h6>
+    <h6><?php echo $this->model->getProductCartNamee($_SESSION['user_id'])[$i]; ?></h6>
 
   <?php
-   //}
+   }
   }
   
   
