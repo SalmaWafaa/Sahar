@@ -117,7 +117,7 @@ $('#ratingForm').on('submit', function(event){
     var formData = $(this).serialize();
     $.ajax({
     type : 'POST',
-    url : 'submitreview',
+    url : 'review',
     data : formData,
     success:function(response){
     $("#ratingForm")[0].reset();
@@ -200,9 +200,7 @@ $('#ratingForm').on('submit', function(event){
 
 }
 
-?>
-<?php
-include_once("db_connect.php");
+include_once("db_connect");
 if(!empty($_POST['user_review']) && !empty($_POST['review_id'])){
 $review_id = $_POST['review_id'];
 $review = 1234567;
