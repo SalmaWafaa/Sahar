@@ -21,8 +21,10 @@
             <li class="nav-item">  <a class="nav-link" href="<?php echo URLROOT . 'pages/Contact'; ?>">Contact</a>
          </li>
          
-  
-         </ul>
+         <li class="nav-item">
+          <a class="nav-link" href="<?php echo URLROOT . 'pages/search'; ?>">Search</a>
+           </li> 
+
           <form class="form-inline">
        
        
