@@ -11,6 +11,11 @@ class edit_delete_productModel extends shopModel
     protected $id;
     protected $Aboutt;
     protected $Pconditionn;
+    protected $ProductImagee;
+    protected $Product_Imagee2;
+    protected $Product_Imagee3;
+    protected $datee;
+
 
 public function getPName($id){
     $this->dbh->query("SELECT ProductName from products where `ProductID` =:id");
@@ -95,17 +100,19 @@ public function setProductPrice($Price){
     
     public function deleteProduct($ID)
     {
-        $this->dbh->query("DELETE FROM products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`Cat_ID`,`About`,`PCondition`,`Date`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :prod_name, :descr, :quantity, :price , :categ,:about,:pcond,:datee)");
+        $this->dbh->query("DELETE FROM products (`productImage`,`product_Image2`,`product_Image3`,`ProductName`, `Description`, `Quantity`,`Price`,`About`,`PCondition`,`Date`) VALUES(:prod_img1 , :prod_img2 , :prod_img3 , :pname, :pdesc, :pquantity, :pprice ,:ab,:cond,:datee) Where `ProductID`=:id");
         $this->dbh->bind(':pname',$this->ProductName);
         $this->dbh->bind(':pdesc',$this->Description);
         $this->dbh->bind(':ab',$this->Aboutt);
         $this->dbh->bind(':cond',$this->Pconditionn);
         $this->dbh->bind(':pquantity',$this->Quantity);
         $this->dbh->bind(':pprice',$this->Price);
-        $this->dbh->bind(':pimg1',$this->ProductImage);
-        $this->dbh->bind(':pimg2',$this->Product_Image2);
-        $this->dbh->bind(':pimg3',$this->Product_Image3);
-        $this->dbh->bind(':id',$id);
+        $this->dbh->bind(':pimg1',$this->ProductImagee);
+        $this->dbh->bind(':pimg2',$this->Product_Imagee2);
+        $this->dbh->bind(':pimg3',$this->Product_Imagee3);
+        $this->dbh->bind(':datee',$this->datee);
+
+        $this->dbh->bind(':id',$ID);
         return $this->dbh->execute();
     }
 }

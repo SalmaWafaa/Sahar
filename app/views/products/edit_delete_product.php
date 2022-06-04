@@ -41,7 +41,7 @@ EOT;
   private function printForm()
   {
     $action = URLROOT . 'products/edit_delete_product?id='.$_GET['id'];
-
+    $DeleteProductUrl = URLROOT . 'products/DeleteProducts?id='.$_GET['id'];
     $text = <<<EOT
     <div class="Regform">
     <div class="row">
@@ -78,7 +78,7 @@ EOT;
     
       <div class="clearfix">
         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-        <button type="submit" name="del"  class="deletebtn">Delete</button>
+        <button name='delete' type="submit" class="btn btn-danger"><i class= "fa fa-trash text-danger"></i>Delete</button>
       </div>
     </div>
   </form>

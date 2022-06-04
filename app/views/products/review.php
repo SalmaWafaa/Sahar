@@ -69,9 +69,167 @@ class review extends View
         $(document).ready(function () {
             resetStarColors();
 
+<<<<<<< HEAD
             if (localStorage.getItem('ratedIndex') != null) {
                 setStars(parseInt(localStorage.getItem('ratedIndex')));
                 uID = localStorage.getItem('uID');
+=======
+
+
+
+
+    
+   <?php
+   
+    require APPROOT . '/views/inc/footer.php';
+  }
+}?>
+<script>
+var rating_data = 0;
+
+    $('#add_review').click(function(){
+
+        $('#review_modal').modal('show');
+
+    });
+
+    $(document).on('mouseenter', '.submit_star', function(){
+
+        var rating = $(this).data('rating');
+
+        reset_background();
+
+        for(var count = 1; count <= rating; count++)
+        {
+
+            $('#submit_star_'+count).addClass('text-warning');
+
+        }
+
+    });
+
+    function reset_background()
+    {
+        for(var count = 1; count <= 5; count++)
+        {
+
+            $('#submit_star_'+count).addClass('star-light');
+
+            $('#submit_star_'+count).removeClass('text-warning');
+
+        }
+    }
+
+    $(document).on('mouseleave', '.submit_star', function(){
+
+        reset_background();
+
+        for(var count = 1; count <= rating_data; count++)
+        {
+
+            $('#submit_star_'+count).removeClass('star-light');
+
+            $('#submit_star_'+count).addClass('text-warning');
+        }
+
+    });
+
+    $(document).on('click', '.submit_star', function(){
+
+        rating_data = $(this).data('rating');
+
+    });
+
+    $('#save_review').click(function(){
+
+        var user_name = $('#user_name').val();
+
+        var user_review = $('#user_review').val();
+
+        if(user_name == '' || user_review == '')
+        {
+            alert("Please Fill Both Field");
+            return false;
+        }
+        else
+        {
+            $.ajax({
+                url:"submitreview",
+                method:"POST",
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+                success:function(data)
+                {
+                    $('#review_modal').modal('hide');
+
+                    load_rating_data();
+
+                    alert(data);
+                }
+            })
+        }
+
+    });
+
+
+
+
+
+
+
+  
+$('#save_review').click(function(){
+
+var user_name = $('#user_name').val();
+
+var user_review = $('#user_review').val();
+
+if(user_name == '' || user_review == '')
+{
+    alert("Please Fill Both Field");
+    return false;
+}
+else
+{
+    $.ajax({
+        url:"submitreview.php",
+        method:"POST",
+        data:{rating_data:rating_data, user_name:user_name, user_review:user_review},
+        success:function(data)
+        {
+            $('#review_modal').modal('hide');
+
+            load_rating_data();
+
+            alert(data);
+        }
+    })
+}
+
+});
+
+load_rating_data();
+
+function load_rating_data()
+{
+$.ajax({
+    url:"submitreview",
+    method:"POST",
+    data:{action:'load_data'},
+    dataType:"JSON",
+    success:function(data)
+    {
+        $('#average_rating').text(data.average_rating);
+        $('#total_review').text(data.total_review);
+
+        var count_star = 0;
+
+        $('.main_star').each(function(){
+            count_star++;
+            if(Math.ceil(data.average_rating) >= count_star)
+            {
+                $(this).addClass('text-warning');
+                $(this).addClass('star-light');
+>>>>>>> 3a5db0600d20a48003b5ffc533faad49818d39aa
             }
 
             $('.fa-star').on('click', function () {
@@ -109,6 +267,7 @@ class review extends View
                }
             });
         }
+<<<<<<< HEAD
 
         function setStars(max) {
             for (var i=0; i <= max; i++)
@@ -124,3 +283,14 @@ class review extends View
 </body>
 </html>
     
+=======
+    }
+})
+}
+<<<<<<< HEAD
+</script>
+=======
+
+}
+>>>>>>> 3147736d32ba00a42b74d45049c49102fefa97a9
+>>>>>>> 3a5db0600d20a48003b5ffc533faad49818d39aa

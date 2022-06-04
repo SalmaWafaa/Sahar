@@ -33,9 +33,9 @@ class dashboard extends view{
             <li><i class="bi bi-table"></i>  <a href="<?php echo URLROOT . 'pages/view_order'; ?>">Orders</a> </li>
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/edit_prod'; ?>">View Product</a> </li>
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_product'; ?>">Add Product</a></li>
-            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_category'; ?>">Add Category</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'pages/add_category'; ?>">Add Category</a></li>
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_gallery'; ?>">Add Gallery</a></li>
-            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/view_messages'; ?>">View Messages</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'pages/view_messages'; ?>">View Messages</a></li>
 
 
 
@@ -46,7 +46,7 @@ class dashboard extends view{
             <div class="cards">
                 <div class="card">
                     <div class="box">
-                        <h1>2194</h1>
+                        <h1><?php echo $this->model->countusers()[0];?></h1>
                         <h3>Users</h3>
                     </div>
                     <div class="icon-case">
@@ -55,7 +55,7 @@ class dashboard extends view{
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>1153</h1>
+                        <h1><?php echo $this->model->countproducts()[0];?></h1>
                         <h3>Products</h3>
                     </div>
                     <div class="icon-case">
