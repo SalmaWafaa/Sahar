@@ -94,7 +94,7 @@ EOT;
 
     $this->printInput('password', 'password', $val, $err, $valid,'bi bi-lock-fill');
     $text = <<<EOT
-    <button type="button" class="btn btn-default btn-sm" onclick="$this->showpass()">
+    <button type="button" class="btn btn-default btn-sm" onclick="this->showpass()">
     <i class="bi bi-eye-fill"></i> Show Password
   </button>
 EOT;
