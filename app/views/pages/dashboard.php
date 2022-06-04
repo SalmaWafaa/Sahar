@@ -36,6 +36,8 @@ class dashboard extends view{
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'pages/add_category'; ?>">Add Category</a></li>
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_gallery'; ?>">Add Gallery</a></li>
             <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'pages/view_messages'; ?>">View Messages</a></li>
+            <li><i class="bi bi-plus-circle"></i> <a href="<?php echo URLROOT . 'products/add_color'; ?>">Add Colour</a></li>
+
 
 
 
