@@ -414,10 +414,12 @@ class Products extends Controller
            
                 if ($add_offerModel->add_offer($_GET['id'])) {
                     //alert
+                    flash('register_success', 'You have added offer successfully');
+                    redirect('products/shop');
                     flash('register_success', 'You have added product successfully');
                     redirect('products/edit_prod');
                 } else {
-                    die('Error in adding product');
+                    die('Error in adding offer');
                 }
             }
         // Load form
@@ -427,6 +429,31 @@ class Products extends Controller
         $view->output();
   
     }
+    public function add_color()
+    {
+        $add_colorModel = $this->getModel();
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            // Process form
+            $add_colorModel->setColorr(trim($_POST['color']));
+
+            //validation
+           
+                if ($add_colorModel->add_colorrr()){
+                    //alert
+                    flash('register_success', 'You have added color successfully');
+                    redirect('products/categories');
+                } else {
+                    die('Error in adding color');
+                }
+            }
+        // Load form
+        $viewPath = VIEWS_PATH . 'products/add_color.php';
+        require_once $viewPath;
+        $view = new add_color($this->getModel(), $this);
+        $view->output();
+  
+    }
+
     public function edit_prod(){
         $viewPath= VIEWS_PATH . 'products/edit_prod.php';
         require_once $viewPath;

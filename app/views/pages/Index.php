@@ -94,7 +94,7 @@ class Index extends View
 $products= $this->model->newarrival();
 foreach ($products as $f)
 {?>
-  <div class="row row-cols-2 row-cols-md-4">
+  <div class="row row-cols-2 row-cols-md-8">
   <div class="col mb-4">
       <form action="" method="post">
     <div class="card shadow">
